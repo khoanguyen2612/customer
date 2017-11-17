@@ -11,14 +11,15 @@
 						<p>Khi đăng nhập quý khách sẽ được gửi yêu cầu hỗ trợ kỹ thuật, xem thông tin những dịch vụ đã đăng ký, thay đổi password, chuyển quyền sở hữu....</p>
 					</div>
 					<div>
-						<form action="" method="">
+						<form action="" method="POST">
+							<?php echo $this->Session->flash();?> 
 							<div class="form-group">
 								<label>Tên đăng nhập</label>
-								<input type="text" name="" tabindex="1" class="form-control" placeholder="" value="">
+								<input type="text" name="data[Account][nickname]" tabindex="1" class="form-control" placeholder="" value="">
 							</div>
 							<div class="form-group">
 								<label>Mật khẩu</label>
-								<input type="text" name="" tabindex="2" class="form-control" placeholder="">
+								<input type="password" name="data[Account][login_password]" tabindex="2" class="form-control" placeholder="">
 							</div>
 							<div class="form-group">
 								<div class="col-md-6 col-sm-6 col-xs-6 check-line1">
@@ -38,22 +39,16 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-sm-6 login-contact">
-					<!-- <img src="img/logo-24h.png"> -->
+					
 					<?php echo $this->Html->image('logo-24h.png'); ?>	
 					<div class="contact">
 						<div class="list-contact">
 							<!-- <b> -->
-							<h5><b>Nhân viên kinh doanh 1</b></h5>
-							<h6><b>Ms Thiên Thanh:</b></h6>
-							<span><b>(08) 4450 3077 </b></span>
-							<h5><b>Nhân viên kinh doanh 2</b></h5>
-							<h6><b>Ms Thiên Thanh:</b></h6>
-							<span><b>(08) 4450 3077 </b></span>
-							<h5><b>Chăm sóc khách hàng</b></h5>
-							<span><b>19006868</b></span>
-							<h5><b>Hỗ trợ kỹ thuật</b></h5>
-							<h6><b>Ms Thiên Thanh:</b></h6>
-							<span><b>(08) 4450 3077 </b></span>
+							<?php foreach ($data as $item)  {?>	
+							<h5><b><?php echo $item['Supporter']['position'] ?></b></h5>
+							<h6><b><?php echo $item['Supporter']['name'] ?></b></h6>
+							<span><b><?php echo $item['Supporter']['phone'] ?></b></span>
+							<?php } ?>
 						<!-- </b> -->
 						</div>
 					</div>
