@@ -1,0 +1,77 @@
+/*-- cloud store package--*/
+.cloud_storage{
+	background-color: #f3f3f3;
+}
+.cloud_storage .l_package .row > div{
+	margin-bottom: 33px;
+}
+.cloud_storage .location_item{
+	box-shadow: 0px 0px 25px 10px #ced8dd;
+	padding-top: 10px;
+	text-align: center;
+	background-color: #fff;
+}
+.location_item h3{
+	margin: 0px 0px 53px 0px;
+	display: inline-block;
+	background-color: #0060af;
+	border-radius: 7px;
+	font-size: 23px;
+	color: #fff;
+	font-weight: 700;
+	padding: 5px 50px;
+	text-transform: uppercase;
+}
+.location_item p:nth-child(2){
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 30px;
+	margin-bottom: 80px ;
+	padding: 0px 5px;
+}
+.location_item a{
+	font-size: 16px;
+	margin-top: 45px;
+	display: block;
+	background: #f37636;
+	color: #fff;
+	padding: 24px 0px 17px 0px;
+}
+.location_item a:hover{
+	text-decoration: none;
+	background-color: #2a1aa3;
+}
+.location_item .l_price{
+	font-weight: 600;
+	color: #0060af;
+	font-size: 30px;
+	line-height: 28px !important;
+}
+.location_item .l_price span{
+	font-size: 18px;
+	display: block;
+}
+.head_packeage {
+	color: #fff;
+	text-align: center;
+	padding-bottom: 46px;
+}
+.head_packeage h3{
+	font-size: 34px;
+	font-weight: 400;
+	margin:10px auto 40px auto;
+}
+.head_packeage p{
+	margin: 0px;
+}
+.cloud_storage .head > h1{
+	font-size: 30px;
+	margin-top: 60px;
+	font-weight: 700;
+}
+.cloud_storage .head > h3{
+	margin: 0px 0px 60px 0px;
+	font-weight: 600;
+	font-size: 19px;
+}
+/*--*/
