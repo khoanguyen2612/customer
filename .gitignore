@@ -1,0 +1,29 @@
+customer-website/app/Config/database.php
+customer-website/app/tmp/*
+customer-website/app/Test
+customer-website/lib/Cake/Console/Templates/skel/tmp/
+customer-website/plugins
+customer-website/vendors/*
+customer-website/build
+customer-website/dist
+customer-website/tags
+*.mo
+*.backup
+*.__
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor specific files #
+customer-website/nbproject
+.idea
+customer-website/.project
+customer-website/.buildpath
+customer-website/.settings/
