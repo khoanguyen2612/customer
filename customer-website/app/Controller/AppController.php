@@ -20,6 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Application Controller
@@ -27,8 +28,57 @@ App::uses('Controller', 'Controller');
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
  *
- * @package		app.Controller
- * @link		https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ * @package        app.Controller
+ * @link        https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller {
+class AppController extends Controller
+{
+    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email');
+    public $helpers = array('Session', 'Html', 'Form');
+    var $uses = array('Account', 'Cart');
+
+
+    public function beforeFilter()
+    {
+        // setup authentication
+        $this->__configAuth();
+        parent::beforeFilter();
+        $this->Auth->allow();
+
+        $this->set('current_user', $this->Auth->user());
+        // setup layout
+        //$this->__configLayout();
+        
+
+
+   
+    }
+
+    private function __configAuth()
+    {
+        $this->Auth->loginAction = array('controller' => 'Users', 'action' => 'login');
+       	//$this->Auth->loginRedirect = array('controller' => 'Users', 'action' => 'index');
+        $this->Auth->logoutRedirect = array('controller' => 'Users', 'action' => 'login');
+        $this->Auth->authenticate = array(
+            'Form' => array(
+                // 'passwordHasher' => 'Blowfish',
+                'userModel' => 'Account',
+                'fields' => array(
+                    'username' => 'nickname',
+                    'password' => 'login_password'
+                )
+            ),
+        );
+        
+        $this->Auth->authorize = 'controller';
+        $this->Auth->unauthorizedRedirect = false;
+
+    }
+
+    // private function __configLayout()
+    // {
+    //     $this->layout = "login";
+    // }
+
+
 }
