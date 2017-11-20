@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>VTC Cloud</title>
+	<title><?php echo $title_for_layout ?></title>
 	<?php echo $this->html->meta('icon','vtc-logo.png',array('type' => 'icon'));?>
 	<?php echo $this->Html->charset() . "\n"; ?>
 	<meta charset="utf-8">
@@ -10,6 +10,8 @@
 	<?php echo $this->Html->script('jquery.min.js') . "\n"; ?>
 	<?php echo $this->Html->script('bootstrap.min.js') . "\n"; ?>
 	<?php echo $this->Html->css('customer_home.css') . "\n"; ?>
+
+    <?php echo $this->Html->css('style.css') . "\n"; ?>
 </head>
 <body>
 	<?php echo $this->element('header'); ?>
