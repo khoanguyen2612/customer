@@ -3,7 +3,7 @@
     <html>
 
     <head>
-        <title>>Đăng nhập</title>
+        <title>Đăng nhập</title>
 
         <?php echo $this->html->meta('icon',
             'vtc-logo.png',

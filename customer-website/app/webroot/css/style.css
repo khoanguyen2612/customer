@@ -1,0 +1,164 @@
+/*css domain*/
+div.search-domain div h3{
+	font-size: 24px;
+	font-weight: 600;
+	margin-top: 0px;
+	padding-top: 40px;
+	margin-bottom: 0px;
+	padding-bottom: 30px;
+	background-color: #f1f1f1;
+}
+div.search-domain div ul a{
+	color: #000;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+div.search-domain > div{
+	padding: 0px !important;
+}
+div.search-domain > div > ul{
+	border: 0px;
+	font-size: 15px;
+	font-weight: 500;
+	margin-top: 1px;
+}
+div.search-domain ul li a:hover{
+	color: #fff;
+	background-color: #0d86ed;
+
+}
+div.search-domain ul li{
+	display: inline-block;
+	float: none;
+	padding-left: 0px;
+}
+div.search-domain ul li.active a{
+	border: none;
+	background-color: #f37636 !important;
+	color: #fff !important;
+}
+
+div.search-domain > div > hr{
+	margin:0px;
+}
+
+/*==domain-price===*/
+.price-list{
+	padding-left: 0px;
+}
+.price-list table {
+	border-collapse: collapse;
+	width: 100%;
+	padding-left: 2%;
+}
+div.price-list .price-domain-vn{
+	padding-top: 70px;
+}
+div.price-domain-vn .table-bordered>thead:first-child>tr:first-child>th{
+	background-color: #bfe4f7;
+	text-align: center;
+	/*color: #fff;*/
+}
+div.price-list .table-bordered > thead > tr,
+div.price-list .table-bordered > tbody > tr {
+	height: 70px;
+	font-size: 18px;
+	font-weight: 500;
+}
+div.price-list .table-bordered > tbody > tr{
+	background-color: #eee;
+}
+.price-list .btn-register{
+	background-color: #f37636;
+	border: none;
+	color: white;
+	padding: 6px 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	height: 40px;
+	border-radius: 0px;
+	width: 128px;
+}
+div.price-domain-internal .table-bordered>thead:first-child>tr:first-child>th{
+	background-color: #ffe3d5;
+	text-align: center;
+
+	/*color: #fff;*/
+}
+.search-domain .price-domain-vn table > thead > tr{
+	border-top: 5px #bfe4f7 solid;
+}
+.search-domain .price-domain-internal table > thead > tr{
+	border-top: 5px #ffe3d5 solid;
+}
+.price-domain-internal table > thead > tr > th:nth-child(1){
+	width: 30%;
+}
+.price-domain-vn table > thead > tr > th:nth-child(1){
+	width: 30%;
+}
+.price-list .service-attached{
+	background-color: #0060af;
+	height: 40px;
+	margin-top: 90px;
+	margin-bottom: 15px;
+}
+.price-list .h4-other{
+	text-align: center;
+	color: #fff;
+	padding-top: 10px;
+}
+.price-list .btn-add-domain {
+	display: block;
+	padding: 15px 50px;
+	background-color: #f37636;
+	border-radius: 0px;
+	color: #fff;
+	font-size: 18px;
+	margin-top: 5px;
+}
+.price-list .input-add {
+	height: 56px;
+	margin-top: 5px;
+}
+.price-list .table-borered{
+	border: none;
+}
+.price-list .table>thead:first-child>tr:first-child>th{
+	border: 1px solid #ddd;
+}
+div.other-domain-attached .table-bordered>thead:first-child>tr:first-child>th{
+	background-color: #888888;
+	color: #fff;
+}
+.domain-vn th:nth-child(2),
+.domain-vn th:nth-child(3),
+.domain-vn th:nth-child(4),
+.domain-vn th:nth-child(5){
+	background-color: #f1f1f1 !important;
+}
+.domain-international th:nth-child(2),
+.domain-international th:nth-child(3),
+.domain-international th:nth-child(4),
+.domain-international th:nth-child(5)
+{
+	background-color: #f1f1f1 !important;
+}
+.add-domain-domain .add-on thead{
+	background-color: #0060af;
+	color: #fff;
+	text-align: center;
+}
+.add-domain-domain .add-on thead > tr {
+	height: 65px;
+}
+.add-domain-domain .add-on thead > tr > th {
+	text-align: center;
+	padding-bottom: 20px;
+}
+.price-list td{
+	text-align: center;
+}
