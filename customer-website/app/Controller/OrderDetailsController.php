@@ -4,17 +4,19 @@ class OrderDetailsController extends AppController {
   public $uses =array('Orderdetail','Account','Order');
   public $name = "OrderDetails";
     function index(){
-      $conditions = array('Order.account_id'=>5);
-      $allOrder = $this->Order('all',array('conditions'=>$conditions));
-      $arr = [];
-      foreach ($allOrder as $order){
-          $order_id = $order['Order']['id'];
-          $conditions = array('Orderdetail.order_id'=>$order_id);
-          $allOrderDetail = $this->Orderdetail('all',array('conditions'=>$conditions));
-          $arr[] = $allOrderDetail;
-      }
+        $account_id = $this->Account->find('first',array('Account.id'=>'id'));
+        $conditions = array('Order.account_id' =>$account_id['Account']['id']);
+        $allOrder = $this->Order->find('all',array('conditions'=>$conditions));
+        $arr =[];
+        foreach ($allOrder as $order){
+            $order_id = $order['Order']['id'];
+            $conditions = array('Orderdetail.order_id'=>$order_id);
+            $allOrderDetail = $this->Orderdetail->find('all',array('conditions'=>$conditions));
+            $arr[] = $allOrderDetail;
+        }
+         $arr = array('Account' => array('Account.id'=>$account_id['Account']['id'],'Account.credit'=>$account_id['Account']['credit']),
+             'Orderdetail'=>$allOrderDetail);
+        $this->set('data',$arr);
 
-      $this->set('data',$arr);
-        pr($arr);die;
     }
 }
