@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
 	<title>VTC Cloud</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>	
+	<link rel="stylesheet" type="text/css" href="css/customer_home.css">
+	<link rel="stylesheet" type="text/css" href="css/storage_service.css">
+	  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	  <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+</head>
 <body>
-	<div id="container">
-		<div id="header">
-			<div class="logo_div">
+	<div class="logo_div">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
@@ -91,12 +83,17 @@
 			</div>
 		</div>
 	</nav>
-		</div>
 		<div id="content">
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<div class="col-md-12 product-contact">
+			<div class="sp_tag product-home">
+				<div class="container">
+			<div class="row">
+				<div class="product-contact pay-cart">
+					<img src="img/pay-cart.png">
+				</div>
+				<div class="product-contact">
 					<div class="col-md-4">
 						<img src="img/icon-01.png"><span>NHÂN VIÊN PHỤ TRÁCH KINH DOANH</span>
 						<ul>
@@ -138,13 +135,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 product-contact pay-cart">
-					<img src="img/pay-cart.png">
+			</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<footer>
+			<footer>
 		<div class="tfoot">
 			<div class="container">
 				<div class="row">
@@ -158,7 +152,6 @@
 						</form>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div class="bfoot">
@@ -262,8 +255,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+			</footer>
 		</div>
-	</div>
-</body>
+	</body>
 </html>

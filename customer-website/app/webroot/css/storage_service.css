@@ -1,0 +1,195 @@
+/*-- cloud store package--*/
+.cloud_storage{
+	background-color: #f3f3f3;
+}
+.cloud_storage .l_package .row > div{
+	margin-bottom: 33px;
+}
+.cloud_storage .location_item{
+	box-shadow: 0px 0px 25px 10px #ced8dd;
+	padding-top: 10px;
+	text-align: center;
+	background-color: #fff;
+}
+.location_item h3{
+	margin: 0px 0px 53px 0px;
+	display: inline-block;
+	background-color: #0060af;
+	border-radius: 7px;
+	font-size: 23px;
+	color: #fff;
+	font-weight: 700;
+	padding: 5px 50px;
+	text-transform: uppercase;
+}
+.location_item p:nth-child(2){
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 30px;
+	margin-bottom: 80px ;
+	padding: 0px 5px;
+}
+.location_item a{
+	font-size: 16px;
+	margin-top: 45px;
+	display: block;
+	background: #f37636;
+	color: #fff;
+	padding: 24px 0px 17px 0px;
+}
+.location_item a:hover{
+	text-decoration: none;
+	background-color: #2a1aa3;
+}
+.location_item .l_price{
+	font-weight: 600;
+	color: #0060af;
+	font-size: 30px;
+	line-height: 28px !important;
+}
+.location_item .l_price span{
+	font-size: 18px;
+	display: block;
+}
+.head_packeage {
+	color: #fff;
+	text-align: center;
+	padding-bottom: 46px;
+}
+.head_packeage h3{
+	font-size: 34px;
+	font-weight: 400;
+	margin:10px auto 40px auto;
+}
+.head_packeage p{
+	margin: 0px;
+}
+.cloud_storage .head > h1{
+	font-size: 30px;
+	margin-top: 60px;
+	font-weight: 700;
+}
+.cloud_storage .head > h3{
+	margin: 0px 0px 60px 0px;
+	font-weight: 600;
+	font-size: 19px;
+}
+/*--*/
+/*css buy more capicity storage*/
+.his_trans h4,.buy_more h4{
+	margin-top: 32px;
+	color: #f37636;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.his_trans h4 i,.buy_more h4 i{
+	background: url('../img/star_img.png') no-repeat top;
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	margin-bottom: -6px;
+	margin-right: 8px;
+}
+.buy_more {
+	background-color: #f3f3f3;
+	font-size: 16px;
+	font-weight: 500;
+}
+.buy_more .container > .row{
+	background-color: #fff;
+	margin-top: 33px;
+	margin-bottom: 18px;
+}
+.buy_more .price{
+	color: #0060af;
+}
+.buy_more .text{
+	margin-top: 40px;
+	margin-left: 30px;
+}
+.buy_more input,.buy_more select,.buy_more select option{
+	border:solid 1px #2a363f;
+	font-weight: 600;
+	color: #2a363f;
+	height: 35px;
+	width: 240px;
+	padding-left: 10px;
+}
+.buy_more .action {
+	margin-top: 48px;
+	margin-bottom: 28px;
+}
+.buy_more .action a,.buy_more .action button{
+	background-color: #2a363f;
+	color: #fff;
+	font-weight: 600;
+	padding: 10px 50px;
+	border-radius: 2px;
+	border: none;
+	margin: 10px 90px;
+	width: 170px;
+}
+
+.buy_more .action button{
+	background-color: #f37636;
+}
+
+/*--css history transaction--*/
+.his_trans, .history_panel{
+	background-color: #f3f3f3;
+	font-size: 15px;
+}
+.history_panel{
+	margin-top: 43px;
+}
+.his_trans .row{
+	padding-top: 35px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: #fff;
+}
+.history_panel a{
+	background-color: #f37636;
+	color: #fff;
+	border-radius: 2px;
+	padding: 4px 45px;
+	border:none;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-top: -3px;
+}
+.history_panel ul{
+	margin: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.history_panel ul li{
+	margin-bottom: 10px;
+	margin-top: 10px;
+	min-width: 150px;
+}
+.history_panel input,.history_panel select{
+	border:solid 1px #2a363f;
+	width: 130px;
+	margin-left: 5px;
+	padding-left: 0px;
+}
+.his_trans table th{
+	background-color: #d7d7d7;
+}
+.his_trans table th,.his_trans table td{
+	border:solid 1px #2a363f !important;
+	text-align: center;
+}
+
+.his_trans .table-responsive{
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+.his_trans .pull-right{
+	margin-bottom: -35px;
+	margin-right: 40px;
+}
+.his_trans h4{
+	margin-top: 0px !important;
+}

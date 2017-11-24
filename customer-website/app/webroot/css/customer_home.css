@@ -1,0 +1,352 @@
+body{
+	font-family: Arial;
+	color: #2a363f;
+}
+/*-------------*/
+#menuNavbar{
+	min-height: 45px !important;
+}
+#menuNavbar{
+	color: #fff;
+	border-radius: 0;
+	border:0;
+	background-color: #2a363f;
+	margin-bottom: 0px;
+}
+#menuNavbar img{
+	margin-top: -10px;
+}
+.navbar-nav>.open>a{
+	background-color: #000 !important;
+}
+#menuNavbar .dropdown-menu{
+	background-color: #000;
+}
+#menuNavbar li:hover{
+	background-color: #000;
+}
+#menuNavbar ul li a{
+	padding-left: 30px;
+	padding-right: 30px;
+	color: #fff;
+	/*text-transform: uppercase;*/
+	font-weight: bold;
+	font-size: 12pt;
+}
+/*----------*/
+.banner img{
+	width: 100%;
+}
+/*-- --*/
+.logo_div{
+	background-color: #fff;
+}
+.logo_div ul li{
+	width: 50%;
+	float: left;
+	border: none;
+}
+.logo_div li p{
+	margin:0;
+	color: #ed6d66;
+	font-size: 16px;
+	font-weight: 500;
+}
+.logo_div li p:nth-child(2){
+	margin-top: 5px;
+}
+.logo_div li strong{
+	color: #2a363f;
+}
+.logo_div li h3{
+	font-weight: bold;
+	margin-top: 5px;
+	font-size: 29px;
+	color: #e83123;
+}
+.logo_div img.logo{
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+/*-------------*/
+.cart-header{
+	background: #f37636;
+	color: #fff;
+	padding: 2px 30px;
+	border-radius: 0px 0px 5px 5px;
+	font-size: small;
+}
+.cart-header i{
+	padding: 2px 10px;
+}
+.user-header{
+	text-align: right;
+	padding: 10px 0px;
+}
+.user-header a{
+	color: #000;
+}
+.account-cart{
+	background-color: #0060af;
+	color: #fff;
+	font-size: small;
+	font-weight: bold;
+}
+.bg-1a70b7{
+	background-color: #1a70b7; 
+}
+.account-cart button{
+	background-color: #fff600;
+	color: #000;
+	min-width: 200px;
+	font-weight: bold;
+	font-size: 20px;
+}
+@media (min-width: 992px) {
+	.account-cart .row{
+		
+		display: flex;
+	}
+	.account-cart .row>div{
+		padding: 20px;
+	}
+}
+@media (max-width: 991px) {
+	.account-cart .row>div{
+		text-align: center;
+	}
+}
+/*---------------*/
+.product-home{
+	background: #f3f3f3;
+}
+.product-home table{
+	width: 100%;
+	background: #fff;
+	text-align: center;
+}
+.product-home table .tr-01{
+	background: #f37636;
+	color: #fff;
+}
+.product-home table th{
+	text-align: center;
+	width: 15%;
+	padding: 10px;
+}
+.product-home table .th-01{
+	color: #f37636;
+	background: #fff;
+	width: 20%;
+}
+.product-home table .th-02{
+	width: 10%;
+	background: #ff9158;
+}
+.product-home table .th-04{
+	border-right: 1px solid #f37636;
+}
+.product-home table .th-03{
+	background: #ffb28a;
+}
+.product-home table .td-01{
+	text-align: left;
+	padding-left: 20px;
+    font-size: small;
+    font-weight: bold; 
+}
+.product-home table .tr-02{
+	background: #ffe9dd;
+}
+.product-home table td {
+    padding: 8px;
+
+    font-size: small;
+}
+.product-table{
+	margin:20px 0px;
+	background: #fff;
+	padding: 0px;
+}
+.product-manage{
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.product-manage h5{
+	color:#f37636;
+}
+.product-manage button{
+	min-width: 135px;
+	background-color: #0060af;
+	font-weight: bold;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+	.product-manage{
+		/*min-width: 115px;*/
+		display: flex;
+	}
+	.product-manage button{
+		min-width: 115px;
+	}
+}
+.product-contact{
+	background-color: #fff;
+	padding: 10px 0px;
+	margin-bottom: 20px;
+}
+.product-contact span{
+	padding-left: 10px;
+	color: #f37636;
+	font-weight: bold;
+}
+.product-contact li{
+	list-style: none;
+	padding: 8px;
+	font-size: 13px;
+}
+.send-mail img{
+	margin-top: -9px;
+	float: left;
+}
+.product-contact .send-mail a{
+    text-decoration: none;
+    color: #f37636;
+    padding: 10px;
+    border: 1px solid #f37636;
+    border-radius: 5px;
+    margin: 20px;
+    display: block;
+}
+.product-contact .send-mail a span{
+    font-weight: 400;
+    font-size: 13px;
+}
+.product-contact .send-mail{
+    margin-top: 35px;
+}
+.product-contact p{
+    font-size: 13px;
+}
+.btn-orange{
+	color: #fff;
+	background-color: #f37636;
+	width: 120px;
+}
+.list-contact {
+	padding: 20px 0px;
+	overflow: hidden;
+}
+.list-contact a{
+	margin-top: 30px;
+}
+.product-contact > div{
+	border-right: 1px solid #f3f3f3;
+}
+.product-contact > img{
+	width: 100%;
+}
+@media (max-width: 767px) {
+	.pay-cart{
+		display: none;
+	}
+}
+@media (min-width: 768px) {
+	.product-contact{
+		display: flex;
+	}
+}
+/*--------------------Footer------------------------------*/
+footer{
+	background : #025fad;
+}
+.contact_us>img{
+	z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+.news_area{
+	background : linear-gradient(90deg, #178ee6, #33daf9);
+	background : -moz-linear-gradient(90deg, #178ee6, #33daf9);
+	background : -webkit-linear-gradient(90deg, #178ee6, #33daf9);
+	background : -o-linear-gradient(90deg, #178ee6, #33daf9);
+}
+div.tfoot h3, div.tfoot strong{
+	padding-right: 25%;
+}
+div.tfoot h3{
+	font-family: "Roboto";
+	font-weight: 900;
+	font-size: 26px;
+}
+div.tfoot strong{
+	color: #f37636;
+	font-weight: 900;
+	font-size: 30px;
+}
+div.tfoot form label{
+	margin-bottom: 20px;
+	color: #fff;
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+}
+.tfoot form{
+	width: 65%;
+	float: right;
+}
+div.bfoot{
+	padding-top: 80px;
+	padding-bottom: 50px;
+}
+div.bfoot ul,div.bfoot ul li{
+	background-color: inherit;
+	border: none;
+	color: #fff;
+	padding: 0px;
+	margin-left: 0px;
+	margin-top: 6px;
+}
+div.bfoot ul li a,div.bfoot ul li a:hover {
+	color: #fff;
+	text-decoration: none;
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-size: 14px;
+}
+div.bfoot  section h4{
+	color: #fff;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 35px;
+}
+
+div.coppyright{
+	background-color: #2a363f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+div.coppyright span{
+	display: block;
+	font-family: "Open Sans";
+	color: #abaeb0;
+	font-size: 13px;
+	padding-top: 5px;
+}
+div.coppyright a, div.coppyright a:hover{
+	font-family: "Open Sans";
+	color: #abaeb0;
+	font-size: 13px;
+	text-decoration: none;
+}
+div.coppyright li{
+	background-color: inherit;
+	border: none;
+}
+/*------------------------------------------------------*/
