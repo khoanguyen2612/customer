@@ -9,13 +9,9 @@
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/customer_home.css">
 	<link rel="stylesheet" type="text/css" href="css/storage_service.css">
-	  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-	  <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
-	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
-
-</head>
-<body>
+  	
+	</head>
+	<body>
 	<div class="logo_div">
 		<div class="container">
 			<div class="row">
