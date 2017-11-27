@@ -10,10 +10,10 @@
             <form>
               <ul class="list-inline"  id="date_filter">
               <li>
-                 <span id="date-label-from" class="date-label">Từ ngày</span><input name="min" class="min" id="min" type="text" required>
+                 <span id="date-label-from" class="date-label">Từ ngày</span><input name="min" class="min" id="min" type="text" placeholder="Tháng/Ngày/Năm" required>
               </li>
               <li>
-                <span id="date-label-to" class="date-label">Đến ngày<input name="max" class="max" id="max" type="text" required>
+                <span id="date-label-to" class="date-label">Đến ngày<input name="max" class="max" id="max" type="text" placeholder="Tháng/Ngày/Năm" required>
               </li>
               <li>
                 Loại giao dịch
@@ -95,8 +95,12 @@
   $('#max').on('change', function () {
     var cmin = new Date($('#min').val());
     var cmax = new Date($('#max').val());
+    if($('#min').val() == ""){
+      alert("Xin mời nhập ngày bắt đầu");
+      $('#max').val('');
+    }
     if(cmin > cmax){
-      alert("Mời nhập lại ngày bắt đầu");
+      alert("Lỗi định dạng Mời nhập lại ngày bắt đầu");
       $('#max').val('');
     }else {
     }
