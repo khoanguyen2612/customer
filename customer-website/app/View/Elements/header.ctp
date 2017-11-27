@@ -14,7 +14,7 @@
 							<a href="#"><b>Danh sách khách hàng</b></a>
 							|<a href="#">Thông tin tài khoản</a>
 							|<a href="#">Thay đổi mật khấu</a>
-							|<a href="#"><b>Thoát</b></a>
+							|<a href="../users/logout"><b>Thoát</b></a>
 						</div>
 					</div>
 				</div>
