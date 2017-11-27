@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" type="text/css" href="css/storage_service.css">
 <div class="his_trans">
     <div class="container">
       <div class="row">

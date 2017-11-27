@@ -9,9 +9,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/customer_home.css">
 	<link rel="stylesheet" type="text/css" href="css/storage_service.css">
-  	
-	</head>
-	<body>
+</head>
+<body>
 	<div class="logo_div">
 		<div class="container">
 			<div class="row">
