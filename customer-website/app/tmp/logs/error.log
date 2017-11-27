@@ -16889,3 +16889,12 @@ Request URL: /front-end-website/customer-website/customer-website/css/bootstrap.
 Stack Trace:
 #0 C:\xampp\htdocs\front-end-website\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-11-27 08:17:44 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /front-end-website/customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\front-end-website\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
