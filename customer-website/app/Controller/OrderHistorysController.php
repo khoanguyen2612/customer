@@ -19,7 +19,7 @@ class OrderHistorysController extends AppController {
         //$dem = count($allOrderDetail);
          $arr = array('Account' => array(
           'Account.id'=>$this->Auth->user('id'),
-          'Account.credit'=>$this->Auth->user('credit'),
+          'Account.credit'=>$this->Auth->user('credit')),
           'Orderdetail'=>$allOrderDetail);      
         $this->set('data',$arr);                  
     }
