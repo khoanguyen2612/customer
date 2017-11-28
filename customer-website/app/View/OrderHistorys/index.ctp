@@ -40,7 +40,7 @@
           }else{
           ?>
           <div class="table-responsive">
-            <table id="example" class="display table table-bordered">
+            <table id="example" class="table table-striped">
               <thead>
                 <tr>
                   <th>STT</th>
@@ -62,9 +62,9 @@
                   <td><?php echo ($item['Orderdetail']['request_flg'])?></td>
                   <td><?php echo ($item['Orderdetail']['domain_name'])?></td>
                   <td><?php $date = date_create($item['Orderdetail']['created_date']);
-                            echo date_format($date,"m/d/Y");?></td>
-                  <td><?php echo ($item['Orderdetail']['price'])?></td>
-                  <td><?php echo ($data['Account']['Account.credit'])?></td>
+                            echo date_format($date,"d/m/Y");?></td>
+                  <td><?php echo number_format($item['Orderdetail']['price'])?>VNĐ</td>
+                  <td><?php echo number_format($data['Account']['Account.credit'])?>VNĐ</td>
                 </tr>
               <?php
                   }
@@ -135,6 +135,9 @@
              table.columns(2).search($('#dropdown2').val()).draw();
            $('.table').DataTable().search($('.outsideBorderSearch').val()).draw();
      });
+ $(document).ready(function(){
+  $('#example').removeClass('dataTable');
+ });
   </script>
 
 
