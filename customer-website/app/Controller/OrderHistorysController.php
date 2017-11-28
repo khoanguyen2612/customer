@@ -9,10 +9,9 @@ class OrderHistorysController extends AppController {
     function index(){
         $account_id = $this->Auth->user('id');
         $conditions = array('Order.account_id' =>$account_id);
-        // $account_id = $this->Account->find('first',array('Account.id'=>'id'));
-        // $conditions = array('Order.account_id' =>$account_id['Account']['id']);
-        $conditions = array('Order.account_id' =>$account_id);
-        $allOrder = $this->Order->find('all',array('conditions'=>$conditions));
+         // $account_id = $this->Account->find('first',array('Account.id'=>'id'));
+         // $conditions = array('Order.account_id' =>$account_id['Account']['id']);
+         $allOrder = $this->Order->find('all',array('conditions'=>$conditions));
         $arr =[];
         foreach ($allOrder as $order){
             $order_id = $order['Order']['id'];
