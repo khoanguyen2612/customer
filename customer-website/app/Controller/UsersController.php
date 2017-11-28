@@ -49,7 +49,7 @@
 						{
 							if($this->Auth->login())
 							{
-								return $this->redirect('index');
+								return $this->redirect('../home/index');
 							}
 							else
 							{
@@ -61,6 +61,9 @@
 							}
 					}
 				}
+		}
+		public function logout(){
+			$this->redirect($this->Auth->logout());
 		}
 
 		public function index()

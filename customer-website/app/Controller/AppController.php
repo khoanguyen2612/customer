@@ -56,9 +56,9 @@ class AppController extends Controller
 
     private function __configAuth()
     {
-        $this->Auth->loginAction = array('controller' => 'Users', 'action' => 'login');
-       	//$this->Auth->loginRedirect = array('controller' => 'Users', 'action' => 'index');
-        $this->Auth->logoutRedirect = array('controller' => 'Users', 'action' => 'login');
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+       	$this->Auth->loginRedirect = array('controller' => 'home', 'action' => 'index');
+        $this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
         $this->Auth->authenticate = array(
             'Form' => array(
                 // 'passwordHasher' => 'Blowfish',

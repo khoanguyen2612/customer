@@ -99,11 +99,11 @@
     var cmin = new Date($('#min').val());
     var cmax = new Date($('#max').val());
     if($('#min').val() == ""){
-      alert("Xin mời nhập ngày bắt đầu");
+      alert("Xin mời nhập ngày bắt đầu !");
       $('#max').val('');
     }
     if(cmin > cmax){
-      alert("Lỗi định dạng Mời nhập lại ngày bắt đầu");
+      alert("Lỗi định dạng ! Mời nhập lại !");
       $('#max').val('');
     }else {
     }

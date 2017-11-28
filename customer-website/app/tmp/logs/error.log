@@ -17217,3 +17217,126 @@ Request URL: /customer-website/customer-website/img/logo_icon.png
 Stack Trace:
 #0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-11-28 04:59:40 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 04:59:40 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 04:59:40 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 04:59:40 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 04:59:43 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 04:59:46 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 04:59:47 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 04:59:47 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 04:59:58 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 04:59:58 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 04:59:59 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 05:00:01 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 05:00:01 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 05:00:02 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 05:00:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 05:13:24 Error: Fatal Error (1): Class 'AuthComponent' not found in [C:\xampp\htdocs\customer-website\customer-website\app\Controller\OrderHistorysController.php, line 3]
+2017-11-28 05:13:24 Error: [FatalErrorException] Class 'AuthComponent' not found
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'AuthComp...', 'C:\\xampp\\htdocs...', 3, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 05:13:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 05:15:37 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
