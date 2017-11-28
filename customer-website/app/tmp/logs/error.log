@@ -17740,3 +17740,138 @@ Request URL: /customer-website/customer-website/img/logo_icon.png
 Stack Trace:
 #0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-11-28 11:10:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:10:25 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\xampp\htdocs\customer-website\customer-website\app\View\Elements\header.ctp, line 74]
+2017-11-28 11:10:25 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 11:12:37 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [C:\xampp\htdocs\customer-website\customer-website\app\View\Elements\header.ctp, line 19]
+2017-11-28 11:12:37 Error: [FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 11:12:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:12:39 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [C:\xampp\htdocs\customer-website\customer-website\app\View\Elements\header.ctp, line 19]
+2017-11-28 11:12:39 Error: [FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Error\ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19, Array)
+#2 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 19, Array)
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-11-28 11:12:59 Error: [MissingHelperException] Helper class AuthHelper could not be found.
+Exception Attributes: array (
+  'class' => 'AuthHelper',
+  'plugin' => false,
+)
+Request URL: /customer-website/customer-website/orderhistorys
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\HelperCollection.php(63): HelperCollection->load('Auth')
+#1 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(858): HelperCollection->__isset('Auth')
+#2 C:\xampp\htdocs\customer-website\customer-website\app\View\Elements\header.ctp(18): View->__get('Auth')
+#3 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(971): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp\\htdocs...', Array)
+#5 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(1224): View->_render('C:\\xampp\\htdocs...', Array)
+#6 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(418): View->_renderElement('C:\\xampp\\htdocs...', Array, Array)
+#7 C:\xampp\htdocs\customer-website\customer-website\app\View\Layouts\home.ctp(17): View->element('header')
+#8 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(971): include('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(933): View->_evaluate('C:\\xampp\\htdocs...', Array)
+#10 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(546): View->_render('C:\\xampp\\htdocs...')
+#11 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\View\View.php(481): View->renderLayout('', 'home')
+#12 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Controller\Controller.php(963): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(200): Controller->render()
+#14 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(OrderHistorysController), Object(CakeRequest))
+#15 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2017-11-28 11:13:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:13:42 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:32:44 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:33:32 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:33:34 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:33:39 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-28 11:33:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
