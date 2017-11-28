@@ -7,7 +7,6 @@ class OrderHistorysController extends AppController {
   public $name = "OrderHistorys";
     function index(){
         $account_id = $this->Auth->user('id');
-        //$account_id = $this->Account->find('first',array('Account.id'=>'id'));
         $conditions = array('Order.account_id' =>$account_id);
         $allOrder = $this->Order->find('all',array('conditions'=>$conditions));
         $arr =[];
@@ -19,8 +18,8 @@ class OrderHistorysController extends AppController {
         }
         //$dem = count($allOrderDetail);
          $arr = array('Account' => array(
-          'Account.id'=>$account_id['Account']['id'],
-          'Account.credit'=>$account_id['Account']['credit']),
+          'Account.id'=>$this->Auth->user('id'),
+          'Account.credit'=>$this->Auth->user('credit'),
           'Orderdetail'=>$allOrderDetail);      
         $this->set('data',$arr);                  
     }
