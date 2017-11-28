@@ -81,6 +81,9 @@
   #example_filter{
     display: none;
   }
+  .dataTables_length{
+    display: none;
+  }
 </style>
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
@@ -106,7 +109,6 @@
     }
   });  
  var table = $('#example').DataTable({
-            'paging':false,
             'info':false,
             'searching':true,
         });
