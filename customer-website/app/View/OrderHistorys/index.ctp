@@ -10,10 +10,10 @@
             <form>
               <ul class="list-inline"  id="date_filter">
               <li>
-                 <span id="date-label-from" class="date-label">Từ ngày</span><input name="min" class="min" id="min" type="text" placeholder="Tháng/Ngày/Năm" required>
+                 <span id="date-label-from" class="date-label">Từ ngày</span><input name="min" class="min" id="min" type="text" placeholder="Ngày/Tháng/Năm" required>
               </li>
               <li>
-                <span id="date-label-to" class="date-label">Đến ngày<input name="max" class="max" id="max" type="text" placeholder="Tháng/Ngày/Năm" required>
+                <span id="date-label-to" class="date-label">Đến ngày<input name="max" class="max" id="max" type="text" placeholder="Ngày/Tháng/Năm" required>
               </li>
               <li>
                 Loại giao dịch
@@ -44,9 +44,9 @@
               <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Tên dịch vụ</th>
-                  <th>Loại giao dịch</th>
-                  <th>Chi tiết giao dịch</th>
+                  <th class="left">Tên dịch vụ</th>
+                  <th class="left">Loại giao dịch</th>
+                  <th class="left">Chi tiết giao dịch</th>
                   <th>Ngày giao dịch</th>
                   <th>Số tiền giao dịch</th>
                   <th>Còn lại</th>
@@ -58,13 +58,13 @@
               ?>
                 <tr>
                   <td><?php echo ($item['Orderdetail']['id'])?></td>
-                  <td><?php echo ($item['Orderdetail']['domain_name'])?></td>
-                  <td><?php echo ($item['Orderdetail']['request_flg'])?></td>
-                  <td><?php echo ($item['Orderdetail']['domain_name'])?></td>
+                  <td class="left"><p><?php echo ($item['Orderdetail']['domain_name'])?></p></td>
+                  <td class="left"><p><?php echo ($item['Orderdetail']['request_flg'])?></p></td>
+                  <td class="left"><p><?php echo ($item['Orderdetail']['domain_name'])?></p></td>
                   <td><?php $date = date_create($item['Orderdetail']['created_date']);
                             echo date_format($date,"d/m/Y");?></td>
-                  <td><?php echo number_format($item['Orderdetail']['price'])?>VNĐ</td>
-                  <td><?php echo number_format($data['Account']['Account.credit'])?>VNĐ</td>
+                  <td><?php echo number_format($item['Orderdetail']['price'],0,',','.')?></td>
+                  <td><?php echo number_format($data['Account']['Account.credit'],0,',','.')?></td>
                 </tr>
               <?php
                   }
@@ -84,6 +84,8 @@
   .dataTables_length{
     display: none;
   }
+  .left p{
+    text-align: left;
 </style>
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
@@ -93,8 +95,8 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
-  $("#min").datepicker();
-  $("#max").datepicker();
+  $("#min").datepicker({dateFormat: 'dd-mm-yy'});
+  $("#max").datepicker({dateFormat: 'dd-mm-yy'});
   $('#max').on('change', function () {
     var cmin = new Date($('#min').val());
     var cmax = new Date($('#max').val());
@@ -123,7 +125,7 @@
            if (min == null && max == null) { return true; }
            if (min == null && startDate <= max) { return true;}
            if(max == null && startDate >= min) {return true;}
-           if (startDate <= max && startDate >= min) { return true; }
+           if (startDate <= max && startDate == min) { return true; }
            return false;
        }
        );
