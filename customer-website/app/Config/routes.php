@@ -34,6 +34,16 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/OrderHistory', array('controller' => 'OrderHistorys', 'action' => 'index'));
 
+
+    /** config route for WalletController **/
+    /*tue.phpmailer@gmail.com*/
+    Router::connect('/wallet', array('controller' => 'Wallet', 'action' => 'index'));
+    Router::connect('/wallet/', array('controller' => 'Wallet', 'action' => 'index'));
+    Router::connect('/wallet/add_money_found', array('controller' => 'Wallet', 'action' => 'add_money_found'));
+    Router::connect('/wallet/vtc_payment', array('controller' => 'Wallet', 'action' => 'vtc_payment'));
+    /** end config route for WalletController **/
+
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
