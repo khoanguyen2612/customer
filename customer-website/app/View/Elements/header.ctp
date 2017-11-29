@@ -56,7 +56,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Đăng ký dịch vụ</a>
 					</li>
 					<li  class="dropdown">
-						<a href="<?php echo $this->Html->url(array('controller' => 'orderhistorys', 'action' => 'index'), true); ?>">Lịch sử giao dịch</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'OrderHistorys', 'action' => 'index'), true); ?>">Lịch sử giao dịch</a>
 					</li> 
 					<li  class="dropdown"><a href="#">Bảng giá dịch vụ</a></li>
 					<li  class="dropdown"><a href="#">Quản lý dịch vụ</a></li>
