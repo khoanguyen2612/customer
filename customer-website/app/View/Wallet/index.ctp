@@ -1,20 +1,20 @@
-<div class="logo_div">
+<!--<div class="logo_div">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">
 
                 <div class="col-lg-6 col-md-4">
-                    <?php // echo $this->Html->image('vtc-logo.png', array('class' => 'logo')); ?>
+                    <?php /*// echo $this->Html->image('vtc-logo.png', array('class' => 'logo')); */?>
                 </div>
 
                 <div class="col-lg-6 col-md-8">
 
                     <div class="cart-header col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12 pull-right">
-                        <i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"></i><span> Bạn đang có: <?php echo $n_item_cart; ?> sản phẩm</span>
+                        <i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"></i><span> Bạn đang có: <?php /*echo $n_item_cart; */?> sản phẩm</span>
                     </div>
 
                     <div class="user-header col-md-12">
-                        <p>Xin chào <b> <?php echo $name; ?> </b>!</p>
+                        <p>Xin chào <b> <?php /*echo $name; */?> </b>!</p>
                         <a href="#">
                             <b>Danh sách khách hàng</b>
                         </a>
@@ -28,7 +28,6 @@
         </div>
     </div>
 </div>
-
 <div class="account-cart">
     <div class="container">
         <div class="row">
@@ -48,7 +47,6 @@
         </div>
     </div>
 </div>
-
 <nav class="navbar navbar-default" id="menuNavbar">
     <div class="container">
         <div class="navbar-header">
@@ -85,36 +83,35 @@
             </ul>
         </div>
     </div>
-</nav>
+</nav>-->
 
 <div class="user_pay">
     <div class="container">
         <div class="row">
 
             <?php
-            echo $this->Form->create('Payment', array('type' => 'POST',
-                    'url' => array('controller' => 'carts', 'action' => 'accept_payment'),
-                    'id' => "form2",
-                    'name' => "form2",
-                    'class' => 'form',
-                    'role' => 'form',
-                )
-            );
+                echo $this->Form->create('Wallet', array('type' => 'POST',
+                        'url' => array('controller' => 'Wallet', 'action' => 'add_money_found'),
+                        'id' => "form_add_money_found",
+                        'name' => "form_add_money_found",
+                        'class' => 'form',
+                        'role' => 'form',
+                    )
+                );
             ?>
 
             <div class="col-lg-12">
 
                 <h4><i class="star"></i>Số tiền cần nạp thêm</h4>
                 <?php
-                echo $this->Form->input('add_curent_money', array(
-                        'id' => "add_curent_money",
-                        //'name' => "add_curent_money",
-                        'class' => '',
-                        'type' => 'text',
-                        'value' => '',
-                        'label' => false,
-                    )
-                );
+                    echo $this->Form->input('add_current_money', array(
+                            'id' => "add_current_money",
+                            'class' => '',
+                            'type' => 'text',
+                            'value' => '0',
+                            'label' => false,
+                        )
+                    );
                 ?>
 
             </div>
@@ -124,9 +121,9 @@
                 <p class="title"> Bạn vui lòng chọn một trong số các hình thức thanh toán bên dưới:</p>
             </div>
 
-            <div class="col-lg-12">
+            <?php echo $this->Form->end(); ?>
 
-                <?php echo $this->Form->end(); ?>
+            <div class="col-lg-12">
 
                 <style type="text/css">
 
@@ -150,7 +147,7 @@
 
                 <script language="javascript" type="text/javascript">
                     function submitDetailsForm() {
-                        $("#form2").submit();
+                        $("#form_add_money_found").submit();
                     }
                 </script>
 
@@ -195,21 +192,16 @@
     </div>
 </div>
 
-<?php  echo $this->Html->css('customer_home.css') . "\n"; ?>
-
 <style type="text/css">
-
     .user_pay{
         background-color: #f3f3f3;
     }
-
     .user_pay .row{
         margin-top: 10px;
         margin-bottom: 30px;
         padding-bottom: 60px;
         background-color: #fff;
     }
-
     .star{
         background: url(<?php echo $this->Html->url('/img/star_img.png');?>) no-repeat top;
         display: inline-block;
@@ -218,21 +210,18 @@
         margin-bottom: -6px;
         margin-right: 8px;
     }
-
     .user_pay h4{
         margin-top: 30px;
         color: #f37636;
         text-transform: uppercase;
         font-weight: 600;
     }
-
     .user_pay p.title{
         margin-top:20px;
         padding-left: 35px;
         font-size: 18px;
         color: #0060af;
     }
-
     .user_pay input[type=text]{
         border:solid 1px #29353f;
         width: 50%;
@@ -243,7 +232,6 @@
         margin-top: 30px;
         margin-bottom: 20px;
     }
-
     #pay_ol{
         font-weight: 600;
         font-size: 18px;
@@ -260,7 +248,6 @@
 </style>
 
 
-<?php //echo $this->element('sql_dump'); ?>
 
 
 

@@ -48,10 +48,7 @@ class AppController extends Controller
         $this->set('current_user', $this->Auth->user());
         // setup layout
         $this->__configLayout();
-        
 
-
-   
     }
 
     private function __configAuth()
