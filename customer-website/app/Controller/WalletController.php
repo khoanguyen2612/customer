@@ -15,11 +15,11 @@ class WalletController extends AppController
      * @var array
      */
     var $layout = 'wallet';
+    var $session_cart = array();
 
     public $uses = array('Order', 'OrderDetail', 'Wallet',);
     public $components = array('Acl', 'RequestHandler');
     public $helpers = array('Html', 'Form', 'Js' => array('Jquery'), 'Session');
-    var $session_cart = array();
 
     function beforeFilter()
     {
@@ -29,8 +29,6 @@ class WalletController extends AppController
         // for debug
         Configure::write('Cache.disable', true);
         Configure::write('debug', 2);
-
-
 
         $user = $this->Wallet->user_info();
         $name = (isset($user)) ? $user['name'] : 'Bạn chưa login';
@@ -114,6 +112,7 @@ class WalletController extends AppController
             $this->redirect($destinationUrl);
         }
     }
+
     public function finish()
     {
         // Payment port return GET/POST
