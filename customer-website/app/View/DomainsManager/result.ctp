@@ -1,29 +1,15 @@
 
 <div class="top_pn">
 	<div class="left_area pull-left"> 
-			<!--<a href="">
-				<span style="display: inline-block;width: 25px;height: 25px;border:solid 1px #ebece9;">
-					<img src="img/prev.png">
-				</span>
-			</a>
-			<a href="">1</a>
-			<a href="">
-				<span style="display: inline-block;width: 25px;height: 25px;border:solid 1px #ebece9;">
-					<img src="img/next.png">
-				</span>
-			</a>-->
-			<?php echo $this->Paginator->prev('Previous ', null, null, array('class' => 'disabled')); ?>
-			<?php echo $this->Paginator->numbers(); ?>
-			<?php echo $this->Paginator->next('Next',null,null, array('class'=>'disabled')); ?>
 		</div>
 		<div class="righ_area pull-right">
-			Số bản ghi: 
+			<!-- Số bản ghi: 
 			<select name="limitValue" onchange="getLimit(this.value);">
 				<option value="10" <?php echo ($limit==10)?'selected':''; ?>>10</option>
 				<option value="20"  <?php echo ($limit==20)?'selected':''; ?>>20</option>
 				<option value="50"  <?php echo ($limit==50)?'selected':''; ?>>50</option>
 				<option value="100"  <?php echo ($limit==100)?'selected':''; ?>>100</option>
-			</select>
+			</select> -->
 		</div>
 	</div>
 	<div class="clearfix" style="margin-bottom: 20px;"></div>
@@ -51,8 +37,16 @@
 				<td bgcolor="#ebece9" role="th">Trạng thái</td>
 				<td bgcolor="#ebece9" role="th">Bản khai</td>
 			</tr>
-			<?php $stt = 1; ?>
-			<?php foreach($data as $row):?>
+			
+			<?php if(empty($data)): ?>
+				<tr>
+					<td colspan="8">
+						Không tìm thấy kết quả nào
+					</td>
+				</tr>
+			<?php else: ?>
+				<?php $stt = 1; ?>
+				<?php foreach($data as $row):?>
 				<tr>
 					<td><input type="radio" name=""></td>
 					<td>
@@ -95,39 +89,23 @@
 					<td><a href="">Download bản khai</a></td>
 				</tr>
 			<?php endforeach; ?>
+			<?php endif; ?>
+
+
 		</table>
 	</div>
 	<div class="toppanel" style="margin-bottom: 20px;">					
-	<!--<?php
-	echo $this->Paginator->prev('Previous ', null, null, array('class' => 'disabled')); //Shows the next and previous links
-	echo " | ".$this->Paginator->numbers()." | "; //Shows the page numbers
-	echo $this->Paginator->next(' Next', null, null, array('class' => 'disabled')); //Shows the next and previous links
-	echo " Page ".$this->Paginator->counter(); // prints X of Y, where X is current page and Y is number of pages
-	?>-->
 	<div class="left_area pull-left"> 
-			<!--<a href="">
-				<span style="display: inline-block;width: 25px;height: 25px;border:solid 1px #ebece9;">
-					<img src="img/prev.png">
-				</span>
-			</a>-->
-			<?php echo $this->Paginator->prev('« Previous ', null, null, array('class' => 'disabled')); ?>
-			<?php echo $this->Paginator->numbers(); ?>
-			<?php echo $this->Paginator->next('Next »',null,null, array('class'=>'disabled')); ?>
-			<!--<a href="">
-				<span style="display: inline-block;width: 25px;height: 25px;border:solid 1px #ebece9;">
-					<img src="img/next.png">
-				</span>
-			</a>-->
-			<p>Tổng số <?php echo $this->Paginator->params()['count'];  ?> tên miền</p>
+			<p>Kết Quả <?php echo count($data);  ?> tên miền</p>
 		</div>
 		<div class="righ_area pull-right">
-			Số bản ghi:
+			<!-- Số bản ghi:
 			<select name="limitValue" onchange="getLimit(this.value);">
 				<option value="10" <?php echo ($limit==10)?'selected':''; ?>>10</option>
 				<option value="20" <?php echo ($limit==20)?'selected':''; ?>>20</option>
 				<option value="50"  <?php echo ($limit==50)?'selected':''; ?>>50</option>
 				<option value="100"  <?php echo ($limit==100)?'selected':''; ?>>100</option>
-			</select>
+			</select> -->
 		</div>
 	</div>
 	<div class="clearfix" style="margin-bottom: 20px;"></div>

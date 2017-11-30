@@ -17,7 +17,7 @@
 					</ul>
 				</div>
 				<div class="search_advance">
-					<button class="btn btn-info" role="btn-seach" style="display: table;margin: auto;">
+					<button class="btn btn-info" role="btn-seach" style="display: table;">
 						<!-- <img src="img/search_icon.png"> -->
 						<?php echo $this->Html->image('search_icon.png') ?>
 						TÌM KIẾM NÂNG CAO
@@ -61,13 +61,9 @@
 									<td>Ngày hết hạn:</td>
 									<td><input type="text" name="exp_date" id="exp_date" placeholder="Chọn ngày hết hạn ..."></td>
 								</tr>
-								<tr>
-									<td colspan="2">
-										<button class="btn btn-success" type="submit" style="display: block;margin: auto;" id="search_btn">Tìm kiếm</button>
-									</td>
-								</tr>
 							</tbody>
 						</table>
+						<button class="btn btn-success" type="submit" style="display: block;background-color: #f37636" id="search_btn">Tìm kiếm</button>
 						</form>
 					</div>
 				</div>
@@ -185,15 +181,15 @@
 										<img src="img/prev.png">
 									</span>
 								</a>-->
-								<?php echo $this->Paginator->prev('« Previous ', null, null, array('class' => 'disabled')); ?>
+								<?php echo $this->Paginator->prev('Previous ', null, null, array('class' => 'disabled')); ?>
 								<?php echo $this->Paginator->numbers(); ?>
-								<?php echo $this->Paginator->next('Next »',null,null, array('class'=>'disabled')); ?>
+								<?php echo $this->Paginator->next('Next',null,null, array('class'=>'disabled')); ?>
 								<!--<a href="">
 									<span style="display: inline-block;width: 25px;height: 25px;border:solid 1px #ebece9;">
 										<img src="img/next.png">
 									</span>
 								</a>-->
-								<p style="margin-left: 10px;font-size: 14px;">Tổng số <strong><?php echo $this->Paginator->params()['count'];  ?></strong> tên miền</p>
+								<p>Tổng số <strong><?php echo $this->Paginator->params()['count'];  ?></strong> tên miền</p>
 							</div>
 							<div class="righ_area pull-right">
 								Số bản ghi:
@@ -249,7 +245,7 @@
 			})
 			.done(function(result) {
 				$('.list_dm').html(result);
-				console.log(result);
+				//console.log(result);
 			});
 			
 			
@@ -273,11 +269,26 @@
 			.done(function(result) {
 				$('#panel').nextAll().remove();
 				$('#panel').after(result);
-				console.log(result);
+				//console.log(result);
 			});	
 		});
 	</script>
 	<style type="text/css">
+	legend{
+		font-size: 17px;
+	}
+	button[role=btn-seach]{
+		margin: 30px auto 20px auto;
+		background-color: #f37636;
+		border:0;
+	}
+	#search_btn{
+		padding: 5px 20px;
+		border-radius: unset;
+		margin: 20px auto;
+		border:none;
+		font-weight: 600;
+	}
 	span[role=sort]{
 		width: 22px;
 		height: 22px;
@@ -323,25 +334,26 @@
 		font-weight: 600;
 	}
 	#search{
-		background-color: #dbdbd1;
+		background-color: #F4F4F4;
 		margin:20px auto;
 		width: 80%;
 		text-align: center;
-		border:solid 1px #0b01e2;
-		border-radius: 7px;
+		border:solid 1px #F4F4F4;
 		padding-top: 20px;
 	}
 	#search tr td:nth-child(1){
 		width: 30%;
+		font-weight: 600;
 	}
 	#search td textarea, #search td select,#search td input{
 		width: 100%;
 		padding: 5px 10px;
-		border:solid 1px #363636;
+		border:solid 1px #D4D4D4;
 	}
 	#search td{
+		border:solid 1px #D4D4D4;
 		padding-left: 2% !important;
-		text-align: left;
+		text-align: center;
 	}
 	.customer-panel a{
 		display: inline-block;
