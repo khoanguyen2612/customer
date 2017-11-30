@@ -10,7 +10,8 @@
 	<?php echo $this->Html->script('jquery.min.js') . "\n"; ?>
 	<?php echo $this->Html->script('bootstrap.min.js') . "\n"; ?>
 	<?php echo $this->Html->css('customer_home.css') . "\n"; ?>
-
+	<?php echo $this->Html->script('jquery-ui/jquery-ui.min.js'); ?>
+	<?php echo $this->Html->css('jquery-ui.min.css'); ?>
     <?php echo $this->Html->css('style.css') . "\n"; ?>
 </head>
 <body>
