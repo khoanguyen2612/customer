@@ -12,50 +12,29 @@
 							<th rowspan="2" class="th-01">THÔNG TIN DỊCH VỤ</th>
 							<th colspan="2">Tên miền</th>
 							<th rowspan="2" class="th-03">Cloud Server</th>
-							<th rowspan="2">Cloud</th>
-							<th rowspan="2" class="th-03">Storage</th>
-							<th rowspan="2">SSL</th>
+							<th rowspan="2">Cloud Storage</th>
+							<th rowspan="2" class="th-03">SSL</th>
 						</tr>
 						<tr class="tr-01">
 							<th class="th-02 th-04">Việt Nam</th>
 							<th class="th-02">Quốc tế</th>
 						</tr>
-						<tr class="tr-02">
-							<td class="td-01">Dịch vụ đang sử dụng</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-						</tr>
-						<tr>
-							<td class="td-01">Dịch vụ sắp hết hạn sử dụng</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-						</tr>
-						<tr class="tr-02">
-							<td class="td-01">Dịch vụ hết hạn sử dụng</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-						</tr>
-						<tr>
-							<td class="td-01">Dịch vụ ngưng sử dụng</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-							<td>2</td>
-						</tr>
+				
+						<?php
+							for ($i=0; $i <=3 ; $i++) { 
+								if($i==0||$i==2){echo '<tr class="tr-02">';}
+								if($i==0){echo '<td class="td-01">Dịch vụ đang sử dụng</td>';}
+								if($i==1){echo '<td class="td-01">Dịch vụ sắp hết hạn sử dụng</td>';}
+								if($i==2){echo '<td class="td-01">Dịch vụ hết hạn sử dụng</td>';}
+								if($i==3){echo '<td class="td-01">Dịch vụ ngưng sử dụng</td>';}
+								echo '<td>'.$dmvn[$i].'</td>';
+								echo '<td>'.$dmqt[$i].'</td>';
+								echo '<td>'.$clsv[$i].'</td>';
+								echo '<td>'.$countstogate[$i].'</td>';
+								echo '<td>'.$countssl[$i].'</td>';
+								echo '</tr>';
+							}
+						?>
 					</table>
 				</div>
 				<div class="col-md-12 product-manage">
