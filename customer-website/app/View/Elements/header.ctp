@@ -51,7 +51,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="Home.html"><i class="fa fa-home" style="color:#fff;font-size:20px;"></i></a></li>
+					<li><a href="<?php echo $this->Html->url(array('controller' => 'home', 'action' => 'index'), true); ?>"><i class="fa fa-home" style="color:#fff;font-size:20px;"></i></a></li>
 					<li  class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Đăng ký dịch vụ</a>
 					</li>
