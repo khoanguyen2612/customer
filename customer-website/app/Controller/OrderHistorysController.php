@@ -16,7 +16,6 @@ class OrderHistorysController extends AppController {
             $allOrderDetail = $this->Orderdetail->find('all',array('conditions'=>$conditions));
             $arr[] = $allOrderDetail;
         }
-        //$dem = count($allOrderDetail);
          $arr = array('Account' => array(
           'Account.id'=>$this->Auth->user('id'),
           'Account.credit'=>$this->Auth->user('credit')),

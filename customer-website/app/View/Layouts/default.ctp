@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!-- <!-- <!DOCTYPE html> -->
+<!-- <html>
 <head>
 	<title>Lịch sử giao dịch</title>
 	<meta charset="utf-8">
@@ -253,4 +253,5 @@
 			</footer>
 		</div>
 	</body>
-</html>
+</html> -->
+ -->
