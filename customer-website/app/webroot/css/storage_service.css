@@ -178,7 +178,7 @@
 	background-color: #d7d7d7;
 }
 .his_trans table th,.his_trans table td{
-	border:solid 1px #5C5E66 !important;
+	border:solid 1px #ddd !important;
 	text-align: center;
 }
 
@@ -193,3 +193,4 @@
 .his_trans h4{
 	margin-top: 0px !important;
 }
+

@@ -12,6 +12,8 @@
 	<?php echo $this->Html->css('customer_home.css') . "\n"; ?>
 	<?php echo $this->Html->script('jquery-ui/jquery-ui.min.js'); ?>
 	<?php echo $this->Html->css('jquery-ui.min.css'); ?>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <?php echo $this->Html->css('style.css') . "\n"; ?>
 </head>
 <body>

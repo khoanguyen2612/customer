@@ -60,7 +60,7 @@
                                                                         <h4></h4>
                                                                         <select name="product_year" class="select_opt" id="id_opt_<?=$order_detail['id'] ?>">
                                                                             <option value="<?php echo $order_detail['expired']; ?> ">
-                                                                                <?php echo ($order_detail['expired'] == 1) ? "năm": "tháng";; ?> <?php echo ($order_detail['flg_expired'] == 1) ? "năm": "tháng"; ?>
+                                                                                <?php echo ($order_detail['expired'] == 0) ? 1 : $order_detail['expired']; ?> <?php echo ($order_detail['flg_expired'] == 1) ? "năm": "tháng"; ?>
                                                                             </option>
                                                                         </select>
                                                                         <p class="active hidden"><?php echo $order_detail['quantity']; ?></p>

@@ -18994,3 +18994,362 @@ Request URL: /customer-website/customer-website/img/logo_icon.png
 Stack Trace:
 #0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-11-29 02:44:42 Error: [MissingActionException] Action HomeController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'HomeController',
+  'action' => 'img',
+)
+Request URL: /customer-website/customer-website/home/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest))
+#2 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-11-29 02:44:50 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:45:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:48:45 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:07 Error: [MissingControllerException] Controller class OrderHistoryController could not be found.
+Exception Attributes: array (
+  'class' => 'OrderHistoryController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/OrderHistory
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:07 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:18 Error: [MissingControllerException] Controller class OrderHistoryController could not be found.
+Exception Attributes: array (
+  'class' => 'OrderHistoryController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/OrderHistory
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:34 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:39 Error: [MissingControllerException] Controller class OrderHistoryController could not be found.
+Exception Attributes: array (
+  'class' => 'OrderHistoryController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/OrderHistory
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:39 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:49:47 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:52:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:52:08 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:52:17 Error: [MissingActionException] Action HomeController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'HomeController',
+  'action' => 'img',
+)
+Request URL: /customer-website/customer-website/home/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest))
+#2 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-11-29 02:52:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:52:57 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:52:59 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:53:38 Error: [MissingActionException] Action HomeController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'HomeController',
+  'action' => 'img',
+)
+Request URL: /customer-website/customer-website/home/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest))
+#2 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-11-29 02:54:30 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 02:55:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 03:04:45 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 03:06:32 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 03:06:59 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 03:08:41 Error: [MissingControllerException] Controller class Vtc-logo.pngController could not be found.
+Exception Attributes: array (
+  'class' => 'Vtc-logo.pngController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/vtc-logo.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 03:17:36 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 04:06:27 Error: [MissingControllerException] Controller class Vtc-logo.pngController could not be found.
+Exception Attributes: array (
+  'class' => 'Vtc-logo.pngController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/vtc-logo.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 04:06:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-11-29 05:22:56 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:38:23 Error: [MissingControllerException] Controller class Vtc-logo.pngController could not be found.
+Exception Attributes: array (
+  'class' => 'Vtc-logo.pngController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/vtc-logo.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:38:30 Error: [MissingActionException] Action HomeController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'HomeController',
+  'action' => 'img',
+)
+Request URL: /customer-website/customer-website/home/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\customer-website\customer-website\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest))
+#2 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-12-01 06:38:32 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:38:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:42:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:42:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:42:33 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:42:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:45:14 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/img/logo_icon.png
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-12-01 06:45:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /customer-website/customer-website/css/bootstrap.min.css.map
+Stack Trace:
+#0 C:\xampp\htdocs\customer-website\customer-website\app\webroot\index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

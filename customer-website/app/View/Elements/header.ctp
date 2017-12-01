@@ -109,7 +109,7 @@
         $(document).ready(function(){
             var message = $("#flashMessage" ).contents().find("code").text();
             if ( message == '' || message.length == 0) {
-                $("#flashMessage").css('display', 'hidden');
+                $("#flashMessage").css('display', 'none');
             }
             console.log('flashMessage: ' + message);
         })
