@@ -95,6 +95,7 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript">
+
   $("#min").datepicker({dateFormat: 'dd-mm-yy'});
   $("#max").datepicker({dateFormat: 'dd-mm-yy'});
   $('#max').on('change', function () {
