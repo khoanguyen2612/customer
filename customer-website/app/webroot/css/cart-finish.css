@@ -1,0 +1,171 @@
+    .cart table.domain-custom-info,
+    .cart table.domain-cart-info {
+        border: 0;
+        height: 200px;
+    }
+
+    .custom-info .domain-custom-info tbody > tr > td,
+    .custom-info .domain-custom-info thead > tr > th {
+        border: none;
+    }
+
+    .cart-info .domain-cart-info tbody > tr > td,
+    .cart-info .domain-cart-info thead > tr > th {
+        border: none;
+    }
+
+    .cart table.domain-custom-info thead > tr > th,
+    .cart table.domain-cart-info thead > tr > th {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        color: #f37636;
+        padding-bottom: 25px;
+    }
+
+    .custom-info .domain-custom-info tbody > tr > td {
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .cart-info .domain-cart-info tbody > tr > td {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .cart-info .code-cart,
+    .custom-info .name-customer {
+        color: #0060af;
+    }
+
+    .cart .custom-info table > tbody > tr > td {
+        padding-left: 15%;
+    }
+
+    .cart .cart-info table > tbody > tr > td {
+        padding-left: 16%;
+    }
+
+    .cart p.info-domain {
+        font-size: 22px;
+        color: #f37636;
+        padding-top: 20px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+
+    .cart p.congra {
+        font-size: 18px;
+        height: 40px;
+        color: #fff;
+        background-color: #16b216;
+    }
+
+    .domain-completed {
+        background-color: #fff;
+    }
+
+    .cart .service-info {
+        background-color: #fff;
+    }
+
+    .service-info p.line-through {
+        text-decoration: line-through;
+        opacity: 0.7;
+    }
+
+    .cart .congra {
+        padding-top: 32px;
+        padding-bottom: 50px;
+    }
+
+    .cart .domain-service-info thead > tr > th {
+        background-color: #a09f9f;
+        height: 65px;
+        color: #fff;
+        text-align: center;
+        padding-bottom: 20px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .cart .domain-service-info tbody > tr > td p {
+        text-align: center;
+    }
+
+    .cart .domain-service-info tbody > tr > td {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .cart table.domain-service-info .ten-mien {
+        opacity: 0.6;
+    }
+
+    .cart table.domain-service-info tbody > tr:nth-child(1) > td:nth-child(2) {
+        border-bottom: none;
+    }
+
+    .cart .service-total-money .into-total {
+        color: #f37636;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .cart .domain-cart-payments h3 {
+        color: #f37636;
+        padding-left: 20px;
+    }
+
+    .cart .domain-cart-payments table > tbody > tr > td {
+        border-top: 0;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .domain-cart-payments .something {
+        padding-left: 30px;
+        padding-bottom: 20px;
+    }
+
+    .domain-cart-payments .something .company-name,
+    .domain-cart-payments .something .company-address,
+    .domain-cart-payments .something .code-tax {
+        color: #0060af;
+    }
+
+    .cart .congra img {
+        margin-right: 20px;
+        margin-top: -20px;
+        padding-left: 20px;
+    }
+
+    .cart img.icon-info {
+        margin-right: 25px;
+        padding-bottom: 15px;
+    }
+
+    .cart .service-info .service-money table > tbody > tr > td {
+        border-top: none;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .cart .print-cart,
+    .cart .save-cart {
+        height: 50px;
+        text-align: center;
+        padding-bottom: 100px;
+        padding-top: 20px;
+    }
+
+    .cart .print-cart .btn-print-cart,
+    .cart .save-cart .btn-save-cart {
+        background-color: #f37636;
+        color: #fff;
+        height: 50px;
+        margin: 16px 50px;
+        width: 150px;
+        border-radius: 0;
+    }

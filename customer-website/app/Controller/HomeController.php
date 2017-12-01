@@ -19,7 +19,7 @@ class HomeController extends AppController
         Configure::write('debug', 2);
 
         $user = $this->Wallet->user_info();
-        $name = (isset($user)) ? $user['name'] : 'Bạn chưa login';
+        $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
         $this->set(compact('name'));
         $total_product = $this->Wallet->get_count_product();
         $this->set(compact('total_product'));
@@ -30,7 +30,7 @@ class HomeController extends AppController
     /** for view home **/
     public function index() {
         $user = $this->Wallet->user_info();
-        $name = (isset($user)) ? $user['name'] : 'Bạn chưa login';
+        $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
         $this->set(compact('name'));
         $total_product = $this->Wallet->get_count_product();
         $this->set(compact('total_product'));

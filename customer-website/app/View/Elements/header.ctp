@@ -99,7 +99,26 @@
 		</div>
 	</nav>
 
+
     <!--// The above will output fast message for Note!-->
+    <!--// tue.phpmailer@gmail.com //-->
     <div id="flashMessage" class="message alert">
         <code><?php echo $this->Session->flash(); ?></code>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var message = $("#flashMessage" ).contents().find("code").text();
+            if ( message == '' || message.length == 0) {
+                $("#flashMessage").css('display', 'hidden');
+            }
+            console.log('flashMessage: ' + message);
+        })
+    </script>
+
+
+
+
+
+
+
+

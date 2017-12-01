@@ -40,7 +40,12 @@
     Router::connect('/wallet', array('controller' => 'Wallet', 'action' => 'index'));
     Router::connect('/wallet/', array('controller' => 'Wallet', 'action' => 'index'));
     Router::connect('/wallet/add_money_found', array('controller' => 'Wallet', 'action' => 'add_money_found'));
-    Router::connect('/wallet/vtc_payment', array('controller' => 'Wallet', 'action' => 'vtc_payment'));
+
+    // add route Wallet Cart
+    Router::connect('/walletcart', array('controller' => 'WalletCart', 'action' => 'index', 'view'));
+    Router::connect('/walletcart/', array('controller' => 'WalletCart', 'action' => 'index', 'view'));
+    // add route Wallet Cart
+
     /** end config route for WalletController **/
 
 

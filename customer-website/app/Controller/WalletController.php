@@ -30,8 +30,18 @@ class WalletController extends AppController
         Configure::write('Cache.disable', true);
         Configure::write('debug', 2);
 
+        // check is login
+        $_is_login = $this->Wallet->user_info();
+        if (count($_is_login) == 0) {
+            $this->Session->setFlash('Bạn chưa Login.');
+            $this->redirect(array("controller" => "users",
+                    "action" => "login",
+                )
+            );
+        }
+
         $user = $this->Wallet->user_info();
-        $name = (isset($user)) ? $user['name'] : 'Bạn chưa login';
+        $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
         $this->set(compact('name'));
 
         $total_product = $this->Wallet->get_count_product();
@@ -40,7 +50,6 @@ class WalletController extends AppController
     }
 
     function view() {
-
         $id_acc = $this->Auth->User('id');
         $user_info = $this->Account->findById($id_acc);
         $this->set(compact('user_info'));
@@ -48,15 +57,10 @@ class WalletController extends AppController
 
     function index()
     {
-
         if ($this->request->is('post') || $this->request->is('get')) {
-
             $order_code = $this->Session->read('order_code');
-
             $this->set(compact('order_code'));
-
         }
-
     }
 
     function add_money_found()

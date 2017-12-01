@@ -46,7 +46,7 @@ class Wallet extends AppModel
             Configure::write('debug', 25);
 
             $user = $this->user_info();
-            $account_id = $user['id'];
+            $account_id = (isset($user) && count($user) )? $user['id'] : null;
 
             App::import('Model', 'Order');
             $Order = new Order();
@@ -56,7 +56,7 @@ class Wallet extends AppModel
                 array('belongsTo' => array('Account'))
             );
 
-            $all_order = $Order->find('all',
+            $all_order = $Order->find('first',
                 array('fields' => array('Order.id AS order_id', 'account_id', 'order_code', 'order_datetime', 'order_status', 'address_payment', 'created_date'),
                     'conditions' => array('address_payment LIKE' => '%%', 'account_id =' => $account_id),
                     'recursive' => 5,
@@ -79,7 +79,7 @@ class Wallet extends AppModel
             Configure::write('debug', 25);
 
             $user = $this->user_info();
-            $account_id = $user['id'];
+            $account_id = isset($user['id']) ? $user['id'] : null;
 
             App::import('Model', 'Order');
             $Order = new Order();
