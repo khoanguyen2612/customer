@@ -3,6 +3,15 @@ body{
 	color: #2a363f;
 }
 /*-------------*/
+#menuNavbar .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	background-color: #145bdc;
+}
+#menuNavbar li.dropdown{
+	text-transform: uppercase;
+}
+#menuNavbar ul.dropdown-menu li a{
+	text-transform: capitalize !important;
+}
 #menuNavbar{
 	min-height: 45px !important;
 }
@@ -20,13 +29,14 @@ body{
 	background-color: #000 !important;
 }
 #menuNavbar .dropdown-menu{
+	width: 110%;
 	background-color: #000;
 }
 #menuNavbar li:hover{
 	background-color: #000;
 }
 #menuNavbar ul li a{
-	padding-left: 30px;
+	padding-left: 28px;
 	padding-right: 30px;
 	color: #fff;
 	/*text-transform: uppercase;*/

@@ -96,7 +96,7 @@
     					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý dịch vụ</a>
     					<ul class="dropdown-menu">
     						<li>
-    							<a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">QUẢN LÝ TÊN MIỀN</a>
+    							<a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">Quản Lý Tên Miền</a>
     						</li>
     					</ul>
     				</li>
