@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12">
 				<div class="col-lg-6 col-md-4">
-					<?php echo $this->Html->image('vtc-logo.png',array('class'=>'logo')) ?>
+					<?php echo $this->Html->image('vtc-logo.png',array('class'=>'logo', 'url' => array('controller' => 'home', 'action' => 'index'))); ?>
 				</div>
                     <!--tue.phpmailer@gmail.com
                     	add infor for menu home-->
@@ -84,30 +84,34 @@
     		</div>
     		<div class="collapse navbar-collapse" id="myNavbar">
     			<ul class="nav navbar-nav">
-    				<li><a href="<?php echo $this->Html->url(array('controller' => 'home', 'action' => 'index'), true); ?>""><i class="fa fa-home" style="color:#fff;font-size:20px;"></i></a></li>
-    				<li  class="dropdown">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Đăng ký dịch vụ</a>
-    				</li>
-    				<li  class="dropdown">
-    					<a href="<?php echo $this->Html->url(array('controller' => 'OrderHistorys', 'action' => 'index'), true); ?>">Lịch sử giao dịch</a>
-    				</li> 
-    				<li  class="dropdown"><a href="#">Bảng giá dịch vụ</a></li>
-    				<li class="dropdown">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý dịch vụ</a>
-    					<ul class="dropdown-menu">
-    						<li>
-    							<a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">Quản Lý Tên Miền</a>
-    						</li>
-    					</ul>
-    				</li>
-    				<li  class="dropdown"><a href="#">Đang chờ xử lý</a></li>
-    			</ul>
-    		</div>
-    	</div>
-    </nav>
+    				<li>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'home', 'action' => 'index'), true); ?>" style="padding: 9px;">
+                            <i class="fa fa-home" style="color:#fff;font-size:32px;"></i>
+                        </a>
+                    </li>
+                    <li  class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Đăng ký dịch vụ</a>
+                 </li>
+                 <li  class="dropdown">
+                     <a href="<?php echo $this->Html->url(array('controller' => 'OrderHistorys', 'action' => 'index'), true); ?>">Lịch sử giao dịch</a>
+                 </li> 
+                 <li  class="dropdown"><a href="#">Bảng giá dịch vụ</a></li>
+                 <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý dịch vụ</a>
+                     <ul class="dropdown-menu">
+                      <li>
+                       <a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">Quản Lý Tên Miền</a>
+                   </li>
+               </ul>
+           </li>
+           <li class="dropdown"><a href="#">Đang chờ xử lý</a></li>
+       </ul>
+   </div>
+</div>
+</nav>
 
-    <!--// The above will output fast message for Note!-->
-    <div id="flashMessage" class="message alert">
-    	<code><?php echo $this->Session->flash(); ?></code>
-    </div>
+<!--// The above will output fast message for Note!-->
+
+<?php echo $this->Session->flash(); ?>
+
 
