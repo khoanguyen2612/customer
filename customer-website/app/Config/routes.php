@@ -40,10 +40,12 @@
     Router::connect('/wallet', array('controller' => 'Wallet', 'action' => 'index'));
     Router::connect('/wallet/', array('controller' => 'Wallet', 'action' => 'index'));
     Router::connect('/wallet/add_money_found', array('controller' => 'Wallet', 'action' => 'add_money_found'));
-
     // add route Wallet Cart
     Router::connect('/walletcart', array('controller' => 'WalletCart', 'action' => 'index', 'view'));
     Router::connect('/walletcart/', array('controller' => 'WalletCart', 'action' => 'index', 'view'));
+    // add route Domain looking
+    Router::connect('/domainslookup', array('controller' => 'DomainNsLookup', 'action' => 'index', 'view'));
+    Router::connect('/domainslookup/', array('controller' => 'DomainNsLookup', 'action' => 'index', 'view'));
     // add route Wallet Cart
 
     /** end config route for WalletController **/

@@ -10,7 +10,8 @@
                     add infor for menu home-->
 					<div class="col-lg-6 col-md-8">
 						<div class="cart-header col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12 pull-right">
-							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"></i><span> Bạn đang có: <?php echo $total_product; ?> sản phẩm</span>
+							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"><?php echo $this->Html->image('cart_icon.png', array('class'=>'') ); ?></i>
+                            <span> Bạn đang có: <?php echo $total_product; ?> sản phẩm</span>
 						</div>
 						<div class="user-header col-md-12">
 							<p>Xin chào <b> <?php echo $name; ?></b> !</p>
