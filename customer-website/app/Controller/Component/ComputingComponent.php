@@ -27,7 +27,8 @@ class ComputingComponent extends Component {
 		if($httpcode != 200){
 			$result = $this->errors($httpcode);
 			return $result;
-		} else {
+		} 
+		/*else {
 			if($result->status->code != 1){
 				$this->errors($result->status->code);
 			} else {
@@ -35,7 +36,7 @@ class ComputingComponent extends Component {
 					$this->errors(0);
 				}			
 			}
-		}
+		}*/
 		return $result;
 	}
 
