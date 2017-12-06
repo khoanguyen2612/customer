@@ -6,11 +6,10 @@
  * Time: 2:55 PM
  */
 
-    global $init, $ch, $headers, $_headers, $content_type;
-    $init = $ch = $headers = $_headers = $content_type = null;
+    //global $init, $ch, $headers, $_headers, $content_type;
+    //$init = $ch = $headers = $_headers = $content_type = null;
 
-    class UAgent
-    {
+    class UAgent {
         // General token that says the browser is Mozilla compatible,
         // and is common to almost every browser today.
         const MOZILLA = 'Mozilla/5.0 ';
@@ -315,14 +314,10 @@
         {
             return self::array_random(empty($lang) ? self::$languages : $lang);
         }
-    }
 
-    class CallApi {
-        public static $init, $ch, $_headers =array(), $content_type;
-        public static $headers = array();
         public static function _random_user_agent()
         {
-            $user_agents_rand = array(
+            $user_agents= array(
                 "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6",
                 "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)",
                 "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)",
@@ -332,44 +327,67 @@
                 "Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; fr; rv:1.7) Gecko/20040624 Firefox/0.9",
                 "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/48 (like Gecko) Safari/48",
             );
-            $user_agents = array(
+
+            $user_agents_rand = array(
                 UAgent::chrome('mac'),
                 UAgent::firefox('win'),
             );
 
-            $random = rand(0, count($user_agents) - 1);
+            $random = rand(0, count($user_agents_rand) - 1);
             return $user_agents[$random];
         }
 
-        public static function _private_opt($_init_opt = null) {
-            self::$headers[] = "Content-Type: application/json charset=UTF-8";
-            self::$ch = curl_init();
+    }
 
-            $_headers = &self::$_headers;
+    class CallApi {
+        public static $init, $ch, $_headers = array(), $content_type;
+        public static $headers;
+        public static function _random_user_agent()
+        {
+            $user_agents= array(
+                "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6",
+                "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)",
+                "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)",
+                "Opera/9.20 (Windows NT 6.0; U; en)",
+                "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 8.50",
+                "Mozilla/4.0 (compatible; MSIE 6.0; MSIE 5.5; Windows NT 5.1) Opera 7.02 [en]",
+                "Mozilla/5.0 (Macintosh; U; PPC Mac OS X Mach-O; fr; rv:1.7) Gecko/20040624 Firefox/0.9",
+                "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/48 (like Gecko) Safari/48",
+            );
+            $user_agents_rand = array(
+                UAgent::chrome('mac'),
+                UAgent::firefox('win'),
+            );
+
+            $random = rand(0, count($user_agents_rand) - 1);
+            return $user_agents[$random];
+        }
+
+        public static function _init() {
+            self::$ch = curl_init();
+        }
+
+        public static function _private_opt() {
 
             curl_setopt(self::$ch, CURLOPT_USERAGENT, self::_random_user_agent());
             curl_setopt (self::$ch, CURLOPT_FRESH_CONNECT, 10);
-            curl_setopt(self::$ch, CURLOPT_HEADERFUNCTION,
-                function ($curl, $header) use (&$_headers) {
-                    $len = strlen($header);
-                    $header = explode(':', $header, 2);
-                    if (count($header) < 2) // ignore invalid headers
-                        return $len;
-                    $name = strtolower(trim($header[0]));
-                    if (!array_key_exists($name, $_headers))
-                        $_headers[$name] = [trim($header[1])];
-                    else
-                        $_headers[$name][] = trim($header[1]);
-
-                    return $len;
-                }
-            );
-
             //REQUEST custom handle
             //handle redirects (HTTP 301,302),
             curl_setopt(self::$ch, CURLOPT_FOLLOWLOCATION, TRUE); //
             curl_setopt(self::$ch, CURLOPT_MAXREDIRS, 2); //only 2 redirects
         }
 
+        static public function setHeaders($string) {
+            static::$headers[] = $string;
+
+        }
+
+        static public function getHeaders() {
+            return static::$headers;
+        }
+
+        static public function getCh() {
+            return static::$ch;
+        }
     }
 
