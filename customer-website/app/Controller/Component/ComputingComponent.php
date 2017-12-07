@@ -10,9 +10,35 @@ class ComputingComponent extends Component {
 	*/
     /* tue.phpmailer@gmail.com */
     /**   Convert data (array) to query (http) string   **/
+    /*      Example:
+             $data = array(
+                "csUserId" => '6274f4b5-0931-4272-9bde-8f094b252b16',
+                "sessionKey" => 'h0lXTyaehhRzU7pmy6YrgczQwPk=',
+                "accountId" => '15126298400862612',
+                "domainId" => '151262984064640',
+                "zoneId" => '15126298406613',
+                "os" => 'CENTOS',
+                "currencyCode" => 'VND',
+                "sessionKeyTest" => 'rdyT4Vu2zAOKZ7RSd0oP05FdNvk=',
+            );
+            Note Fix: Error ---> character '=' // don'nt permission in raw URL
+            $str_tmp = $this->Computing->convert($data);
+            Debugger::dump($data);
+            Debugger::dump($str_tmp);
+            Debugger::dump(utf8_decode(urldecode($str_tmp)));
+    */
+
     function initialize(Controller $controller ) {
         $this->Controller = $controller;
     }
+    public function convert1($data) {
+    	$result = '?';
+    	foreach ($data as $key => $value) {
+    		$result = $result.$key.'='.$value.'&';
+    	}
+    	return rtrim($result,"&");
+    }
+    
     public function convert($data, &$new = array(), $prefix = null) {
         if (is_object($data)) {
             $data = get_object_vars($data);
@@ -28,9 +54,10 @@ class ComputingComponent extends Component {
 
         $params = array();
         foreach ($new as $key => $value) {
-            $params[] = $key . '=' . urlencode($value);
+            $params[$key] = ($value); // $prefix = null, remove if need $prefix not true
         }
-        return '?' . implode('&', $params);
+
+        return '?'. htmlentities( http_build_query($params));
     }
     /*
         return data
@@ -101,7 +128,7 @@ class ComputingComponent extends Component {
 				'domain' => $domain
 			);
 		}
-		$url = $this->convert($data);
+		$url = $this->convert1($data);
 		$data1 = $this->curl('userLogin',$url);
 		if($data1->status->code == 1 && !empty($data1->data)){
 			$this->save_session($data1);
