@@ -110,17 +110,17 @@
 
     <!--// The above will output fast message for Note!-->
     <!--// tue.phpmailer@gmail.com //-->
-    <div class="flashMessage message alert">
+    <div id="flash_message" class="flashMessage message alert">
         <?php echo $this->Session->flash(); ?>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
             var message = $(".flashMessage" ).contents().find("code").text();
             if ( message == '' || message.length == 0) {
-                $("#flashMessage").css('display', 'none');
+                $("#flash_message").css('display', 'none');
             }
             else {
-                $(".flashMessage").css('display', 'block');
+                $("#flash_message").css('display', 'block');
             }
             console.log('flashMessage: ' + message);
         })

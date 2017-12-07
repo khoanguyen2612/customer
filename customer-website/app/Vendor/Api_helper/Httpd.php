@@ -11,7 +11,7 @@
         var $accept = 'text/xml,application/xml,application/xhtml+xml,text/html,text/plain,image/png,image/jpeg,image/gif,*/*';
         var $accept_encoding = 'gzip';
         var $accept_language = 'en-us';
-        var $user_agent = 'HttpClient v0.9';
+        var $user_agent = 'browser v.9';
         // Options
         var $timeout = 20;
         var $use_gzip = true;
@@ -28,7 +28,7 @@
         var $password;
         // Response vars
         var $status;
-        var $headers = array();
+        var $headers = array("Content-Type: application/json");
         var $content = '';
         var $errormsg;
         // Tracker variables
@@ -46,12 +46,26 @@
             }
             return $this->doRequest();
         }
+        //fix POST data JSON
         function post($path, $data) {
             $this->path = $path;
             $this->method = 'POST';
-            $this->postdata = $this->buildQueryString($data);
+
+            foreach ($this->headers as $value) {
+                if ($value == "Content-Type: application/json") {
+                    $_data_json = true;
+                    break;
+                }
+            }
+
+            $this->postdata = (isset($_data_json) && $_data_json) ? $this->buildQueryString($data) : $this->buildQueryStringJson($data);
             return $this->doRequest();
         }
+
+        function buildQueryStringJson($data) {
+            return json_encode($data);
+        }
+
         function buildQueryString($data) {
             $querystring = '';
             if (is_array($data)) {
