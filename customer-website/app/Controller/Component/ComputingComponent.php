@@ -31,6 +31,14 @@ class ComputingComponent extends Component {
     function initialize(Controller $controller ) {
         $this->Controller = $controller;
     }
+    public function convert1($data) {
+    	$result = '?';
+    	foreach ($data as $key => $value) {
+    		$result = $result.$key.'='.$value.'&';
+    	}
+    	return rtrim($result,"&");
+    }
+    
     public function convert($data, &$new = array(), $prefix = null) {
         if (is_object($data)) {
             $data = get_object_vars($data);
@@ -120,7 +128,7 @@ class ComputingComponent extends Component {
 				'domain' => $domain
 			);
 		}
-		$url = $this->convert($data);
+		$url = $this->convert1($data);
 		$data1 = $this->curl('userLogin',$url);
 		if($data1->status->code == 1 && !empty($data1->data)){
 			$this->save_session($data1);
