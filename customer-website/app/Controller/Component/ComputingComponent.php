@@ -1,7 +1,7 @@
 <?php
 App::uses('Component', 'Controller');
 class ComputingComponent extends Component {
-
+	var $components = array('Cookie');
 	/*
 		input: array($key => value)
 		return: $key=value&$key1=$value1...
@@ -85,8 +85,25 @@ class ComputingComponent extends Component {
 		input array(username,password)
 		return data
 	*/
-	public function login($data) {
-
+	public function login($data = null) {
+		if(empty($data)){
+			Configure::load('config', 'default');
+			$username = Configure::read('username');
+			$password = Configure::read('password');
+			$domain = Configure::read('domain');
+			$data = array(
+				'username' => $username,
+				'password' => $password,
+				'domain' => $domain
+			);
+		}
+		$url = $this->convert($data);
+		$data1 = $this->curl('userLogin',$url);
+		if($data1->status->code == 1 && !empty($data1->data)){
+			$this->save_cookie($data1);
+		} else {
+			return $data1;
+		}
 	}
 
 	/*
@@ -94,7 +111,14 @@ class ComputingComponent extends Component {
 		return
 	*/
 	public function save_cookie($data) {
-		
+		$this->Cookie->write('data.csUserId',$data->data->loginresponse->userid,false);
+		$this->Cookie->write('data.sessionKey',$data->data->loginresponse->sessionkey,false);
+		$this->Cookie->write('data.accountId',$data->data->getAccountDetail->id,false);
+		$this->Cookie->write('data.domainId',$data->data->getDomainDetail->id,false);
+		$this->Cookie->write('data.csDomainId',$data->data->loginresponse->domainid,false);
+		$this->Cookie->write('data.zoneId',$data->data->configForClient->defaultZoneId,false);
+		$this->Cookie->write('data.currencyCode',$data->data->getAccountDetail->currency,false);
+		return;
 	}
 
 	/*
