@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 class TestController extends AppController{
-	var $components = array('Computing','Cookie');
+	var $components = array('Computing','Session');
 
 	public function index(){
 		$a = $this->Computing->curl('getAccountDetail','?sessionKey=kUrjawcFvPKbWhUEQfJquyMzNz4=&csUserId=6274f4b5-0931-4272-9bde-8f094b252b16&csAccountId=3c9e93c6-0561-49a3-8c52-89b1f12fa8d4');
@@ -10,7 +10,7 @@ class TestController extends AppController{
 	}
 
 	public function create_instance(){
-		$a = $this->Computing->login();
+		// $a = $this->Computing->login();
 		// pr($a);
 		// die;
 		// $data = array(
@@ -30,7 +30,8 @@ class TestController extends AppController{
 		// $url = $this->Computing->convert($data);
 		// $data1 = $this->Computing->curl('getAccountDetail',$url);
 		// $this->Cookie->write('data',$data,false);
-		$data = $this->Cookie->read('data');
+		// $this->set('username', $this->Cookie->read('username_cookie'));
+		$data = $this->Session->read('data');
 		pr($data);
 		die;
 	}

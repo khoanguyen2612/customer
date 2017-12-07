@@ -1,7 +1,7 @@
 <?php
 App::uses('Component', 'Controller');
 class ComputingComponent extends Component {
-	var $components = array('Cookie');
+	var $components = array('Session');
 	/*
 		input: array($key => value)
 		return: $key=value&$key1=$value1...
@@ -37,13 +37,12 @@ class ComputingComponent extends Component {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 500);
 		$result = json_decode(curl_exec($ch));
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		curl_close($ch);
 		if($httpcode != 200){
 			$result = $this->errors($httpcode);
-			return $result;
 		} 
 		/*else {
 			if($result->status->code != 1){
@@ -100,7 +99,7 @@ class ComputingComponent extends Component {
 		$url = $this->convert($data);
 		$data1 = $this->curl('userLogin',$url);
 		if($data1->status->code == 1 && !empty($data1->data)){
-			$this->save_cookie($data1);
+			$this->save_session($data1);
 		} else {
 			return $data1;
 		}
@@ -110,14 +109,14 @@ class ComputingComponent extends Component {
 		input: array()
 		return
 	*/
-	public function save_cookie($data) {
-		$this->Cookie->write('data.csUserId',$data->data->loginresponse->userid,false);
-		$this->Cookie->write('data.sessionKey',$data->data->loginresponse->sessionkey,false);
-		$this->Cookie->write('data.accountId',$data->data->getAccountDetail->id,false);
-		$this->Cookie->write('data.domainId',$data->data->getDomainDetail->id,false);
-		$this->Cookie->write('data.csDomainId',$data->data->loginresponse->domainid,false);
-		$this->Cookie->write('data.zoneId',$data->data->configForClient->defaultZoneId,false);
-		$this->Cookie->write('data.currencyCode',$data->data->getAccountDetail->currency,false);
+	public function save_session($data) {
+		$this->Session->write('data.csUserId',$data->data->loginresponse->userid);
+		$this->Session->write('data.sessionKey',$data->data->loginresponse->sessionkey);
+		$this->Session->write('data.accountId',$data->data->getAccountDetail->id);
+		$this->Session->write('data.domainId',$data->data->getDomainDetail->id);
+		$this->Session->write('data.csDomainId',$data->data->loginresponse->domainid);
+		$this->Session->write('data.zoneId',$data->data->configForClient->defaultZoneId);
+		$this->Session->write('data.currencyCode',$data->data->getAccountDetail->currency);
 		return;
 	}
 
