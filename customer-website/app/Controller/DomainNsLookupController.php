@@ -55,28 +55,44 @@
 
         }
 
-        function view() {
-            $id_acc = $this->Auth->User('id');
-            $user_info = $this->Account->findById($id_acc);
-            $this->set(compact('user_info'));
-        }
-
+        //init view layout
         function index()
         {
-            $this->render(false);
-            $query = array('email'=> '', 'password'=> '');
 
-            $this->_auth_token_inet($query);
-
-
-            Debugger::dump(LINK_WHOIS);
+            $is_lg = $this->is_login();
+            $info = $this->_get_domain_inet('diblo.vn');
 
             if ($this->request->is('post') || $this->request->is('get')) {
-                $order_code = $this->Session->read('order_code');
-                $this->set(compact('order_code'));
+                $this->set(compact('is_lg'));
+                $this->set(compact('info'));
             }
         }
 
+        /** tue.phpmailer@gmail.com **/
+        /** get iNET API **/
+        function is_login()
+        {
+            $query = array("email" => INET_API_USERNAME, "password" => INET_API_PASSWORD);
+            $ch = curl_init("https://dms.inet.vn/api/sso/v1/user/signin");
+            curl_setopt($ch, CURLOPT_USERAGENT, UAgent::_random_user_agent());
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1); // set httpd resp
+            curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // set fresh resp
+            curl_setopt($ch, CURLOPT_FORBID_REUSE, true); // set forbid reuse resp
+            curl_setopt($ch, CURLOPT_HEADER, 0);      // set header resp
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                "Content-Type: application/json",
+            ));
+
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch); // close resource handler
+            $result = json_decode($result, true);
+            $this->token = (isset($result['session'])) ? $result['session']['token']: ''; // token is string
+            return (isset($result['status']) && $result['status'] == 'SUCCESS') ? true: false;
+        }
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
         private function data_json_post_fields($array, $opt = array()) {
@@ -86,11 +102,9 @@
         /** get iNET API **/
         private function data_post_fields($array, $opt = array()) {
             $params = array();
-
             foreach ($array as $key => $value) {
                 $params[] = $key . '=' . urlencode($value);
             }
-
             return implode('&', $params);
         }
         /** tue.phpmailer@gmail.com **/
@@ -100,158 +114,156 @@
         }
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
-        private function _shell_exec() {
-            return (array('result' => $result = curl_exec(CallApi::$ch), 'content_type' => $content_type = curl_getinfo(CallApi::$ch, CURLINFO_CONTENT_TYPE))) ;
+        private function _shell_close() {
+            return curl_close(CallApi::getCh());
         }
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
-        private function _auth_token_inet($query, $opt = array())
+        private function _shell_exec() {
+            $result = curl_exec(CallApi::getCh());
+            $content_type = curl_getinfo(CallApi::getCh(), CURLINFO_CONTENT_TYPE);
+            return (array('result' => $result, 'content_type' => $content_type)) ;
+        }
+        /** tue.phpmailer@gmail.com **/
+        /** get iNET API **/
+        private function _auth_token_inet($query = array())
         {
             $query = array("email" => INET_API_USERNAME, "password" => INET_API_PASSWORD);
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json"); // CallApi::setHeaders("Content-Type: application/json charset=UTF-8") don't need;
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/sso/v1/user/signin");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/sso/v1/user/signin");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
             $result = json_decode($result['result'], true);
 
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
 
-            $this->token = (isset($result['session'])) ? $result['session']['token'] : array();
-            return (isset($result['session'])) ? $result['session'] : array();
+            curl_close(CallApi::getCh());
+            $this->token = (isset($result['session'])) ? $result['session']['token'] : ''; // token is string
+            return (isset($result['session'])) ? $result['session'] : ( count($result) > 0) ? $result : array();
         }
-
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
         private function _get_domain_inet($domain, $opt = array()) {
 
-            $query = array("token" =>$this->token, "name" => $domain);
+            $query = array("token" => $this->token, "name" => $domain);
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json"); // CallApi::setHeaders("Content-Type: application/json charset=UTF-8") don't need;
             CallApi::_private_opt();
-
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/search");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/search");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
+            $result = json_decode($result['result'], true);
 
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
-            return $result;
-
-        }
-
-        /** tue.phpmailer@gmail.com **/
-        /** get iNET API **/
-        private function _check_domain_inet($domain, $opt = array()) {
-
-            $query = array("token" =>$this->token, "name" => $domain);
-            CallApi::_private_opt();
-
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/search");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
-            // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
-
-            $result = $this->_shell_exec();
-            $result = json_decode($result, true);
-
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
-            }
+            curl_close(CallApi::getCh());
             return $result;
         }
-
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
         private function _is_exist_domain_inet($domain, $registrar, $opt = array()) {
 
-            $query = array("token" =>$this->token, "name" => $domain, "registrar" => '');
+            $query = array("token" => $this->token, "name" => $domain, "registrar" => '');
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json");
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/checkavailable");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/checkavailable");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
-
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            $result = json_decode($result['result'], true);
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
+            curl_close(CallApi::getCh());
             return $result;
         }
-
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
         private function _domain_detail_inet($id, $opt = array()) {
 
-            $query = array("token" =>$this->token, "id" => $id);
+            $query = array("token" => $this->token, "id" => $id);
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json");
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/detail");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/detail");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
+            $result = json_decode($result['result'], true);
 
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
+            curl_close(CallApi::getCh());
+
             return $result;
+
         }
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
         private function _domain_getrecord_inet($id, $opt = array()) {
 
-            $query = array("token" =>$this->token, "id" => $id);
+            $query = array("token" => $this->token, "id" => $id);
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json");
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/getrecord");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/getrecord");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
+            $result = json_decode($result['result'], true);
 
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
+
+            curl_close(CallApi::getCh());
             return $result;
         }
 
@@ -259,24 +271,28 @@
         /** get iNET API **/
         private function _domain_lookup_inet($domain, $type, $opt = array()) {
 
-            $query = array("token" =>$this->token, "type" => $type, "domain" => $domain);
+            $query = array("token" => $this->token, "type" => $type, "domain" => $domain);
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json");
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/public/nslookup/v1/nslookup/lookup");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/public/nslookup/v1/nslookup/lookup");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
-
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            $result = json_decode($result['result'], true);
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
+            curl_close(CallApi::getCh());
+
             return $result;
         }
 
@@ -284,26 +300,30 @@
         /** get iNET API **/
         private function _domain_whois_inet($domain, $opt = array()) {
 
-            $query = array("token" =>$this->token, "domain" => $domain);
+            $query = array("token" => $this->token, "domain" => $domain);
+
+            CallApi::_init();
+            CallApi::setHeaders("Content-Type: application/json");
             CallApi::_private_opt();
 
-            curl_setopt(CallApi::$ch, CURLOPT_URL, "https://dms.inet.vn/api/public/whois/v1/whois/directly");
-            curl_setopt(CallApi::$ch, CURLOPT_POSTFIELDS, $this->data_post_fields($query));
-            curl_setopt(CallApi::$ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-
+            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/public/whois/v1/whois/directly");
+            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
             // this function is called by curl for each header received
-            curl_setopt(CallApi::$ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::$ch, CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::$ch, CURLOPT_HTTPHEADER, CallApi::$headers);
+            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
+            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
 
             $result = $this->_shell_exec();
-            $result = json_decode($result, true);
+            $result = json_decode($result['result'], true);
 
-            if(curl_errno(CallApi::$ch)) {
-                throw new Exception(curl_error(CallApi::$ch));
+            if(curl_errno(CallApi::getCh())) {
+                throw new Exception(curl_error(CallApi::getCh()));
             }
+
+            curl_close(CallApi::getCh());
             return $result;
         }
-
 
     }
