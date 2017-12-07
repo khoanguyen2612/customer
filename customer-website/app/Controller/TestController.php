@@ -10,7 +10,7 @@ class TestController extends AppController{
 	}
 
 	public function create_instance(){
-		// $a = $this->Computing->login();
+		 //$this->Computing->login();
 		// pr($a);
 		// die;
 		// $data = array(
@@ -31,8 +31,9 @@ class TestController extends AppController{
 		// $data1 = $this->Computing->curl('getAccountDetail',$url);
 		// $this->Cookie->write('data',$data,false);
 		// $this->set('username', $this->Cookie->read('username_cookie'));
-		$data = $this->Session->read('data');
-		pr($data);
+		// $data = $this->Session->read('data');
+		// pr($data);
+		$this->Computing->check_session();
 		die;
 	}
 }
