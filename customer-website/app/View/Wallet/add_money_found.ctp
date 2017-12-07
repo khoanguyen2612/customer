@@ -14,7 +14,8 @@
                             )
                         );
 
-                        $order_code = 'MSHĐ_A11770449Z1892938'. rand(10, 10000);
+                        $order_code = 'MSHĐ_Wallet_Add_Money'. rand(10000, 90000);
+
                     ?>
 
                     <div class="hidden">
@@ -27,7 +28,7 @@
                         <input name="txtCustomerMobile" type="text" value="<?php echo "0916298481" ?>" id="txtCustomerMobile"/>
                         <input name="txtParamExt" type="text" value="" id="txtParamExt"/>
                         <input name="txtParamLanguage" type="text" value="vi" id="txtParamLanguage"/>
-                        <input name="txtUrlReturn" type="text" value="<?php echo "/wallet/finish/" ?>" id="txtUrlReturn"/>
+                        <input name="txtUrlReturn" type="text" value="<?php echo Router::fullbaseUrl(). "/wallet/finish/" ?>" id="txtUrlReturn"/>
                         <input name="txtSecret" type="text" value="<?php echo "VtcPay_Codelovers_2017" ?>" id="txtSecret"/>
                         <input name="txtTotalAmount" type="text" value="<?php echo round($add_current_money) ?>" id="txtTotalAmount"/>
                         <input name="txtCurency" type="text" value="VND" id="txtCurency"/> &nbsp;<i>VND/USD</i>

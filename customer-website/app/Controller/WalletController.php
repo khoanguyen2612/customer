@@ -41,7 +41,7 @@ class WalletController extends AppController
         }
 
         $user = $this->Wallet->user_info();
-        $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
+        $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
         $this->set(compact('name'));
 
         $total_product = $this->Wallet->get_count_product();
@@ -127,7 +127,7 @@ class WalletController extends AppController
         //$url_return = $this->request->here;
         if ( count($url_query) > 0 ) {
 
-            $this->Session->setFlash('Bạn đã nạp tiền thành công.');
+            $this->Session->setFlash('<code>Bạn đã nạp tiền thành công.</code>');
             $this->redirect(array("controller" => "Wallet",
                     "action" => "index",
                 )
