@@ -25,7 +25,7 @@ class ComputingComponent extends Component {
         foreach ($new as $key => $value) {
             $params[] = $key . '=' . urlencode($value);
         }
-        return '?' . implode('&', $params);
+        return htmlentities('?' . implode('&', $params));
     }
     /*
         return data
