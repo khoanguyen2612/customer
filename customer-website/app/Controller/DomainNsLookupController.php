@@ -23,7 +23,7 @@
         private $token = '';
 
         public $uses = array('Order', 'OrderDetail', 'Wallet',);
-        public $components = array('Acl', 'RequestHandler');
+        public $components = array('Acl', 'RequestHandler', 'Computing', );
         public $helpers = array('Html', 'Form', 'Js' => array('Jquery'), 'Session');
 
         // before call function
@@ -47,7 +47,7 @@
             }
 
             $user = $this->Wallet->user_info();
-            $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
+            $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
             $this->set(compact('name'));
 
             $total_product = $this->Wallet->get_count_product();
@@ -60,7 +60,10 @@
         {
 
             $is_lg = $this->is_login();
-            $info = $this->_get_domain_inet('diblo.vn');
+
+            $info = $this->_get_domain_inet('tenmien.vn');
+
+            //Debugger::dump($info);
 
             if ($this->request->is('post') || $this->request->is('get')) {
                 $this->set(compact('is_lg'));
@@ -159,26 +162,25 @@
         private function _get_domain_inet($domain, $opt = array()) {
 
             $query = array("token" => $this->token, "name" => $domain);
+            Debugger::dump($query);
+            $ch = curl_init("https://dms.inet.vn/api/rms/v1/domain/search");
+            curl_setopt($ch, CURLOPT_USERAGENT, UAgent::_random_user_agent());
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1); // set httpd resp
+            curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // set fresh resp
+            curl_setopt($ch, CURLOPT_FORBID_REUSE, true); // set forbid reuse resp
+            curl_setopt($ch, CURLOPT_HEADER, 0);      // set header resp
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                "Content-Type: application/json",
+            ));
 
-            CallApi::_init();
-            CallApi::setHeaders("Content-Type: application/json"); // CallApi::setHeaders("Content-Type: application/json charset=UTF-8") don't need;
-            CallApi::_private_opt();
-            curl_setopt(CallApi::getCh(), CURLOPT_URL, "https://dms.inet.vn/api/rms/v1/domain/search");
-            curl_setopt(CallApi::getCh(), CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
-            curl_setopt(CallApi::getCh(), CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-            curl_setopt(CallApi::getCh(), CURLOPT_POST, 1);
-            // this function is called by curl for each header received
-            curl_setopt(CallApi::getCh(), CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt(CallApi::getCh(), CURLOPT_HEADER, 0);
-            curl_setopt(CallApi::getCh(), CURLOPT_HTTPHEADER, CallApi::getHeaders());
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch); // close resource handler
+            $result = json_decode($result, true);
 
-            $result = $this->_shell_exec();
-            $result = json_decode($result['result'], true);
-
-            if(curl_errno(CallApi::getCh())) {
-                throw new Exception(curl_error(CallApi::getCh()));
-            }
-            curl_close(CallApi::getCh());
             return $result;
         }
         /** tue.phpmailer@gmail.com **/

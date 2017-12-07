@@ -40,7 +40,7 @@ class WalletCartController extends AppController
         }
         //set user information
         $user = $this->Wallet->user_info();
-        $name = (isset($user) && count($user)) ? $user['name'] : 'Bạn chưa login';
+        $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
         $this->set(compact('name'));
         //set total product
         $total_product = $this->Wallet->get_count_product();
