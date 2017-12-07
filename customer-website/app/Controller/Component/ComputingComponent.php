@@ -33,7 +33,7 @@ class ComputingComponent extends Component {
     /*
         return data
     */
-    public function curl($action, $url) {
+    public function curl($action, $string) {
     	Configure::load('config', 'default');
 		$ip = Configure::read('ip');
 		$url = 'http://'.$ip.'/mcloudapi/api/'.$action.$string;
