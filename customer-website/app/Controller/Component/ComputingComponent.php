@@ -6,30 +6,27 @@ class ComputingComponent extends Component {
 		input: array($key => value)
 		return: $key=value&$key1=$value1...
 	*/
-
     /* tue.phpmailer@gmail.com */
     /**   Convert data (array) to query (http) string   **/
     public function convert($data, &$new = array(), $prefix = null) {
         if (is_object($data)) {
             $data = get_object_vars($data);
         }
-
         foreach ($data as $key => $value) {
-            $k = isset($prefix) ? $prefix.'['.$key.']' : $key;
+            $k = $key;
             if (is_array($value)) {
-                $this->convert($value, $new, $k);
+                $this->convert($value, $new);
             } else {
                 $new[$k] = $value;
             }
         }
 
+        $params = array();
         foreach ($new as $key => $value) {
-            $new[] = $key . '=' . urlencode($value);
+            $params[] = $key . '=' . urlencode($value);
         }
-
-        return implode('&', $new);
+        return '?' . implode('&', $params);
     }
-
     /*
         return data
     */
