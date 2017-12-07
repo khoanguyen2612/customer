@@ -31,13 +31,13 @@
 			<div class="row">
 				<div class="col-md-3 bg-1a70b7">
 					<span>Đại lý cấp: </span> 0 <br>
-					<span>Tổng tiền đã nạp: <big>0 đ</big></span>
+					<span>Tổng tiền đã nạp: <big><?php echo number_format((int) $deposit_total,0,',','.' ); ?> VNĐ</big></span>
 				</div>
 				<div class="col-md-3 text-center">
-					<span>Số dư tài khoản: <big>0 đ</big></span>
+					<span>Số dư tài khoản: <big><?php echo number_format((int) $deposit,0,',','.' ); ?> VNĐ</big></span>
 				</div>
 				<div class="col-md-3 text-center bg-1a70b7">
-					<span>Điểm thưởng: <big>0</big></span>
+					<span>Điểm thưởng: <big><?php echo $total_point; ?></big></span>
 				</div>
 
 				<div class="col-md-3 text-center">
@@ -125,9 +125,3 @@
             console.log('flashMessage: ' + message);
         })
     </script>
-
-
-
-
-
-
