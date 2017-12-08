@@ -1,8 +1,8 @@
 <?php
 App::uses('AppModel', 'Model');
-class Cloudserver extends AppModel {
+class CloudServer extends AppModel {
     public $useTable = 'cloudservers';
-	var $name = "Cloudserver";
+	var $name = "CloudServer";
 	var $hasMany = array(
          'Plan' => array(
             'className' => 'Plan',
@@ -17,5 +17,6 @@ class Cloudserver extends AppModel {
             'finderQuery' => '',
             'counterQuery' => ''
         ));
+
     
 }
