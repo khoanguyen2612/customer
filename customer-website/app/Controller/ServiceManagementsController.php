@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 class ServiceManagementsController extends AppController {
-  	var $paginate = array();
+  	var $paginate = array();  
   	public $uses = array('Account','CloudServer','ProductPrice','Plan');
   	public $helpers = array('Paginator','Html','Form','Session');
   	public $name = "ServiceManagements";
