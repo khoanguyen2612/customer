@@ -33,6 +33,68 @@ class Wallet extends AppModel
      */
     public function add_money($wallet_item = array())
     {
+        App::import('Model', 'Order');
+        $Order = new Order();
+        $Order->setDataSource('default');
+
+        $Order->unbindModel(
+            array('belongsTo' => array('Account'))
+        );
+    }
+
+    public function deposits($amount = array())
+    {
+        $user = $this->user_info();
+        $account_id = (isset($user) && count($user) )? $user['id'] : null;
+
+        Debugger::dump($account_id);
+
+        if (!is_null($account_id) ) {
+
+            App::import('Model', 'Account');
+            $Account = new Account();
+            $Account->setDataSource('default');
+            $Account->unbindModel(
+                array('hasOne' => array('Organization'))
+            );
+
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $db = ConnectionManager::getDataSource('default');
+            try {
+
+                $_acc = $db->read($Account, array('fields' => array('Account.id', 'deposit', 'lname', 'credit'),
+                                                    'conditions' => array('Account.id =' => $account_id),
+                                                    //'recursive' => 5,
+                                                    //'order' => 'Order.id ASC',
+                                                    //'limit' => 1,
+                ));
+
+                $_acc = $_acc[0]['Account'];
+                $depo = intval(($_acc['deposit'] + $amount['amount']));
+                $result = $db->update($Account, array('deposit'), array($depo), array('id =' => $account_id));
+
+                if ($result) {
+                    App::import('Model', 'DepositHistory');
+                    $DepositHistory = new DepositHistory();
+
+                    try {
+                        $db->create($DepositHistory, array('account_id', 'order_detail_id','tong_nap', 'ngay_giao_dich', 'reference_number'),
+                            array($account_id, $amount['trans_ref_no'], $amount['amount'], date("Y-m-d H:i:s"), $amount['reference_number'])
+                        );
+                    } catch (Exception $e) {
+                        throw new Exception('Error insert table order ' . $e->getMessage());
+                    };
+
+                }
+
+            } catch (Exception $e) {
+                throw new Exception('Error insert table order ' . $e->getMessage());
+            };
+        }
+    }
+
+    public function refund($amount = array())
+    {
 
     }
 

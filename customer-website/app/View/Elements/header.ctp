@@ -10,7 +10,7 @@
                     add infor for menu home-->
 					<div class="col-lg-6 col-md-8">
 						<div class="cart-header col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12 pull-right">
-							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"><?php echo $this->Html->image('cart_icon.png', array('class'=>'') ); ?></i>
+							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"></i>
                             <span> Bạn đang có: <?php echo $total_product; ?> sản phẩm</span>
 						</div>
 						<div class="user-header col-md-12">
@@ -18,7 +18,7 @@
 							<a href="#"><b>Danh sách khách hàng</b></a>
 							|<a href="#">Thông tin tài khoản</a>
 							|<a href="#">Thay đổi mật khấu</a>
-							|<a href="../users/logout"><b>Thoát</b></a>
+							|<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'logout')); ?>"><b>Thoát</b></a>
 						</div>
 					</div>
 				</div>
@@ -31,13 +31,13 @@
 			<div class="row">
 				<div class="col-md-3 bg-1a70b7">
 					<span>Đại lý cấp: </span> 0 <br>
-					<span>Tổng tiền đã nạp: <big>0 đ</big></span>
+					<span>Tổng tiền đã nạp: <big><?php echo number_format((int) $deposit_total,0,',','.' ); ?> VNĐ</big></span>
 				</div>
 				<div class="col-md-3 text-center">
-					<span>Số dư tài khoản: <big>0 đ</big></span>
+					<span>Số dư tài khoản: <big><?php echo number_format((int) $deposit,0,',','.' ); ?> VNĐ</big></span>
 				</div>
 				<div class="col-md-3 text-center bg-1a70b7">
-					<span>Điểm thưởng: <big>0</big></span>
+					<span>Điểm thưởng: <big><?php echo $total_point; ?></big></span>
 				</div>
 
 				<div class="col-md-3 text-center">
@@ -113,24 +113,18 @@
 
     <!--// The above will output fast message for Note!-->
     <!--// tue.phpmailer@gmail.com //-->
-    <div class="flashMessage message alert">
+    <div id="flash_message" class="flashMessage message alert">
         <?php echo $this->Session->flash(); ?>
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
             var message = $(".flashMessage" ).contents().find("code").text();
             if ( message == '' || message.length == 0) {
-                $("#flashMessage").css('display', 'none');
+                $("#flash_message").css('display', 'none');
             }
             else {
-                $(".flashMessage").css('display', 'block');
+                $("#flash_message").css('display', 'block');
             }
             console.log('flashMessage: ' + message);
         })
     </script>
-
-
-
-
-
-

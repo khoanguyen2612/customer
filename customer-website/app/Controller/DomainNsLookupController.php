@@ -11,6 +11,7 @@
     //load define API Domain
     App::import('Vendor', 'CONSTANTS/CONSTANTS');
     App::import('Vendor', 'Api_helper/CallApi');
+    App::import('Vendor', 'Api_helper/Httpd');
 
     class DomainNsLookupController extends AppController
     {
@@ -60,20 +61,53 @@
         {
 
             $is_lg = $this->is_login();
-
-            $info = $this->_get_domain_inet('tenmien.vn');
-
-            //Debugger::dump($info);
+            $domain = "codelovers.vn";
+            //lookup
+            $lookup = $this->lookup_inet( array("domain"=> $domain, "type"=>  "lookup"));
+            $lookup = ($lookup['status'] == 'SUCCESS') ? $lookup['data'] : $lookup['error'] ;
+            //ipv4 infor
+            $ipv4 = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ipv4"));
+            $ipv4 = ($ipv4['status'] == 'SUCCESS') ? $ipv4['data'] : $ipv4['error'] ;
+            //ipv6 infor
+            $ipv6 = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ipv6"));
+            $ipv6 = ($ipv6['status'] == 'SUCCESS') ? $ipv6['data'] : $ipv6['error'] ;
+            //cname infor
+            $cname = $this->lookup_inet( array("domain"=> $domain, "type"=>  "cname"));
+            $cname = ($cname['status'] == 'SUCCESS') ? $cname['data'] : $cname['error'] ;
+            //mx infor
+            $mx = $this->lookup_inet( array("domain"=> $domain, "type"=>  "mx"));
+            $mx = ($mx['status'] == 'SUCCESS') ? $mx['data'] : $mx['error'] ;
+            //ns infor
+            $ns = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ns"));
+            $ns = ($ns['status'] == 'SUCCESS') ? $ns['data'] : $ns['error'] ;
+            //soa infor
+            $soa = $this->lookup_inet( array("domain"=> $domain, "type"=>  "soa"));
+            $soa = ($soa['status'] == 'SUCCESS') ? $soa['data'] : $soa['error'] ;
+            //srv infor
+            $srv = $this->lookup_inet( array("domain"=> $domain, "type"=>  "srv"));
+            $srv = ($srv['status'] == 'SUCCESS') ? $srv['data'] : $srv['error'] ;
+            //txt infor
+            $txt = $this->lookup_inet( array("domain"=> $domain, "type"=>  "srv"));
+            $txt = ($txt['status'] == 'SUCCESS') ? $txt['data'] : $txt['error'] ;
 
             if ($this->request->is('post') || $this->request->is('get')) {
                 $this->set(compact('is_lg'));
-                $this->set(compact('info'));
+                $this->set(compact('domain'));
+                $this->set(compact('lookup'));
+                $this->set(compact('ipv4'));
+                $this->set(compact('ipv6'));
+                $this->set(compact('cname'));
+                $this->set(compact('mx'));
+                $this->set(compact('ns'));
+                $this->set(compact('soa'));
+                $this->set(compact('srv'));
+                $this->set(compact('txt'));
             }
         }
 
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/
-        function is_login()
+        private function is_login()
         {
             $query = array("email" => INET_API_USERNAME, "password" => INET_API_PASSWORD);
             $ch = curl_init("https://dms.inet.vn/api/sso/v1/user/signin");
@@ -95,6 +129,31 @@
             $result = json_decode($result, true);
             $this->token = (isset($result['session'])) ? $result['session']['token']: ''; // token is string
             return (isset($result['status']) && $result['status'] == 'SUCCESS') ? true: false;
+        }
+
+        /** tue.phpmailer@gmail.com **/
+        /** get iNET API **/
+        private function lookup_inet($query, $url= "/public/nslookup/v1/nslookup/lookup")
+        {
+
+            $ch = curl_init("https://dms.inet.vn/api" . $url);
+            curl_setopt($ch, CURLOPT_USERAGENT, UAgent::_random_user_agent());
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $this->data_json_post_fields($query));
+            curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1); // set httpd resp
+            curl_setopt($ch, CURLOPT_FRESH_CONNECT, true); // set fresh resp
+            curl_setopt($ch, CURLOPT_FORBID_REUSE, true); // set forbid reuse resp
+            curl_setopt($ch, CURLOPT_HEADER, 0);      // set header resp
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                "Content-Type: application/json",
+                "Accept: application/json",
+            ));
+
+            $result = curl_exec($ch);
+            curl_close($ch); // close resource handler
+            $result = json_decode($result, true);
+            return $result;
         }
         /** tue.phpmailer@gmail.com **/
         /** get iNET API **/

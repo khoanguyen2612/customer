@@ -7,7 +7,7 @@ class HomeController extends AppController
 {
 
 
-	public $uses = array('Account','Supporter', 'Wallet','CloudServers','CreditHistory','Domains','ServiceRequest','Order');
+	public $uses = array('Account','Supporter', 'Wallet','CloudServers','CreditHistory','Domains','ServiceRequest','Order','DepositHistory',);
     public $helpers = array('Html', 'Form', 'Js' => array('Jquery'), 'Session');
     public $components = array('Dateday');
 
@@ -20,22 +20,57 @@ class HomeController extends AppController
         Configure::write('Cache.disable', true);
         Configure::write('debug', 2);
 
+        // check is login
+        $_is_login = $this->Wallet->user_info();
+        if (count($_is_login) == 0) {
+            $this->Session->setFlash('<code>Bạn chưa Login.</code>');
+            $this->redirect(array("controller" => "users",
+                    "action" => "login",
+                )
+            );
+        }
+
+        //Menu information
         $user = $this->Wallet->user_info();
         $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
         $this->set(compact('name'));
+        // wallet account deposit, point
+        $deposit = (isset($user) && count($user)) ? $user['deposit'] : 0;
+        $_record_dep = $this->Account->find('first',
+            array('fields' => array('Account.id', 'deposit', 'lname', 'credit'),
+                'conditions' => array('Account.id =' => $user['id']),
+                'recursive' => 0,
+            )
+        );
+        $deposit = $_record_dep['Account']['deposit'];
+        $this->set(compact('deposit'));
+        // wallet account deposit, point
+        $_record_dep = $this->DepositHistory->find('all',
+            array('fields' => array('DepositHistory.id', 'account_id', 'tong_nap', 'SUM(DepositHistory.tong_nap) as deposit_total'),
+                'conditions' => array('DepositHistory.account_id =' => $user['id'] ),
+                'recursive' => 0,
+                'group' => array('account_id'), // fields to GROUP BY
+            )
+        );
+
+        $deposit_total = (count($_record_dep) > 0) ? $_record_dep[0][0]['deposit_total'] : 0;
+        $this->set(compact('deposit_total'));
+        // wallet account deposit, point
+        $total_point = (isset($user) && count($user)) ? $user['total_point'] : 0;
+        $this->set(compact('total_point'));
+        $credit = (isset($user) && count($user)) ? $user['credit'] : 0;
+        $this->set(compact('credit'));
+        // wallet account total product
         $total_product = $this->Wallet->get_count_product();
         $this->set(compact('total_product'));
+        //Menu information
 
     }
 
     /* tue.phpmailer@gmail.com */
     /** for view home **/
     public function index() {
-        $user = $this->Wallet->user_info();
-        $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
-        $this->set(compact('name'));
-        $total_product = $this->Wallet->get_count_product();
-        $this->set(compact('total_product'));
+
         
 		$user_id=$this->Auth->user('id');
 
