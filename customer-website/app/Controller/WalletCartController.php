@@ -157,14 +157,11 @@ class WalletCartController extends AppController
 
         $this->Session->delete('total_money');
         $this->Session->write('total_money', $total_money);
-
         $this->set(compact('total_money'));
         $this->set(compact('products'));
-
         $this->set(compact('order_id'));
-        //$this->set(compact('order'));
         $this->set(compact('order_code'));
-        //Debugger::dump($order_schema);
+
     }
 
     public function vtc_payment()

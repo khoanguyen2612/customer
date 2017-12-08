@@ -39,13 +39,15 @@
 
         public function beforeFilter()
         {
+            //the first for App Controller
+            // setup layout
+            $this->__configLayout();
+
             // setup authentication
             $this->__configAuth();
             parent::beforeFilter();
             $this->Auth->allow();
             $this->set('current_user', $this->Auth->user());
-            // setup layout
-            $this->__configLayout();
 
             //Menu information
             //**** tue.phpmailer@gmail.com ****//
