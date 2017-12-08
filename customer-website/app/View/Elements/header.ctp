@@ -100,6 +100,9 @@
                         <li>
                             <a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">Quản Lý Tên Miền</a>
                         </li>
+                         <li>
+                            <a href="<?php echo $this->Html->url(array('controller' => 'ServiceManagements', 'action' => 'index'), true); ?>">Quản Lý Cloud Server</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#">Đang chờ xử lý</a></li>
