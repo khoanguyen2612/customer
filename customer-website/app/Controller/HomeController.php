@@ -7,7 +7,7 @@ class HomeController extends AppController
 {
 
 
-	public $uses = array('Account','Supporter', 'Wallet','CloudServers','CreditHistory','Domains','ServiceRequest','Order','DepositHistory',);
+	public $uses = array('Account','Supporter', 'Wallet','CloudServer','CreditHistory','Domains','ServiceRequest','Order','DepositHistory',);
     public $helpers = array('Html', 'Form', 'Js' => array('Jquery'), 'Session');
     public $components = array('Dateday');
 
@@ -74,17 +74,17 @@ class HomeController extends AppController
         
 		$user_id=$this->Auth->user('id');
 
-		$cloudservers=$this->CloudServers->find('all',array(
-			'conditions'=>array('CloudServers.account_id'=>$user_id)
+		$cloudservers=$this->CloudServer->find('all',array(
+			'conditions'=>array('CloudServer.account_id'=>$user_id)
 		));
 		$clsv = [0,0,0,0];
 		if(isset($cloudservers)){
 			foreach ($cloudservers as $item) {
-				if($item['CloudServers']['flg_pending']==1){
+				if($item['CloudServer']['flg_pending']==1){
 					$clsv[3]++;
 				}
 				else{
-					$exd=$this->Dateday->expiration_date($item['CloudServers']['expiration_date']);
+					$exd=$this->Dateday->expiration_date($item['CloudServer']['expiration_date']);
 					if($exd==0){$clsv[0]++;}
 					elseif($exd==1){$clsv[1]++;$clsv[0]++;}
 					elseif($exd==2){$clsv[2]++;}

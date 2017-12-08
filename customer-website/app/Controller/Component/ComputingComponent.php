@@ -165,7 +165,6 @@ class ComputingComponent extends Component {
 	public function check_session(){
 		Configure::load('config', 'default');
 		$fontend_url = Configure::read('fontend_url');
-		// pr($fontend_url);die;
 		if($this->Session->check('data')){
 			$data = $this->Session->read('data');
 			$current_time = strtotime(date('d-m-Y H:i:s'));
@@ -182,11 +181,10 @@ class ComputingComponent extends Component {
 				$info = $Account->find('first',array('conditions' => array('Account.id' => $this->Auth->user('id'))));
 				// pr($info);die;
 				if(empty($info['Account']['lname']) || empty($info['Account']['fname'])||empty($info['Account']['email']) ||empty($info['Account']['address']) || empty($info['Account']['phonenumber'])||empty($info['Account']['add_contact']) ||empty($info['Account']['country']) || empty($info['Account']['nickname'])){
-					$this->Session->setFlash('Bạn cần cập nhật thông tin tài khoản để thực hiện thao tác này','default',array('class'=>'alert alert-danger'));
-					if(isset($info['Organization'])){
-						return $this->Controller->redirect($fontend_url.'/members/profile_group');
+					if(!empty($this->Auth->user('proxy'))){
+						return $this->Controller->redirect($fontend_url.'/members/set_info?account=group');
 					}else{
-						return $this->Controller->redirect($fontend_url.'/members/profile_user');
+						return $this->Controller->redirect($fontend_url.'/members/set_info?account=person');
 					}
 				}
 				else{

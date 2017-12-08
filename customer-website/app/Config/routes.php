@@ -33,6 +33,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/OrderHistory', array('controller' => 'OrderHistorys', 'action' => 'index'));
+      Router::connect('/ServiceManagement', array('controller' => 'ServiceManagements', 'action' => 'index'));
 
 
     /** config route for WalletController **/

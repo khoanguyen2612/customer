@@ -10,7 +10,7 @@
                     add infor for menu home-->
 					<div class="col-lg-6 col-md-8">
 						<div class="cart-header col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12 pull-right">
-							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"><?php echo $this->Html->image('cart_icon.png', array('class'=>'') ); ?></i>
+							<i class="fa fa-cart-plus" style="color:#fff;font-size:20px;"></i>
                             <span> Bạn đang có: <?php echo $total_product; ?> sản phẩm</span>
 						</div>
 						<div class="user-header col-md-12">
@@ -18,7 +18,7 @@
 							<a href="#"><b>Danh sách khách hàng</b></a>
 							|<a href="#">Thông tin tài khoản</a>
 							|<a href="#">Thay đổi mật khấu</a>
-							|<a href="../users/logout"><b>Thoát</b></a>
+							|<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'logout')); ?>"><b>Thoát</b></a>
 						</div>
 					</div>
 				</div>
@@ -99,6 +99,9 @@
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<?php echo $this->Html->url(array('controller' => 'DomainsManager', 'action' => 'index'), true); ?>">Quản Lý Tên Miền</a>
+                        </li>
+                         <li>
+                            <a href="<?php echo $this->Html->url(array('controller' => 'ServiceManagements', 'action' => 'index'), true); ?>">Quản Lý Cloud Server</a>
                         </li>
                     </ul>
                 </li>
