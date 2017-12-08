@@ -1,7 +1,27 @@
       <?php
-          if($data==NULL){
-             echo "<h2>Dada Empty</h2>";
-          }else{
+          if($data==NULL){ ?>
+             <div class="table-responsive">
+            <table id="example" class="table table-striped">
+              <thead>
+                <tr>
+                  <td bgcolor="#ebece9" role="th"></td>
+                  <td bgcolor="#ebece9" role="th">STT</td>
+                  <td bgcolor="#ebece9" role="th">Gói dịch vụ</td>
+                  <td bgcolor="#ebece9" role="th">Tài khoản</td>
+                  <td bgcolor="#ebece9" role="th">Ngày đăng ký</td>
+                  <td bgcolor="#ebece9" role="th">Ngày hết hạn</td>
+                  <td bgcolor="#ebece9" role="th">Trạng thái</td>
+                  <td bgcolor="#ebece9" role="th">IP</td>
+                  <td bgcolor="#ebece9" role="th">Thao tác</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                     <td colspan="9" class="datanull"><h2>Không có dữ liệu</h2></td>
+                </tr>
+              </tbody>
+            </table>
+         <?php }else{
           ?>
           <div class="table-responsive">
             <table id="example" class="table table-striped">
@@ -60,3 +80,8 @@
               </tbody>
             </table>
           </div>
+          <style type="text/css">
+            .datanull{
+              text-align: center;
+            }
+          </style>
