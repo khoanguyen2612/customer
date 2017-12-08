@@ -31,6 +31,7 @@ class ComputingComponent extends Component {
     function initialize(Controller $controller ) {
         $this->Controller = $controller;
     }
+
     public function convert1($data) {
     	$result = '?';
     	foreach ($data as $key => $value) {
@@ -38,7 +39,9 @@ class ComputingComponent extends Component {
     	}
     	return rtrim($result,"&");
     }
-    
+
+    /* tue.phpmailer@gmail.com */
+    /**   Convert data (array) to query (http) string   **/
     public function convert($data, &$new = array(), $prefix = null) {
         if (is_object($data)) {
             $data = get_object_vars($data);
