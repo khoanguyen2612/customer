@@ -2,15 +2,15 @@
 App::uses('AppController', 'Controller');
 class ServiceManagementsController extends AppController {
   	var $paginate = array();
-  	public $uses = array('Account','Cloudserver','ProductPrice','Plan');
+  	public $uses = array('Account','CloudServer','ProductPrice','Plan'); 
   	public $helpers = array('Paginator','Html','Form','Session');
   	public $name = "ServiceManagements";
 	public function index() {
-		$this->set('title_for_layout','Quản lý Cloudserver');
+		$this->set('title_for_layout','Quản lý CloudServer');
 		$account_id = $this->Auth->user('id');
-		$conditions = array('Cloudserver.account_id' =>$account_id);
+		$conditions = array('CloudServer.account_id' =>$account_id);
 		$sql = "SELECT accounts.nickname,cloudservers.*,plans.*,product_price.* FROM accounts , cloudservers , plans , product_price WHERE accounts.id = cloudservers.account_id AND cloudservers.plan_id = plans.id AND plans.id = product_price.plan_id AND accounts.id = {$account_id}";
-		$dq = $this->Cloudserver->query($sql);
+		$dq = $this->CloudServer->query($sql);
 		$this->set('data',$dq);
 	}
 	public function search(){
@@ -18,14 +18,14 @@ class ServiceManagementsController extends AppController {
 		if (isset($this->data['action']) && $this->data['action'] == 'search') {
 		$options = array(
 			'ProductPrice.product_id' => $this->data['product_id'],
-			'Cloudserver.startday >=' => $this->data['reg_from'],
-			'Cloudserver.startday <=' => $this->data['reg_to'],
-			'Cloudserver.endday >=' => $this->data['exp_from'],
-			'Cloudserver.endday >=' => $this->data['exp_to']
+			'CloudServer.startday >=' => $this->data['reg_from'],
+			'CloudServer.startday <=' => $this->data['reg_to'],
+			'CloudServer.endday >=' => $this->data['exp_from'],
+			'CloudServer.endday >=' => $this->data['exp_to']
 		 );
 		}
 		$account_id = $this->Auth->user('id');
-		$conditions = array('Cloudserver.account_id' =>$account_id);
+		$conditions = array('CloudServer.account_id' =>$account_id);
 		$reg_from = date('Y-m-d',strtotime($this->data['reg_from']));
 		$reg_to = date('Y-m-d',strtotime($this->data['reg_to']));
 		$exp_from = date('Y-m-d',strtotime($this->data['exp_from']));
@@ -58,7 +58,7 @@ class ServiceManagementsController extends AppController {
 		else {
 			$sql_a = "SELECT accounts.nickname,cloudservers.*,plans.*,product_price.* FROM accounts , cloudservers , plans , product_price WHERE accounts.id = cloudservers.account_id AND cloudservers.plan_id = plans.id AND plans.id = product_price.plan_id AND accounts.id = {$account_id}";
 		}
-		$data =  $this->Cloudserver->query($sql_a);
+		$data =  $this->CloudServer->query($sql_a);
 		$this->set('data',$data);
 		$this->view = 'result';
 	}
