@@ -33,7 +33,7 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class AppController extends Controller
 {
-    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email');
+    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email', 'Wallet', 'Account', 'DepositHistory',);
     public $helpers = array('Session', 'Html', 'Form');
     var $uses = array('Account', 'Cart');
 
@@ -48,6 +48,42 @@ class AppController extends Controller
         $this->set('current_user', $this->Auth->user());
         // setup layout
         $this->__configLayout();
+
+        //Menu information
+        //**** tue.phpmailer@gmail.com ****//
+        $user = $this->Wallet->user_info();
+        $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
+        $this->set(compact('name'));
+        // wallet account deposit, point
+        $deposit = (isset($user) && count($user)) ? $user['deposit'] : 0;
+        $_record_dep = $this->Account->find('first',
+            array('fields' => array('Account.id', 'deposit', 'lname', 'credit'),
+                'conditions' => array('Account.id =' => $user['id']),
+                'recursive' => 0,
+            )
+        );
+        $deposit = $_record_dep['Account']['deposit'];
+        $this->set(compact('deposit'));
+        // wallet account deposit, point
+        $_record_dep = $this->DepositHistory->find('all',
+            array('fields' => array('DepositHistory.id', 'account_id', 'tong_nap', 'SUM(DepositHistory.tong_nap) as deposit_total'),
+                'conditions' => array('DepositHistory.account_id =' => $user['id'] ),
+                'recursive' => 0,
+                'group' => array('account_id'), // fields to GROUP BY
+            )
+        );
+
+        $deposit_total = (count($_record_dep) > 0) ? $_record_dep[0][0]['deposit_total'] : 0;
+        $this->set(compact('deposit_total'));
+        // wallet account deposit, point
+        $total_point = (isset($user) && count($user)) ? $user['total_point'] : 0;
+        $this->set(compact('total_point'));
+        $credit = (isset($user) && count($user)) ? $user['credit'] : 0;
+        $this->set(compact('credit'));
+        // wallet account total product
+        $total_product = $this->Wallet->get_count_product();
+        $this->set(compact('total_product'));
+        //Menu information
 
     }
 
