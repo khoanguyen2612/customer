@@ -8,7 +8,6 @@ class ServiceManagementsController extends AppController {
 	public function index() {
 		$this->set('title_for_layout','Quản lý CloudServer');
 		$account_id = $this->Auth->user('id');
-		$conditions = array('CloudServer.account_id' =>$account_id);
 		$sql = "SELECT accounts.nickname,cloudservers.*,plans.*,product_price.* FROM accounts , cloudservers , plans , product_price WHERE accounts.id = cloudservers.account_id AND cloudservers.plan_id = plans.id AND plans.id = product_price.plan_id AND accounts.id = {$account_id}";
 		$dq = $this->CloudServer->query($sql);
 		$this->set('data',$dq);
@@ -25,7 +24,6 @@ class ServiceManagementsController extends AppController {
 		 );
 		}
 		$account_id = $this->Auth->user('id');
-		$conditions = array('CloudServer.account_id' =>$account_id);
 		$reg_from = date('Y-m-d',strtotime($this->data['reg_from']));
 		$reg_to = date('Y-m-d',strtotime($this->data['reg_to']));
 		$exp_from = date('Y-m-d',strtotime($this->data['exp_from']));
