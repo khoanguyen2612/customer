@@ -93,8 +93,59 @@
                     </div>
                 </div>
                 <?php
-          if($data==NULL){
-             echo "<h2>Dada Empty</h2>";
+          if($data==NULL){ ?>
+             <div class="table-responsive">
+            <table id="example" class="table table-striped">
+              <thead>
+                <tr>
+                  <td bgcolor="#ebece9" role="th"></td>
+                  <td bgcolor="#ebece9" role="th">STT</td>
+                  <td bgcolor="#ebece9" role="th">Gói dịch vụ</td>
+                  <td bgcolor="#ebece9" role="th">Tài khoản</td>
+                  <td bgcolor="#ebece9" role="th">Ngày đăng ký</td>
+                  <td bgcolor="#ebece9" role="th">Ngày hết hạn</td>
+                  <td bgcolor="#ebece9" role="th">Trạng thái</td>
+                  <td bgcolor="#ebece9" role="th">IP</td>
+                  <td bgcolor="#ebece9" role="th">Thao tác</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td> <input type="radio" name="1" value="1"> </td>
+                    <td>1</td>
+                    <td>CLOUD SERVER 1</td>
+                    <td>buithidieu</td>
+                    <td>04/07/2017</td>
+                    <td>25/12/2017</td>
+                    <td>Đang dừng sử dụng</td>
+                    <td>255.255.255.255</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td> <input type="radio" name="1" value="1"> </td>
+                    <td>1</td>
+                    <td>CLOUD SERVER 1</td>
+                    <td>buithidieu</td>
+                    <td>04/07/2017</td>
+                    <td>25/12/2017</td>
+                    <td>Đang dừng sử dụng</td>
+                    <td>255.255.255.255</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td> <input type="radio" name="1" value="1"> </td>
+                    <td>1</td>
+                    <td>CLOUD SERVER 1</td>
+                    <td>buithidieu</td>
+                    <td>04/07/2017</td>
+                    <td>25/12/2017</td>
+                    <td>Đang dừng sử dụng</td>
+                    <td>255.255.255.255</td>
+                    <td></td>
+                </tr>
+              </tbody>
+            </table>
+             <?php
           }else{
           ?>
           <div class="table-responsive">
