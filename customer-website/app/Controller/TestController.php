@@ -10,14 +10,14 @@ class TestController extends AppController{
 	}
 
 	public function check(){
-		$this->Computing->check_session();
+		$this->Computing->check_session();die;
 	}
 
 	public function api_login(){
-		$this->Computing->login();
+		$this->Computing->login();die;
 	}
 	public function del_session(){
-		$this->Session->destroy();
+		$this->Session->destroy();die;
 	}
 
 	public function create_instance($page = 1){
