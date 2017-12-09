@@ -13,6 +13,9 @@ class TestController extends AppController{
 		$this->Computing->check_session();
 	}
 
+	public function api_login(){
+		$this->Computing->login();
+	}
 	public function del_session(){
 		$this->Session->destroy();
 	}
