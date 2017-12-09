@@ -9,6 +9,13 @@ class TestController extends AppController{
 		die;
 	}
 
+	public function check(){
+		$this->Computing->check_session();
+	}
+
+	public function del_session(){
+		$this->Session->destroy();
+	}
 
 	public function create_instance($page = 1){
 		// $this->Computing->login();
