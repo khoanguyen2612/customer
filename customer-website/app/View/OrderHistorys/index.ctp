@@ -36,7 +36,25 @@
           </div>
           <?php
           if($data==NULL){
-             echo "<h2>Dada Empty</h2>";
+             ?>
+              <table id="example" class="table table-striped">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th class="left">Tên dịch vụ</th>
+                  <th class="left">Loại giao dịch</th>
+                  <th class="left">Chi tiết giao dịch</th>
+                  <th>Ngày giao dịch</th>
+                  <th>Số tiền giao dịch</th>
+                  <th>Còn lại</th>
+                </tr>
+              </thead>
+               <tbody>
+                <tr>
+                  <td colspan="9" class="datanull"><h2>Không có dữ liệu</h2></td>
+                </tr>
+               </tbody>
+             <?php
           }else{
           ?>
           <div class="table-responsive">

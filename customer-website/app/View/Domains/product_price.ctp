@@ -3,9 +3,9 @@
 			<h3 class="text-center">BẢNG GIÁ TÊN MIỀN</h3>
 			<ul class="nav nav-tabs container">
 				<li><a href="#">Đăng ký tên miền</a></li>
-				<li><a href="#">Chuyển đổi nhà cung cấp</a></li>
+				<li><a href="<?php echo $this->Html->url(array('controller'=>'Domains','action'=>'domain_transfer')); ?>">Chuyển đổi nhà cung cấp</a></li>
 				<li><a href="#">Kiểm tra tên miền</a></li>
-				<li class="active"><a href="#">Bảng giá tên miền</a></li>
+				<li><a href="<?php echo $this->Html->url(array('controller'=>'Domains','action'=>'product_price')); ?>">Bảng giá tên miền</a></li>
 			</ul>
 			<hr>
 		</div>
