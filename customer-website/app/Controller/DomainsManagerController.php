@@ -30,14 +30,14 @@ class DomainsManagerController extends AppController{
 			$data = $this->Paginator->Paginate('Domain');
 			$this->set('title_for_layout','Quản lý Tên Miền');
 			$this->view = 'index';
-			$this->retrive_date($options);
+			$this->retrive_data($options);
 		}
 		if($this->request->is('post')){
 			$this->layout = 'ajax_domains';
 			if(isset($this->data['limit'])){
 				$this->Session->write('limit',$this->data['limit']);
 				$options['limit'] = $this->data['limit'];
-				$this->retrive_date($options);			
+				$this->retrive_data($options);			
 			}else
 			if(isset($this->data['action']) && $this->data['action'] == 'search'){
 				
@@ -67,7 +67,7 @@ class DomainsManagerController extends AppController{
 				//echo $order_by;die;
 				$options['order'] = array($this->data['field'] => $order_by);
 				$this->view = 'sort_data';
-				$this->retrive_date($options);
+				$this->retrive_data($options);
 			}
 
 		}
@@ -75,13 +75,33 @@ class DomainsManagerController extends AppController{
 
 	}
 
-	public function retrive_date($options){
+	private function retrive_data($options){
 		$this->Paginator->settings = $options;
 		$data = $this->Paginator->Paginate('Domain');
 		$this->set('title_for_layout','Quản lý Tên Miền');
 		$this->set('data',$data);
 		$this->set('limit',$options['limit']);
 	}
+
+	public function whois_domain(){
+        	if($this->RequestHandler->isAjax()){
+        		$this->layout = 'ajax';
+        		// pr($this->request->data);die;
+        		$domain_name=$this->request->data['domain_name'];
+				$whois = array("domainName" => $domain_name);
+				$ch = curl_init("https://dms.inet.vn/api/public/whois/v1/whois/directly");
+
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POST, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($whois));
+
+				$datadomain = curl_exec($ch);
+				$datadomain = json_decode($datadomain, true);
+				// pr($datadomain);die;
+				$this->set('datadomain',$datadomain);
+				curl_close($ch);
+			}
+		}
 	
 
 }

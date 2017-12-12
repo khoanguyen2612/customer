@@ -1,7 +1,12 @@
 <?php $stt = 1; ?>
 <?php foreach($data as $row):?>
 	<tr>
-		<td><input type="radio" name=""></td>
+		<td>
+			<input type="radio" name="sl_domain" id="dm_<?php echo $stt; ?>">
+			<label for="dm_<?php echo $stt; ?>">
+				<span></span>
+			</label>
+		</td>
 		<td>
 			<?php echo $stt;$stt++; ?>
 		</td>

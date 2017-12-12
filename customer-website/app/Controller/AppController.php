@@ -31,11 +31,12 @@
      * @package        app.Controller
      * @link        https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
      */
+
     class AppController extends Controller
     {
-        var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email',);
-        public $helpers = array('Session', 'Html', 'Form');
-        var $uses = array('Account', 'Cart', 'Wallet', 'Account', 'DepositHistory',);
+        var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email', 'RequestHandler',);
+        public $helpers = array('Session', 'Html', 'Form',);
+        var $uses = array('Account', 'Cart', 'Wallet', 'DepositHistory',);
 
         public function beforeFilter()
         {
@@ -53,7 +54,7 @@
             //**** tue.phpmailer@gmail.com ****//
             // check is login
             $_is_login = $this->Wallet->user_info();
-            if (count($_is_login) ) {
+            if (count($_is_login)) {
                 $user = $this->Wallet->user_info();
                 $name = (isset($user) && count($user)) ? $user['lname'] : 'Bạn chưa login';
                 $this->set(compact('name'));
@@ -70,7 +71,7 @@
                 // wallet account deposit, point
                 $_record_dep = $this->DepositHistory->find('all',
                     array('fields' => array('DepositHistory.id', 'account_id', 'tong_nap', 'SUM(DepositHistory.tong_nap) as deposit_total'),
-                        'conditions' => array('DepositHistory.account_id =' => $user['id'] ),
+                        'conditions' => array('DepositHistory.account_id =' => $user['id']),
                         'recursive' => 0,
                         'group' => array('account_id'), // fields to GROUP BY
                     )
@@ -115,4 +116,7 @@
             $this->layout = "home";
         }
 
-}
+    }
+
+
+
