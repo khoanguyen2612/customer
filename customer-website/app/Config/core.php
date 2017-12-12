@@ -225,9 +225,15 @@
  * To use database sessions, run the app/Config/Schema/sessions.php schema using
  * the cake shell command: cake schema create Sessions
  */
-	Configure::write('Session', array(
-		'defaults' => 'php'
-	));
+    Configure::write('Session', array(
+        'defaults' => 'php'
+        //'defaults' => 'cake'
+    ));
+
+    $duration = '+1 day';
+    if (Configure::read('debug') > 0) {
+        $duration = '+4 seconds';
+    }
 
 /**
  * A random string used in security hashing methods.
@@ -277,7 +283,7 @@
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	//date_default_timezone_set('UTC');
+	date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 /**
  * `Config.timezone` is available in which you can set users' timezone string.

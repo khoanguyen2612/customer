@@ -33,7 +33,7 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class AppController extends Controller
 {
-    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email');
+    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email','RequestHandler');
     public $helpers = array('Session', 'Html', 'Form');
     var $uses = array('Account', 'Cart');
 
@@ -48,10 +48,7 @@ class AppController extends Controller
         $this->set('current_user', $this->Auth->user());
         // setup layout
         $this->__configLayout();
-        
 
-
-   
     }
 
     private function __configAuth()

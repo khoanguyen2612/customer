@@ -72,17 +72,18 @@
               </thead>
               <tbody>
               <?php
-                foreach($data['Orderdetail'] as $item){
+               $stt = 1; 
+                foreach($data as $item){
               ?>
                 <tr>
-                  <td><?php echo ($item['Orderdetail']['id'])?></td>
-                  <td class="left"><p><?php echo ($item['Orderdetail']['domain_name'])?></p></td>
-                  <td class="left"><p><?php echo ($item['Orderdetail']['request_flg'])?></p></td>
-                  <td class="left"><p><?php echo ($item['Orderdetail']['domain_name'])?></p></td>
-                  <td><?php $date = date_create($item['Orderdetail']['created_date']);
+                  <td><?php echo $stt;$stt++; ?></td>
+                  <td class="left"><p><?php echo ($item['order_detail']['domain_name'])?></p></td>
+                  <td class="left"><p><?php echo ($item['order_detail']['request_flg'])?></p></td>
+                  <td class="left"><p><?php echo ($item['order_detail']['domain_name'])?></p></td>
+                  <td><?php $date = date_create($item['order_detail']['created_date']);
                             echo date_format($date,"d/m/Y");?></td>
-                  <td><?php echo number_format($item['Orderdetail']['price'],0,',','.')?></td>
-                  <td><?php echo number_format($data['Account']['Account.credit'],0,',','.')?></td>
+                  <td><?php echo number_format($item['order_detail']['price'],0,',','.')?></td>
+                  <td><?php echo number_format($item['accounts']['credit'],0,',','.')?></td>
                 </tr>
               <?php
                   }

@@ -1,0 +1,686 @@
+    /*css for domain info owner */
+    div.info_owner {
+        background-color: #f1f1f1;
+        padding-top: 30px;
+    }
+
+    .content h3 {
+        padding: 0px 15px 35px 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .info_owner ul {
+        height: 100px;
+    }
+
+    .info_owner ul li, .info_owner ul li a {
+        height: 100%;
+    }
+
+    .info_owner ul li a, .info_owner ul li.active a {
+        padding-top: 28px;
+        font-size: 28px;
+    }
+
+    .info_owner .select_info_save, .info_owner .get_account_info {
+        background-color: #eeefef;
+        height: auto;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+    }
+
+    .get_account_info button {
+        background-color: #e77237;
+        color: #fff;
+        font-size: 15px;
+        height: 25px;
+        padding-right: 7px;
+        padding-left: 7px;
+        border: none;
+        float: right;
+        margin-left: 15px;
+    }
+
+    .get_account_info label {
+        font-size: 15px;
+    }
+
+    .get_account_info label i {
+        display: inline-block;
+        width: 25px;
+        height: 24px;
+        vertical-align: middle;
+        background: url('../img/icon-dotted.png');
+    }
+
+    .info_owner .form-group {
+        height: 56px;
+    }
+
+    .info_owner .form-group input[type=text] {
+        height: 35px;
+    }
+
+    .info_owner .form-group label {
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .info_owner .gender label:last-child {
+        margin-left: 28px;
+    }
+
+    .comfirm p {
+        color: #dc070b;
+        margin-top: 50px;
+        font-style: italic;
+    }
+
+    .comfirm label input[type=checkbox] {
+        position: absolute;
+        clip: rect(0px 0px 0px 0px);
+        left: 5px;
+        top: 8px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .comfirm label.agree {
+        background-image: url('../img/check-ticked-icon.png');
+    }
+
+    .comfirm label {
+        display: block;
+        padding: 10px 0px 60px 32px;
+        font-size: 15px;
+        font-weight: 400;
+        position: relative;
+        background-image: url('../img/check-icon.png');
+        background-repeat: no-repeat;
+        background-position: 3px 4px;
+        margin-top: 25px;
+    }
+
+    .info_owner .action {
+        float: none;
+        margin: auto;
+        padding-bottom: 140px;
+    }
+
+    .info_owner .action a {
+        height: 55px;
+        font-size: 20px;
+        padding: 12px 55px;
+        background-color: #2a363f;
+    }
+
+    .info_owner .action button {
+        padding: 12px 55px;
+        width: auto;
+        height: 55px;
+        font-size: 20px;
+        float: right;
+        background-color: #f37636;
+        border: none;
+        border-radius: 4px;
+    }
+
+    .info_owner div.gender label {
+        position: relative;
+
+    }
+
+    .info_owner div.gender label span {
+        background-image: url('../img/radio_icon_default.png');
+        background-repeat: no-repeat;
+        padding: 3px 0px 3px 25px;
+        cursor: pointer;
+        background-position: 0px 0px;
+    }
+
+    .info_owner div.gender input[type=radio] {
+        position: absolute;
+        left: 0px;
+        clip: rect(0px, 0px, 0px, 0px);
+        width: 20px;
+        height: 20px;
+        bottom: 3px;
+    }
+
+    .info_owner div.gender input[type=radio]:checked + span {
+        background-image: url('../img/input_radio_tick_icon.png');
+        background-repeat: no-repeat;
+        padding: 3px 0px 3px 25px;
+        cursor: pointer;
+        background-position: 0px 0px;
+    }
+
+    /*css for step process cart*/
+    .process {
+        background-color: #0060af;
+    }
+
+    .process h3, .process p {
+        margin: 0px;
+    }
+
+    .process .step {
+        color: #fff;
+        text-align: center;
+    }
+
+    .processing {
+        background-color: #f37636;
+    }
+
+    .process h3 {
+        font-size: 45px;
+        font-weight: 500;
+        padding-top: 12px;
+    }
+
+    .process p {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-bottom: 15px;
+    }
+
+    /*=== Customer radio, checkbox ====*/
+
+    /*== customer checkbox ===*/
+
+    .add-domain-checkbox {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        position: relative;
+        /*top: 13.33333px;*/
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        transition: all 0.15s ease-out 0s;
+        background: #fff;
+        border: none;
+        color: #0060af;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.5rem;
+        outline: none;
+        position: relative;
+        z-index: 1000;
+        border: 1px solid #000;
+    }
+
+    .add-domain-checkbox:checked {
+        background: #fff;
+    }
+
+    .add-domain-checkbox:checked::before {
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        content: 'âœ”';
+        display: inline-block;
+        font-size: 20.66667px;
+        text-align: center;
+        line-height: 10px;
+    }
+
+    .add-domain-checkbox-1 {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        position: relative;
+        top: 13.33333px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        transition: all 0.15s ease-out 0s;
+        background: #fff;
+        border: none;
+        color: #0060af;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.5rem;
+        outline: none;
+        position: relative;
+        z-index: 1000;
+        border: 1px solid #000;
+    }
+
+    /*==domain-price===*/
+    .price-list {
+        padding-left: 0px;
+    }
+
+    .price-list table {
+        border-collapse: collapse;
+        width: 100%;
+        padding-left: 2%;
+    }
+
+    div.price-list .price-domain-vn {
+        padding-top: 70px;
+    }
+
+    div.price-domain-vn .table-bordered > thead:first-child > tr:first-child > th {
+        background-color: #bfe4f7;
+    }
+
+    div.price-list .table-bordered > thead > tr,
+    div.price-list .table-bordered > tbody > tr {
+        height: 70px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    div.price-list .table-bordered > tbody > tr {
+        background-color: #eee;
+    }
+
+    .price-list .btn-register {
+        background-color: #f37636;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        height: 40px;
+        border-radius: 0px;
+        width: 128px;
+    }
+
+    div.price-domain-internal .table-bordered > thead:first-child > tr:first-child > th {
+        background-color: #ffe3d5;
+        /*color: #fff;*/
+    }
+
+    .search-domain .price-domain-vn table > thead > tr {
+        border-top: 5px #bfe4f7 solid;
+    }
+
+    .search-domain .price-domain-internal table > thead > tr {
+        border-top: 5px #ffe3d5 solid;
+    }
+
+    .price-domain-internal table > thead > tr > th:nth-child(1) {
+        width: 30%;
+    }
+
+    .price-domain-vn table > thead > tr > th:nth-child(1) {
+        width: 30%;
+    }
+
+    .price-list .service-attached {
+        background-color: #0060af;
+        height: 40px;
+        margin-top: 90px;
+        margin-bottom: 15px;
+    }
+
+    .price-list .h4-other {
+        text-align: center;
+        color: #fff;
+        padding-top: 10px;
+    }
+
+    .price-list .btn-add-domain {
+        display: block;
+        padding: 15px 50px;
+        background-color: #f37636;
+        border-radius: 0px;
+        color: #fff;
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .price-list .input-add {
+        height: 56px;
+        margin-top: 5px;
+    }
+
+    .price-list .table-borered {
+    }
+
+    .price-list .table > thead:first-child > tr:first-child > th {
+        /*border: none;*/
+    }
+
+    div.other-domain-attached .table-bordered > thead:first-child > tr:first-child > th {
+        background-color: #888888;
+        color: #fff;
+    }
+
+    .domain-vn th:nth-child(2),
+    .domain-vn th:nth-child(3),
+    .domain-vn th:nth-child(4),
+    .domain-vn th:nth-child(5) {
+        background-color: #f1f1f1 !important;
+    }
+
+    .domain-international th:nth-child(2),
+    .domain-international th:nth-child(3),
+    .domain-international th:nth-child(4),
+    .domain-international th:nth-child(5) {
+        background-color: #f1f1f1 !important;
+    }
+
+    .add-domain-domain .add-on thead {
+        background-color: #0060af;
+        color: #fff;
+        text-align: center;
+    }
+
+    .add-domain-domain .add-on thead > tr {
+        height: 65px;
+    }
+
+    .add-domain-domain .add-on thead > tr > th {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    /*=== domain-transfer ====*/
+
+    .domain-transfer .btn-send-require {
+        background-color: #ea7836;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        height: 50px;
+        border-radius: 0px;
+        width: 165px;
+    }
+
+    .domain-transfer .table > thead:first-child > tr:first-child > th {
+        border: none;
+    }
+
+    .domain-transfer .table-bordered {
+        border: none;
+    }
+
+    .domain-transfer .send-require {
+        padding-top: 8%;
+        padding-bottom: 10%;
+    }
+
+    .domain-transfer .domain-vn-transfer thead {
+        background-color: #0060af;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr,
+    .domain-transfer .domain-inter-transfer thead > tr,
+    .domain-transfer .condition-vn thead > tr,
+    .domain-transfer .condition-inter thead > tr {
+        height: 65px;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr > th,
+    .domain-transfer .domain-inter-transfer thead > tr > th,
+    .domain-transfer .condition-vn thead > tr > th,
+    .domain-transfer .condition-inter thead > tr > th {
+        color: #fff;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .domain-transfer .domain-vn-transfer tbody,
+    .domain-transfer .domain-inter-transfer tbody,
+    .domain-transfer .condition-inter tbody,
+    .domain-transfer .condition-vn tbody {
+        background-color: #f1f1f1;
+    }
+
+    .domain-transfer .domain-vn-transfer .btn-check-transfer,
+    .domain-transfer .domain-inter-transfer .btn-check-transfer {
+        background-color: #ea7836;
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        height: 50px;
+        border-radius: 0px;
+        width: 125px;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr > th:nth-child(1),
+    .domain-transfer .domain-inter-transfer thead > tr > th:nth-child(1) {
+        width: 50%;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr > th:nth-child(3),
+    .domain-transfer .domain-inter-transfer thead > tr > th:nth-child(3) {
+        width: 20%;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr {
+        border-top: 5px #0060af solid;
+    }
+
+    .domain-transfer .domain-inter-transfer thead > tr {
+        border-top: 5px #2a363f solid;
+    }
+
+    .domain-transfer .domain-vn-transfer thead > tr > th:nth-child(2),
+    .domain-transfer .domain-vn-transfer thead > tr > th:nth-child(3),
+    .domain-transfer .domain-inter-transfer thead > tr > th:nth-child(2),
+    .domain-transfer .domain-inter-transfer thead > tr > th:nth-child(3) {
+        background-color: #bdbdbd;
+        color: #2a363f;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .domain-transfer .domain-vn-transfer tbody > tr > td:nth-child(1),
+    .domain-transfer .domain-inter-transfer tbody > tr > td:nth-child(1) {
+        text-align: left;
+        color: #2a363f;
+        font-weight: 500;
+    }
+
+    .domain-transfer .domain-inter-transfer thead {
+        background-color: #2a363f;
+    }
+
+    .domain-transfer .domain-inter-transfer .fee-transfer {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .domain-transfer h4.condition-transfer {
+        background-color: #0060af;
+        height: 50px;
+        text-align: center;
+        padding-top: 15px;
+        color: #fff;
+    }
+
+    .domain-transfer .condition-vn thead > tr {
+        background-color: #0060af;
+    }
+
+    .domain-transfer .condition-inter thead > tr {
+        background-color: #2a363f;
+    }
+
+    .domain-transfer .condition-vn tbody > tr,
+    .domain-transfer .condition-inter tbody > tr {
+        height: 100px;
+    }
+
+    .domain-transfer .condition-vn .table-bordered tbody > tr > td {
+        border: none;
+    }
+
+    .domain-transfer .condition-inter .table-bordered tbody > tr > td {
+        border: none;
+    }
+
+    .domain-transfer .condition-vn tbody > tr:nth-child(5),
+    .domain-transfer .condition-inter tbody > tr:nth-child(4) {
+        width: 230px;
+    }
+
+    .domain-transfer p.fee-transfer-vn {
+        color: #0060af;
+        font-weight: 500;
+        padding-top: 45px;
+    }
+
+    .domain-transfer p.fee-transfer-inter {
+        color: #2a363f;
+        font-weight: 500;
+        padding-top: 65px;
+    }
+
+    .domain-transfer .condition-vn tbody > tr > td > h2 {
+        color: #0060af;
+        padding-bottom: 25px;
+    }
+
+    .domain-transfer .condition-inter tbody > tr > td > h2 {
+        padding-bottom: 25px;
+    }
+
+    /*===== Payment-method =====*/
+
+    .cart .payment-method {
+        background-color: #fff;
+    }
+
+    .cart .payment-method .row p {
+        color: #0060af;
+    }
+
+    .cart .payment-method .payment-online {
+        padding-top: 7%;
+    }
+
+    .cart .payment-method .payment-online p {
+        padding: 12px 40px;
+        color: #fff;
+        background-color: #0060af;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        padding-top: 10px;
+        border-radius: 4px;
+    }
+
+    .cart .payment-method .payment-transfer p {
+        padding: 12px 40px;
+        color: #fff;
+        background-color: #0060af;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+        padding-top: 10px;
+        border-radius: 4px;
+    }
+
+    .cart .payment-method .payment-transfer {
+        margin-top: 7%;
+        margin-bottom: 20px;
+    }
+
+    .cart .bank-transfer tbody > tr > td {
+        border: none;
+        background-color: #f1f1f1;
+    }
+
+    .cart .select-bank tbody > tr > td {
+        border: none;
+    }
+
+    .cart .payment-method .select-bank {
+        margin-top: 5%;
+    }
+
+    .cart .bank-transfer td.account-name,
+    .cart .bank-transfer td.account-address,
+    .cart .bank-transfer td.account-tax {
+        font-weight: 500;
+        color: #0060af;
+        font-size: 16px;
+        text-align: right;
+    }
+
+    .payment-method .btn-back-input {
+        height: 50px;
+        width: 150px;
+        color: #fff;
+        background-color: #2a363f;
+        border-radius: 0px;
+    }
+
+    .payment-method .btn-add-domain {
+        height: 50px;
+        width: 150px;
+        color: #fff;
+        background-color: #f37636;
+        border-radius: 0px;
+    }
+
+    .cart .payment-method .btn-bank {
+        margin-top: 10%;
+    }
+
+    .search-domain .price-domain-internal table > thead > tr {
+        border: none;
+    }
+
+    .search-domain .price-domain-vn table > thead > tr {
+        border: none;
+    }
+
+    .payment-method div.banks label {
+        position: relative;
+    }
+
+    .payment-method div.banks label span {
+        background-image: url('../img/radio_icon_default.png');
+        background-repeat: no-repeat;
+        padding: 3px 0px 3px 25px;
+        cursor: pointer;
+        background-position: 0px 0px;
+    }
+
+    .payment-method div.banks input[type=radio] {
+        position: absolute;
+        left: 0px;
+        clip: rect(0px, 0px, 0px, 0px);
+        width: 20px;
+        height: 20px;
+        bottom: 3px;
+    }
+
+    .payment-method div.banks input[type=radio]:checked + span {
+        background-image: url('../img/input_radio_tick_icon.png');
+        background-repeat: no-repeat;
+        padding: 3px 0px 3px 25px;
+        cursor: pointer;
+        background-position: 0px 0px;
+    }
