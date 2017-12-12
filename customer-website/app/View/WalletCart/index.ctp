@@ -11,10 +11,19 @@
                                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 domain-domain">
                                             <p class="customer-code">
-                                                <?php echo $this->Html->image('icon-madonhang.png', array('class' => 'img'));?> Mã đơn hàng: <span><?php echo strtoupper($order_code); ?></span>
+                                                <?php echo $this->Html->image('icon-madonhang.png', array('class' => 'img'));?> Mã đơn hàng: <span>
+                                                    <?php
+                                                        if (strlen((string)$order_code) > 0) {
+                                                            echo strtoupper($order_code);
+                                                        }
+                                                        else {
+                                                            echo "Bạn chưa mua sản phẩm nào.";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </p>
                                             <?php
-                                            $opt_url =  Router::url(array('controller' => 'carts', 'action' => 'ajax_otp_change_year_money'));
+                                                $opt_url =  Router::url(array('controller' => 'carts', 'action' => 'ajax_otp_change_year_money'));
                                             ?>
                                             <!-- HERE IS THE SEARCH FILTER -->
                                             <script type="text/javascript">
