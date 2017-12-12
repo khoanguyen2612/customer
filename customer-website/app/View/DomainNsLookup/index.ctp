@@ -162,42 +162,7 @@
     </div>
 
 
-    <script type="text/javascript">
-        $('input[role="reg_from"], input[role="reg_to"], input[role="exp_to"], input[role="exp_from"]').datepicker({ dateFormat: 'dd-mm-yy' });
 
-        $('img[role="reg_from"]').on('click',function(){
-            $('input[role="reg_from"]').datepicker('show');
-        });
-
-        $('button[role=btn-seach]').on('click', function(event) {
-            $('#search').slideToggle();
-        });
-
-        $('img[role="reg_to"]').on('click',function(){
-            $('input[role="reg_to"]').datepicker('show');
-        });
-
-        $('img[role="reg_to"]').on('click',function(){
-            $('input[role="reg_to"]').datepicker('show');
-        });
-
-        $('img[role="exp_from"]').on('click',function(){
-            $('input[role="exp_from"]').datepicker('show');
-        });
-
-        $('img[role="exp_to"]').on('click',function(){
-            $('input[role="exp_to"]').datepicker('show');
-        });
-
-        $('#clear_reg').on('click',function(){
-            $('input[role="reg_from"],input[role="reg_to"]').val('');
-        });
-
-        $('#clear_exp').on('click',function(){
-            $('input[role="exp_to"],input[role="exp_from"]').val('');
-        });
-
-    </script>
 
     <style type="text/css">
         .content a{
