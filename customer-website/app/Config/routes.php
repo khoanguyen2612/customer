@@ -33,8 +33,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/orderhistory', array('controller' => 'OrderHistorys', 'action' => 'index'));
-      Router::connect('/cloudserver', array('controller' => 'ServiceManagements', 'action' => 'index'));
-
+	Router::connect('/cloudserver', array('controller' => 'ServiceManagements', 'action' => 'index'));
 
     /** config route for WalletController **/
     /*tue.phpmailer@gmail.com*/
@@ -52,7 +51,14 @@
 
     /** end config route for WalletController **/
 
-
+    /** config route for domain search from [fontend] website **/
+    /*tue.phpmailer@gmail.com*/
+    Router::connect('/domain/register', array('controller' => 'ProductPrices', 'action' => 'register_domain'));
+    Router::connect('/domain/search', array('controller' => 'ProductPrices', 'action' => 'result_search'));
+    Router::connect('/domain/transfer', array('controller' => 'ProductPrices', 'action' => 'domain_transfer'));
+    Router::connect('/domain/price', array('controller' => 'ProductPrices', 'action' => 'price'));
+    /** end config route for domain search from [fontend] website  **/
+    Router::parseExtensions('json', 'xml');
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

@@ -1,0 +1,392 @@
+/** cloud_server page **/
+.cloud_server {
+	background-color: #f3f3f3;
+}
+.cloud_head h3{
+	font-size: 24px;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 30px;
+	margin: 73px 0px 32px 0px;
+}
+.cloud_head p{
+	font-size: 18px;
+	margin-bottom: 52px;
+	line-height: 30px;
+}
+.choiced{
+	background-color: #29353f !important;
+	color: #fff !important;
+}
+#store_op,#os_op{
+	background-color: #fff;
+	margin: 0px;
+	border: solid 1px #2a363f;
+}
+#store_op img,#os_op img{
+	margin: 10px 0px;
+}
+#select_hdd,#select_os{
+	padding: 0px;
+}
+#select_hdd,#select_os{
+	border-left: solid 1px #2a363f;
+	color: #29353f;
+	font-size: 18px;
+	font-weight: 600;
+}
+#select_hdd span{
+	display: inline-block;
+	width: 20%;
+	float: left;
+	text-align: center;
+	padding: 20px 0px;
+	cursor: pointer;
+}
+#select_os a{
+	text-decoration: none !important;
+	color: #29353f;
+	display: inline-block;
+	width: 50%;
+	float: left;
+	text-align: center;
+	padding: 20px 0px;
+	cursor: pointer;
+} 
+
+.cloud_server .cloud_content{
+	padding:30px 0px 55px 0px;
+}
+.cloud_server .cloud_item{
+	text-align: center;
+	padding: 30px 0px;
+	border:solid 2px #ebebeb;
+	margin-top: 70px;
+	background-color: #fff;
+}
+.cloud_server .cloud_item h4{
+	margin-bottom: 40px;
+	font-size: 25px;
+	font-weight:800;
+}
+.cloud_item img{
+	width: 100%;
+}
+.cloud_item .cloud-config p{
+	font-size: 19px !important;
+}
+span#cloud_top{
+	display: block;
+	background: url('../img/flag_top_cloud.png') no-repeat top;
+	text-align: center;
+	color: #fff;
+	margin-top: -57px;
+	margin-bottom: 40px;
+	font-size: 19px;
+
+}
+.cloud_topsell .price,.cloud_topsell a{
+	background-color: #f37636 !important;
+}
+.cloud_topsell img{
+	margin-top: -3px;
+}
+.cloud_server .cloud_item .price{
+	height: 210px;
+	background-color: #0060af;
+	color: #fff;
+	padding:50px 0px;
+	font-size: 18px;
+	font-weight: 300;
+}
+.cloud_item .price h3{
+	font-size: 54px;
+}
+.cloud_item .price small{
+	font-size: 18px !important;
+	color: #fff;
+	font-weight: 300;
+	margin-left: 2px;
+}
+.cloud_item .cloud-config{
+	padding-top: 90px !important;
+}
+
+.addon_service{
+	background-color: #fff;
+}
+.addon_service h3{
+	background-color: #2a363f;
+	color: #fff;
+	padding: 20px 0px;
+	text-align: center;
+	margin-bottom: 60px;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.option p{
+	font-size: 18px;
+	padding: 5px 0px 12px 40px;
+	background: url('../img/add_service.png') no-repeat ;
+	margin:7px 24px 7px 24px;
+}
+.option span{
+	color: #f37636;
+	font-weight: 600;
+}
+
+.addon_service th{
+	font-size: 18px;
+	background-color: #888;
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+	padding: 23px 0px !important;
+	border-right: solid 1px #dcd9d9;
+	border-bottom:none !important;
+	border-top: 0 !important;
+}
+.addon_service td{
+	border-right: solid 1px #dcd9d9;
+	color: #f6a17f;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: center;
+	padding: 40px 5px 5px 5px !important;
+	border-bottom:none !important;
+	border-top: 0 !important;
+}
+.addon_service tr td:first-child{
+	color: #2a363f !important;
+	font-weight: 400;
+	width: 15%;
+}
+
+.addon_service div.table-responsive{
+	width: 96%;
+	margin: auto;
+}
+.addon_service table{
+	border: solid 1px #888;
+}
+
+/** setting_cloud_op **/
+.cloud_setting{
+	padding: 0px 0px 40px 0px;
+}
+.cloud_setting .os_panel{
+	width: 320px;
+	height: 45px;
+	border: solid 1px #29353f;
+	margin:20px auto 50px auto;
+}
+.cloud_setting .os_panel .list_os{
+	display: inline-block;
+	border-left: solid 1px #29353f;
+	height: 100%;
+	float: right;
+	width: 276px;
+}
+.cloud_setting .list_os a{
+	display: inline-block;
+	height: 100%;
+	width: 50%;
+	float: left;
+	padding-top: 8px;
+	color: #29353f;
+	font-weight: 600;
+	font-size: 18px;
+	text-align: center;
+	text-decoration: none !important;
+}
+.cloud_setting .os_panel img{
+	margin-top: 6px;
+	margin-left: 5px;
+	
+}
+.cloud_setting  .value{
+	width: 35%;
+	border-radius: 4px;
+	background-color: #29353f;
+	color: #fff;
+	border:0;
+	padding-left: 10%;
+	margin-right: 5px;
+}
+.cloud_setting .hdd_value{
+	width: 51%;
+	border-radius: 4px;
+	background-color: #29353f;
+	color: #fff;
+	border:0;
+	padding-left: 10%;
+	margin-right: 5px;
+}
+.cloud_setting .slider-handle{
+	border-radius: 3px !important;
+	width: 14px;
+	height: 30px;
+	top: -3px !important;
+	background-color: #fff !important;
+	border:solid 1px #0060af;
+	background-image: unset !important;
+}
+.cloud_setting .adj{
+	padding: 20px;
+}
+
+.cloud_setting .slider.slider-horizontal{
+	width: 100% !important;
+}
+
+.cloud_setting .slider.slider-horizontal .slider-track{
+	height: 14px !important;
+}
+.cloud_setting .slider-selection{
+	background-color: #0060af;
+	background-image: unset !important;
+}
+.cloud_setting li{
+	width: 50%;
+	float: left;
+	text-align: center;
+	padding: 2px 0px;
+	font-size: 18px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.cloud_setting h5:first-child{
+	background: url('../img/tuychinhcauhinh-setting.png') no-repeat left;
+	padding: 20px 0px 20px 35px;
+	margin: 0 !important;
+	font-size: 18px;
+	font-weight: 600;
+}
+.cloud_setting h5:nth-child(4){
+	background: url('../img/tuychinhcauhinh-storage.png') no-repeat left;
+	padding: 20px 0px 20px 35px;
+	font-size: 18px;
+	font-weight: 600;
+}
+span.store{
+	display: inline-block;
+	background-color: #f37636;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 3px;
+	padding: 2px 15px;
+}
+.cloud_setting  .add_act{
+	background-image: url('../img/addstore_icon.png');
+	background-repeat: no-repeat;
+	padding: 2px 8px 0px 22px;
+	background-color: #29353f;
+	color: #fff;
+	border:0;
+	border-radius: 2px;
+	margin-right: 7px;
+}
+#show_addonstore td{
+	padding:45px 0px;
+}
+#month td{
+	padding-bottom: 45px;
+}
+.cloud_setting span{
+	font-size: 18px;
+}
+.cloud_setting .perh{
+	margin-top: 15px;
+	font-size: 18px;
+	font-style: italic;
+}
+.cloud_setting h4{
+	background-color: #f3f3f3;
+	padding: 35px;
+	text-align: center;
+	margin:0;
+}
+.cloud_setting span.note{
+	font-style: italic;
+}
+.cloud_setting .price{
+	border: solid 1px #acacac;
+	padding: 20px 10px 30px 10px;
+}
+.cloud_setting .price + p{
+	font-size: 18px;
+	margin:26px 0;
+}
+.cloud_setting .price td,.cloud_setting .price th{
+	border: none !important;
+	text-align: left;
+	background-color: #fff !important;
+	padding-left: 0px !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+}
+.price td.total{
+	color: #f4824c;
+}
+a[role="del"]{
+	display: block;
+	margin-top: 2px;
+	width: 25px;
+	width: 46px;
+	padding: 2px 0px;
+}
+.price a{
+	display:block;
+	background-color: #f37636;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+	text-decoration: none !important;
+	margin: auto;
+	width: 270px;
+	padding: 7px 0px;
+}
+.price p{
+	font-size: 18px;
+	font-weight: 500;
+}
+.price span{
+	display: block;
+	margin-bottom: 35px;
+	color: #0060af;
+	margin-top: 4px;
+}
+.price td#buy_now{
+	padding: 42px 0px 10px 0px;
+}
+a#get_price{
+	font-size: 18px;
+	display: block;
+	width: 270px;
+	text-align: center;
+	margin:auto;
+	color: #fff;
+	background-color: #0060af;
+	padding: 7px 0px;
+	text-decoration: none !important;
+}
+#hdd_box{
+	display: none;
+}
+#list_store li{
+	border: solid 1px #29353f; 
+}
+.cloud_setting .wan_ip{
+	color: #266eb5;
+}
+#ssd_append{
+	display: none;
+}
+
+div[display="0"]{
+	display: none;
+}
+div[display="1"]{
+	display: block;
+}

@@ -1,0 +1,243 @@
+/*home mid_slide*/
+@media screen and (min-width: 1400px) {
+	.mid_slide li a{
+		font-size: 35px;
+	}
+	.mid_slide #link_navi{
+		padding: 100px 0 0 50px;
+	}
+}
+@media (min-width: 980px) and (max-width: 1399px ){
+	.mid_slide .container-fluid{
+		height: 400px !important;
+	}
+	.mid_slide li a{
+		font-size: 20px;
+	}
+	.mid_slide li img{
+		width: 30px !important;
+	}
+	.mid_slide .container-fluid{
+		height: 400px;
+	}
+	.mid_slide #link_navi{
+		padding: 100px 0 0 40px;
+	}
+	.mid_slide .container-fluid{
+		height: 400px!important;
+	}
+}
+@media screen and (max-width: 979px) {
+	.mid_slide li a{
+		display: inline-block;
+		width: 40%;
+	}
+	.mid_slide li img{
+		vertical-align: baseline;
+		width: 40px !important;
+	}
+	.mid_slide #link_navi{
+		padding-top:35px;
+	}
+	.mid_slide .container-fluid{
+		height: 300px !important;
+	}
+}
+/***/
+
+@media screen and (max-width: 768px){
+	div.tfoot > div > div > div{
+		text-align: left;	
+	}
+	div.tfoot h3, div.tfoot strong{
+		padding-right: 	20%;
+	}
+	div.tfoot strong{
+		font-size: 24px !important;
+	}
+	#address{
+		text-align:center;
+	}
+	div.tfoot form{
+
+		margin-left: 30px !important;
+	}
+	div.ques_block h3{
+		text-align: center;
+	}
+	div.contac_info p{
+		font-size: 14px !important;
+	}
+	div.contac_info h3{
+		font-size: 28px !important;
+		font-weight: bold;
+	}
+}
+
+@media screen and (max-width: 535px) {
+	/*fix css news home page*/
+	.news_area li{
+		padding: 10px 0px !important;
+	}
+	#post_news h4, #post_noti h4{
+		padding: 20px 0px !important;
+	}
+	div.img-avatar{
+		margin-top: -25%;
+	}
+}
+
+@media screen and (max-width: 1570px) {
+	div.img-avatar{
+		margin-top: 50%;
+	}
+}
+
+
+@media (max-width: 1300px) {
+	div.cart div.info input.form-control{
+		width: 70%;
+	}
+}
+
+
+@media (max-width: 735px)
+{
+	span.input-group-btn{
+		display: block !important;
+	}
+}
+
+
+@media screen (max-width: 735px) {
+	.search-add .btn-all{
+		margin-bottom: 5px;
+	}
+}
+
+@media (max-width: 500px;) {
+	.btn-add-continue, .btn-all{
+		margin-left: -15px;
+	}
+}
+
+
+@media screen and (max-width: 520px) {
+	.content div.tab-content{
+		padding: 5px !important;
+	}
+}
+
+@media screen and (max-height: 570px) {
+	.process .step{
+		height: 120px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.get_account_info button{
+		float: left;
+	}
+	.info_owner .action button,.info_owner .action a{
+		display: block;
+		float: none !important;
+		margin: auto;
+		width: 40%;
+		margin-bottom: 20px;
+		padding: 10px;
+	}
+}
+
+/*fix bottom_online */
+@media(min-width: 880px) and (max-width: 1500px ) {
+	.online_sp{
+		height: 50px !important;
+	}
+	.online_sp img{
+		height: 50px !important;
+		width: 50px !important;
+	}
+	.online_sp span,.online_sp strong,.online_sp p{
+		font-size: 16px !important;
+	}
+	#hotline,#tech_ol,#tv_ol{
+		padding: 2px !important;
+	}
+}
+@media (min-width: 500px) and (max-width: 879px ){
+	.online_sp{
+		height: 60px !important;
+	}
+	.online_sp strong.phone,#tv_ol strong{
+		display: block;
+		margin-left: 40px;
+	}
+	.online_sp img{
+		height: 30px !important;
+		width: 30px !important;
+	}
+	.online_sp span,.online_sp strong,.online_sp p{
+		font-size: 15px !important;
+	}
+	#hotline,#tech_ol,#tv_ol{
+		padding: 2px !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.online_sp{
+		height: 80px !important;
+	}
+	.online_sp strong.phone,#tv_ol strong{
+		display: block;
+		margin-left: 40px;
+	}
+	.online_sp img{
+		height: 30px !important;
+		width: 30px !important;
+		margin: 0 !important;
+	}
+	.online_sp span,.online_sp strong,.online_sp p{
+		font-size: 12px !important;
+	}
+	#hotline,#tech_ol,#tv_ol{
+		padding: 2px !important;
+	}
+}
+@media screen and (max-width: 768px) {
+	.l_banner .l_title{
+		bottom: 80px !important;
+	}
+	.l_banner .l_title h1{
+		font-size: 36px !important;
+		margin-bottom: 5px !important;
+	}
+}
+@media screen and (max-width: 480px) {
+	.l_banner .l_title h1{
+		font-size: 30px !important;
+		margin-bottom: 5px;
+	}
+}
+
+ @media only screen and (max-width : 1200px) {
+	.tech_sp{
+		margin-top: 100px !important;
+	}
+	footer{
+		background-size: cover !important;
+	}
+ }
+
+ @media only screen and (max-width : 992px) {
+	.messa_sp{
+		margin-top: 115px !important;
+	}
+
+  }
+
+  @media screen and (max-width: 768px) {
+  	.logo_div ul li{
+  		width: 100% !important;
+  	}
+  }

@@ -61,7 +61,9 @@
         {
 
             $is_lg = $this->is_login();
-            $domain = "codelovers.vn";
+            $res = $this->request->data;
+
+            $domain = isset($res['domain']) ? $res['domain'] : 'codelovers.vn';
             //lookup
             $lookup = $this->lookup_inet( array("domain"=> $domain, "type"=>  "lookup"));
             $lookup = ($lookup['status'] == 'SUCCESS') ? $lookup['data'] : $lookup['error'] ;
@@ -76,7 +78,8 @@
             $cname = ($cname['status'] == 'SUCCESS') ? $cname['data'] : $cname['error'] ;
             //mx infor
             $mx = $this->lookup_inet( array("domain"=> $domain, "type"=>  "mx"));
-            $mx = ($mx['status'] == 'SUCCESS') ? $mx['data'] : $mx['error'] ;
+            $mx = ($mx['status'] == 'SUCCESS') ? $mx['data'] : ($mx['status'] == 'FAILURE')? $mx['error'] : $mx['status'] ;
+
             //ns infor
             $ns = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ns"));
             $ns = ($ns['status'] == 'SUCCESS') ? $ns['data'] : $ns['error'] ;

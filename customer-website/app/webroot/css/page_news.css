@@ -1,0 +1,255 @@
+/*css notificion maintain server*/
+@font-face {
+	font-family: myriadPro;
+	src: url('../fonts/MYRIADPRO-REGULAR.OTF');
+}
+.maintain_noti{
+	position: relative;
+	padding-bottom: 180px;
+}
+.maintain_noti > img,.menu_news > img{
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);*/
+}
+.maintain_noti > div,.menu_news >div{
+	position: relative;
+	z-index: 2;
+}
+.maintain_noti h3{
+	color: #fff;
+	font-size: 30px;
+	margin:100px 0px 30px 0px;
+	font-weight: 700;
+}
+.maintain_noti .notice{
+	background-color: #fff;
+	padding-left: 8%;
+	padding-right: 5%;
+	font-family: myriadPro;
+	opacity: 0.9;
+
+}
+.maintain_noti h5{
+	background-color: #f48349;
+	text-align: center;
+	padding: 20px 0px;
+	margin:0px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+	font-weight: 600;
+}
+.notice p{
+	line-height: 38px;
+	font-size: 17px;
+
+}
+.notice a{
+	display: inline-block;
+	background-color: #3b5998;
+	color: #fff;
+	font-size: 16px;
+	padding: 3px 10px;
+	margin: 20px 0px;
+	border-radius: 2px;
+	text-decoration: none !important;
+}
+.notice .blue{
+	color: #266eb5;
+}
+.notice .line_sp{
+	color: #ff2a00;
+}
+.notice a i{
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	background: url('../img/fa-icon.png') no-repeat center;
+	vertical-align: middle;
+}
+.notice a span{
+	margin-right: 8px;
+}
+/********/
+.menu_news {
+	position: relative;
+}
+.menu_news .container{
+
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+.menu_news .tab-content{
+	padding: 10px 5% 40px 5%;
+	background-color: #fff;
+	border-top: solid 18px #fafafa;
+	border-bottom: solid 18px #fafafa;
+}
+.menu_news li[role="presentation"]{
+	width: 25%;
+	background-color: #ededee;
+}
+.menu_news li[role="presentation"].active a{
+	background-color: #ef7f46;
+	color: #fff;
+}
+.menu_news li[role="presentation"] a{
+	text-align: center;
+	font-size: 24px;
+	color: #29353f;
+	margin: 0;
+	border-radius: 0;
+}
+.menu_news a{
+	text-decoration: none;
+}
+.menu_news #topnews{
+	background-color: #d3d4d9;
+	margin-bottom: 30px;
+}
+.css ul{
+	display: table;
+	margin: auto;
+}
+.css ul li a{
+	width: 20px !important;
+	height: 20px;
+	border:solid 1px #2a363f;
+	padding: 0;
+	text-align: center;
+	margin: 0px 10px;
+	color: #2a363f;
+}
+.css a.glyphicon{
+	font-size: 19px;
+	float: left;
+	color: #2a363f;
+	text-decoration: none;
+}
+.menu_news .css p{
+	font-family: myriadPro;
+	font-size: 16px;
+}
+.css #topnews h3{
+	color: #0060af;
+	font-weight: 700;
+	margin-left: -5px;
+}
+.css .tab-content img{
+	height: 100%;
+}
+.css .img_news{
+	padding-left: 0px;
+}
+#listnews  .new_item {
+	margin-bottom: 30px;
+}
+#listnews .new_item h5{
+	font-size: 18px;
+	font-weight: 600;
+	margin:5px 0px 40px 0px;
+	color: #2a363f;
+}
+
+/**css for mana_service_page **/
+.mana_service {
+	background-color: #2a363f;
+}
+.mana_service h3{
+	margin-top: 60px;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 35px;
+	font-weight: 400;
+	text-align: center;
+}
+.mana_head > p{
+	margin-bottom: 80px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+}
+.mana_item {
+	position: relative;
+	padding-top: 12px;
+	background-color: #fff;
+	margin-bottom: 34px;
+	height: 330px;
+}
+.mana_item h4{
+	font-size: 24px;
+	color: #fff;
+	padding: 5px;
+	background-color: #0060af;
+	text-align: center;
+	width: 70%;
+	margin:auto;
+	border-radius: 5px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+}
+.mana_item p{
+	padding: 0px 30px;
+}
+
+.mana_item a{
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;	
+	display: inline-block;
+	text-align: center;
+	background-color: #f37636;
+	color: #fff;
+	text-decoration: none;
+	padding: 13px;
+}
+.mana_banner{
+	position: relative;
+}
+.mana_banner img{
+	height: 100%;
+
+}
+.mana_banner h1{
+	font-size: 58px;
+	text-transform: uppercase;
+	bottom: 30px;
+	right: 5%;
+	color: #fff;
+	position: absolute;
+}
+
+.mana_service a.click_here{
+	position: static !important;
+	background-color: inherit;
+	color: #f37636;
+	margin-top: 15px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+}
+.mana_service .price_service span{
+	display: block;
+}
+.mana_service .price_service{
+	margin-top: 50px;
+	line-height: 23px;
+	color: #0060af;
+
+}
+.mana_service .service3{
+	text-align: center;
+	height: 570px !important;
+}
+.mana_service .service3 .ct{
+	line-height: 37px;
+	margin-top: -15px;
+}
