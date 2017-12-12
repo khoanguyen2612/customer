@@ -47,6 +47,7 @@
     // add route Domain looking
     Router::connect('/domainslookup', array('controller' => 'DomainNsLookup', 'action' => 'index', 'view'));
     Router::connect('/domainslookup/', array('controller' => 'DomainNsLookup', 'action' => 'index', 'view'));
+    Router::connect('/domains', array('controller' => 'DomainsManager', 'action' => 'index'));
     // add route Wallet Cart
 
     /** end config route for WalletController **/

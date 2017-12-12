@@ -33,7 +33,7 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class AppController extends Controller
 {
-    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email');
+    var $components = array('Session', 'Cookie', 'Paginator', 'Auth', 'Email','RequestHandler');
     public $helpers = array('Session', 'Html', 'Form');
     var $uses = array('Account', 'Cart');
 

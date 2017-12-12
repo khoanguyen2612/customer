@@ -30,14 +30,14 @@ class DomainsManagerController extends AppController{
 			$data = $this->Paginator->Paginate('Domain');
 			$this->set('title_for_layout','Quản lý Tên Miền');
 			$this->view = 'index';
-			$this->retrive_date($options);
+			$this->retrive_data($options);
 		}
 		if($this->request->is('post')){
 			$this->layout = 'ajax_domains';
 			if(isset($this->data['limit'])){
 				$this->Session->write('limit',$this->data['limit']);
 				$options['limit'] = $this->data['limit'];
-				$this->retrive_date($options);			
+				$this->retrive_data($options);			
 			}else
 			if(isset($this->data['action']) && $this->data['action'] == 'search'){
 				
@@ -67,7 +67,7 @@ class DomainsManagerController extends AppController{
 				//echo $order_by;die;
 				$options['order'] = array($this->data['field'] => $order_by);
 				$this->view = 'sort_data';
-				$this->retrive_date($options);
+				$this->retrive_data($options);
 			}
 
 		}
@@ -75,7 +75,7 @@ class DomainsManagerController extends AppController{
 
 	}
 
-	public function retrive_date($options){
+	private function retrive_data($options){
 		$this->Paginator->settings = $options;
 		$data = $this->Paginator->Paginate('Domain');
 		$this->set('title_for_layout','Quản lý Tên Miền');
@@ -84,7 +84,7 @@ class DomainsManagerController extends AppController{
 	}
 
 	public function whois_domain(){
-        	if($this->request->is('post')){
+        	if($this->RequestHandler->isAjax()){
         		$this->layout = 'ajax';
         		// pr($this->request->data);die;
         		$domain_name=$this->request->data['domain_name'];

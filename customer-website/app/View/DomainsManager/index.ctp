@@ -295,7 +295,7 @@
 					},
 				})
 				.done(function(result) {
-					console.log(result);
+					//console.log(result);
 					$('#demo').html(result);
 				});
 			}	
