@@ -32,8 +32,8 @@
  * ...and connect the rest of 'Pages' controller's URLs.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
-	Router::connect('/OrderHistory', array('controller' => 'OrderHistorys', 'action' => 'index'));
-      Router::connect('/ServiceManagement', array('controller' => 'ServiceManagements', 'action' => 'index'));
+	Router::connect('/orderhistory', array('controller' => 'OrderHistorys', 'action' => 'index'));
+      Router::connect('/cloudserver', array('controller' => 'ServiceManagements', 'action' => 'index'));
 
 
     /** config route for WalletController **/
