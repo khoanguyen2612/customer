@@ -25,181 +25,184 @@
         }
     </script>
 
-    <div class="search-domain">
-        <div class="container-fluid">
-            <h3 class="text-center">BẢNG GIÁ TÊN MIỀN</h3>
-            <ul class="nav nav-tabs container">
-                <li>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'register_domain'), true); ?>">
-                        Đăng ký tên miền
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'domain_transfer'), true); ?>">Chuyển
-                        đổi nhà cung cấp</a>
-                </li>
-                <li>
-                    <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'result_search'), true); ?>">
-                        Kiểm tra tên miền
-                    </a>
-                </li>
-                <li class="active"><a href="">Bảng giá tên miền</a></li>
-            </ul>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-list">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <p class="p-add"> Đăng kí tên miền để bảo vệ thương hiệu của bạn</p>
-                    </div>
-                    <div>
-                        <form action='/domain/register' method='post'>
-                            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-                                <input type="text" id="input" name="add_doamin" class="form-control input-add"
-                                       placeholder="Nhập tên miền muốn đăng kí..." onKeyUp="a()">
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                                <button type="submit" class="btn btn-add-domain">Kiểm tra</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-domain-vn">
-                        <div class="table-responsive price-list-domain">
-                            <table class="table table-bordered domain-vn">
-                                <thead>
-                                <tr>
-                                    <th> Tên miền Việt Nam</th>
-                                    <th> Phí đăng kí năm đầu</th>
-                                    <th> Phí gia hạn</th>
-                                    <th> Phí chuyển tên miền</th>
-                                    <th> Đăng ký</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+    <div class="user_pay">
+        <div class="search-domain">
+            <div class="container-fluid">
+                <h3 class="text-center">BẢNG GIÁ TÊN MIỀN</h3>
+                <ul class="nav nav-tabs container">
+                    <li>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'register_domain'), true); ?>">
+                            Đăng ký tên miền
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'domain_transfer'), true); ?>">Chuyển
+                            đổi nhà cung cấp</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'result_search'), true); ?>">
+                            Kiểm tra tên miền
+                        </a>
+                    </li>
+                    <li class="active"><a href="">Bảng giá tên miền</a></li>
+                </ul>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-list">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p class="p-add"> Đăng kí tên miền để bảo vệ thương hiệu của bạn</p>
+                        </div>
+                        <div>
+                            <form action='/domain/register' method='post'>
+                                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                                    <input type="text" id="input" name="add_doamin" class="form-control input-add"
+                                           placeholder="Nhập tên miền muốn đăng kí..." onKeyUp="a()">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                    <button type="submit" class="btn btn-add-domain">Kiểm tra</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-domain-vn">
+                            <div class="table-responsive price-list-domain">
+                                <table class="table table-bordered domain-vn">
+                                    <thead>
+                                    <tr>
+                                        <th> Tên miền Việt Nam</th>
+                                        <th> Phí đăng kí năm đầu</th>
+                                        <th> Phí gia hạn</th>
+                                        <th> Phí chuyển tên miền</th>
+                                        <th> Đăng ký</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <?php
+                                    <?php
                                 foreach ($data as $item) {
                                     if ($item['ProductPrice']['domain_type'] == 1) {
                                         ?>
-                                <tr>
-                                    <td><?php echo '' . $item['ProductPrice']['product_name']; ?> </td>
-                                    <td><?php if ($item['ProductPrice']['price_start'] == 0) {
+                                    <tr>
+                                        <td><?php echo '' . $item['ProductPrice']['product_name']; ?> </td>
+                                        <td><?php if ($item['ProductPrice']['price_start'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price_start'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td><?php if ($item['ProductPrice']['price'] == 0) {
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price_start'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td><?php if ($item['ProductPrice']['price'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td><?php if ($item['ProductPrice']['price_transfer'] == 0) {
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td><?php if ($item['ProductPrice']['price_transfer'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price_transfer'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-register"> Đăng kí</button>
-                                    </td>
-                                </tr>
-                                <?php
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price_transfer'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-register"> Đăng kí</button>
+                                        </td>
+                                    </tr>
+                                    <?php
                                     }
                                 }
                                 ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-domain-internal">
-                        <div class="table-responsive price-list-domain">
-                            <table class="table table-bordered domain-international">
-                                <thead>
-                                <tr>
-                                    <th> Tên miền quốc tế</th>
-                                    <th> Phí đăng kí năm đầu</th>
-                                    <th> Phí gia hạn</th>
-                                    <th> Phí chuyển tên miền</th>
-                                    <th> Đăng ký</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 price-domain-internal">
+                            <div class="table-responsive price-list-domain">
+                                <table class="table table-bordered domain-international">
+                                    <thead>
+                                    <tr>
+                                        <th> Tên miền quốc tế</th>
+                                        <th> Phí đăng kí năm đầu</th>
+                                        <th> Phí gia hạn</th>
+                                        <th> Phí chuyển tên miền</th>
+                                        <th> Đăng ký</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
                                 foreach ($data as $item) {
                                     if ($item['ProductPrice']['domain_type'] == 0) {
                                         ?>
-                                <tr>
-                                    <td><?php echo '' . $item['ProductPrice']['product_name']; ?> </td>
-                                    <td><?php if ($item['ProductPrice']['price_start'] == 0) {
+                                    <tr>
+                                        <td><?php echo '' . $item['ProductPrice']['product_name']; ?> </td>
+                                        <td><?php if ($item['ProductPrice']['price_start'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price_start'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td><?php if ($item['ProductPrice']['price'] == 0) {
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price_start'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td><?php if ($item['ProductPrice']['price'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td><?php if ($item['ProductPrice']['price_transfer'] == 0) {
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td><?php if ($item['ProductPrice']['price_transfer'] == 0) {
                                                     echo $this->Html->image('icon-free.png');
-                                        } else {
-                                        echo number_format($item['ProductPrice']['price_transfer'], 0, ',', '.') . ' VNĐ';
-                                        } ?>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-register"> Đăng kí</button>
-                                    </td>
-                                </tr>
-                                <?php
+                                            } else {
+                                            echo number_format($item['ProductPrice']['price_transfer'], 0, ',', '.') . ' VNĐ';
+                                            } ?>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-register"> Đăng kí</button>
+                                        </td>
+                                    </tr>
+                                    <?php
                                     }
                                 }
                                 ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 other-domain-attached">
-                        <div class="service-attached">
-                            <h4 class="h4-other">Các dịch vụ đi kèm khi mua tên miền</h4>
-                        </div>
-                        <div class="table-responsive other-domain">
-                            <table class="table table-bordered other-domain-service">
-                                <thead>
-                                <tr>
-                                    <th> Tên dịch vụ đi kèm</th>
-                                    <th> Giá dịch vụ</th>
-                                    <th> Chú thích về dịch vụ</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td> Khóa domain</td>
-                                    <td><?php echo $this->Html->image('icon-free.png'); ?></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td> Cài đặt DNS cho tên miền</td>
-                                    <td><?php echo $this->Html->image('icon-free.png'); ?></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td> Cập nhật Name Server</td>
-                                    <td><?php echo $this->Html->image('icon-free.png'); ?></td>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 other-domain-attached">
+                            <div class="service-attached">
+                                <h4 class="h4-other">Các dịch vụ đi kèm khi mua tên miền</h4>
+                            </div>
+                            <div class="table-responsive other-domain">
+                                <table class="table table-bordered other-domain-service">
+                                    <thead>
+                                    <tr>
+                                        <th> Tên dịch vụ đi kèm</th>
+                                        <th> Giá dịch vụ</th>
+                                        <th> Chú thích về dịch vụ</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> Khóa domain</td>
+                                        <td><?php echo $this->Html->image('icon-free.png'); ?></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Cài đặt DNS cho tên miền</td>
+                                        <td><?php echo $this->Html->image('icon-free.png'); ?></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td> Cập nhật Name Server</td>
+                                        <td><?php echo $this->Html->image('icon-free.png'); ?></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <style type="text/css">
         .search-domain .price-domain-vn table > thead > tr {
@@ -220,3 +223,205 @@
             })
         });
     </script>
+
+
+    <style type="text/css">
+        .user_pay {
+            background-color: #f3f3f3;
+        }
+        .user_pay .row {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 60px;
+            background-color: #fff;
+            /*add style tuent */
+            margin-right: 0px;
+            margin-left: 0px;
+
+        }
+        .star {
+            background: url(<?= $this->Html->url('/img/star_img.png')?>) no-repeat top;
+            display: inline-block;
+            width: 27px;
+            height: 27px;
+            margin-bottom: -6px;
+            margin-right: 8px;
+        }
+        .user_pay h4 {
+            margin-top: 30px;
+            color: #f37636;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .user_pay p.title {
+            margin-top: 20px;
+            padding-left: 35px;
+            font-size: 18px;
+            color: #0060af;
+        }
+    </style>
+
+    <style type="text/css">
+        /*fix style tuent*/
+        .user_pay .container {
+            background-color: #fff;
+            margin-top: -4px;
+        }
+        /* ---- add-domain--- */
+        .search-add .p-add{
+            font-size: 15px;
+            font-weight: 500;
+            padding-top: 48px;
+            padding-left: 0;
+            padding-bottom: 20px;
+        }
+        .search-add .input-add{
+            padding-left: 0px;
+            height: 50px;
+            margin-top: 5px;
+            /*fix style tuent*/
+            border-radius: 0px;
+        }
+
+        /*fix style tuent*/
+        .price-list .input-add {
+            border-radius: 0px;
+        }
+
+        .search-add .btn-add-domain{
+            background-color: #ea7836;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+            margin-top: 5px;
+        }
+        .search-add{
+            padding-left: 0px;
+        }
+        .search-add table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .search-add .btn-primary, .search-add .btn-success{
+            border-radius: 0px;
+            width: 120px;
+        }
+        div.search-domain > div.container > div > form > div > div:nth-child(4) > table > thead > tr > th{
+            height: 65px;
+        }
+        div.search-domain > div.container > div > form > div > div.add-domain-domain > div.table-responsive.add-on > table > thead > tr > th:nth-child(1){
+            width: 6%;
+        }
+        div.search-domain > div.container > div > form > div > div.add-domain-domain > div.table-responsive.add-on > table > tbody > tr{
+            background-color: #eee;
+        }
+        .fa-times{
+            color: red;
+        }
+        .search-add .btn-danger{
+            width: 100px;
+            background-color: #f35136;
+        }
+        .add-domain-domain > .table > tbody{
+            background-color: #eee;
+        }
+        .search-add .p-name, .p-money, .img-fee{
+            text-align: center;
+            font-weight: 500;
+        }
+        .search-add .p-money, .img-fee{
+            color: #0060af;
+        }
+        .search-add .btn-all{
+            background-color: #0060af;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+            margin-bottom: 5px;
+        }
+        .search-add .btn-add-continue{
+            background-color: #ea7836;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+        }
+        .total-money .btn-buy:hover{
+            color: #fff;
+        }
+        .total-money .btn-buy a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .add-continue{
+            padding-right: 0px;
+        }
+        .explain{
+            padding-top: 90px;
+        }
+        .explain .p-explain{
+            font-size: 16px;
+            font-weight: 500;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-8.col-lg-8.explain > table > tbody > tr{
+            height: 68px;
+            background-color: #eee;
+            text-align: center;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-12.col-lg-12.add-domain-domain > div.table-responsive.result > table > tbody > tr{
+            background-color: #eee;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-8.col-lg-8.explain > table > tbody > tr > td > p{
+            text-align: center;
+            font-weight: 300;
+        }
+        button.remove-item{
+            background-image: url(<?= $this->Html->url('/img/icon-trash.png')?>);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            height: 25px;
+            width: 20px;
+            border: none;
+            background-color: #fff;
+        }
+        .modal-dialog {
+            padding-top: 10%;
+            padding-left: 7%;
+        }
+        .modal-content {
+            border-radius: 0;
+            padding-left: 1%;
+            text-align: center;
+            height: 250px;
+            padding-top: 35px;
+            width: 400px;
+        }
+        div.modal-content > div.modal-body > .btn{
+            margin-top: 50px;
+        }
+        .modal-body .btn-danger{
+            border-radius: 0;
+            margin-left: 10%;
+        }
+
+    </style>

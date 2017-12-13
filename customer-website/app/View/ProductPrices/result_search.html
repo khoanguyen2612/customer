@@ -1,0 +1,825 @@
+    <script type="application/javascript" language="javascript">
+        var mikExp = /[$\\@\\\#%\^\&\*\(\)\[\]\+\_\{\}\`\~\=\|\!\-]/;
+
+        function dodacheck(val) {
+            var strPass = val.value;
+            var strLength = strPass.length;
+            var lchar = val.value.charAt((strLength) - 1);
+            if (lchar.search(mikExp) != -1) {
+                var tst = val.value.substring(0, (strLength) - 1);
+                val.value = tst;
+            }
+        }
+    </script>
+
+   <!-- /*add style tuent */-->
+    <div class="user_pay">
+        <div class="search-domain">
+            <div class="container-fluid">
+                <h3 class="text-center">KIỂM TRA TÊN MIỀN</h3>
+                <ul class="nav nav-tabs container">
+                    <li>
+                        <a href="<?php echo $this->Html->url(array('controller'=>'ProductPrices','action'=>'register_domain'),true);?>">Đăng
+                            ký tên miền</a></li>
+                    <li><a href="">Chuyển đổi nhà cung cấp</a></li>
+                    <li class="active"><a
+                            href="<?php echo $this->Html->url(array('controller'=>'ProductPrices','action'=>'result_search'),true);?>">Kiểm
+                        tra tên miền</a></li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'price'), true); ?>">Bảng
+                            giá tên miền</a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="container">
+                    <div style="margin-top: -30px;">
+                        <div id="check">
+                            <div class="row">
+                                <?php echo $this->Session->flash(); ?>
+                                <form action="" method="POST" name="checkavailble">
+                                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                        <p><span>1</span>Nhập các tên miền cần kiểm tra</p>
+                                        <textarea rows="4" cols="50" required name="dm_input" maxlength="200"
+                                                  onKeyUp="javascript:dodacheck(this);" style="padding: 10px;"
+                                                  oninvalid="this.setCustomValidity('Bạn chưa nhập tên miền kiểm tra')"
+                                                  oninput="setCustomValidity('')"></textarea>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                        <p><span>2</span>Chọn ít nhất 01 loại tên miền</p>
+                                        <ul class="nav nav-tabs" role="tablist" id="select_type">
+                                            <li role="presentation" class="active">
+                                                <a href="#common" aria-controls="common" role="tab" data-toggle="tab">
+                                                    <input type="radio" role="tab-controll" name="tab" checked>
+                                                    <label><span></span>Phổ biến</label>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#qt" aria-controls="qt" role="tab" data-toggle="tab">
+                                                    <input type="radio" role="tab-controll" name="tab">
+                                                    <label><span></span>Quốc tế</label>
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="#vn" aria-controls="vn" role="tab" data-toggle="tab">
+                                                    <input type="radio" role="tab-controll" name="tab">
+                                                    <label><span></span>Việt Nam</label>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="common" class="tab-pane fade in active">
+                                                <ul class="list-inline domain_name">
+                                                    <?php $s_id=0; ?>
+                                                    <?php foreach ($data_dm as $key => $row): ?>
+                                                    <?php if($row['ProductPrice']['domain_common'] == 1): ?>
+                                                    <li>
+                                                        <input type="checkbox" id="check_<?php echo $s_id; ?>" name="suffix_key[]"
+                                                               value="<?php echo $key  ?>">
+                                                        <label for="check_<?php echo $s_id;$s_id++; ?>">
+                                                            <span></span><?php echo $row['ProductPrice']['product_name'] ?>
+                                                        </label>
+                                                    </li>
+                                                    <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                            <div id="qt" class="tab-pane fade">
+                                                <ul class="list-inline domain_name">
+                                                    <?php foreach ($data_dm as $key => $row): ?>
+                                                    <?php if($row['ProductPrice']['domain_type'] == 0): ?>
+                                                    <li>
+                                                        <input type="checkbox" id="check_<?php echo $s_id; ?>" name="suffix_key[]"
+                                                               value="<?php echo $key ?>">
+                                                        <label for="check_<?php echo $s_id;$s_id++; ?>">
+                                                            <span></span><?php echo $row['ProductPrice']['product_name'] ?>
+                                                        </label>
+                                                    </li>
+                                                    <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                            <div id="vn" class="tab-pane fade">
+                                                <ul class="list-inline domain_name">
+                                                    <?php foreach ($data_dm as $key => $row): ?>
+                                                    <?php if($row['ProductPrice']['domain_type'] == 1): ?>
+                                                    <li>
+                                                        <input id="check_<?php echo $s_id; ?>" type="checkbox" name="suffix_key[]"
+                                                               value="<?php echo $key ?>">
+                                                        <label for="check_<?php echo $s_id;$s_id++; ?>">
+                                                            <span></span><?php echo $row['ProductPrice']['product_name'] ?>
+                                                        </label></li>
+                                                    <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                        <p><span>3</span>Click để kiểm tra</p>
+                                        <button type="submit" class="btn btn-success">Kiểm tra</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <hr>
+                            <?php if(isset($result)): ?>
+                            <div class="row">
+                                <div class="col-lg-12 add-domain-domain">
+                                    <p><span>4</span>Kết quả kiểm tra tên miền</p>
+                                    <div class="table-responsive result add-on">
+                                        <table class="table table-hover table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th class="dm_head_result"></th>
+                                                <th class="dm_head_result">Tên miền</th>
+                                                <th class="dm_head_result">Phí duy trì</th>
+                                                <th class="dm_head_result">Phí đăng kí</th>
+                                                <th class="dm_head_result">Thông tin Whois</th>
+                                                <th>Thêm vào giỏ hàng</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php foreach($result as $row): ?>
+
+                                            <?php if ($row['status'] == 'available'): ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo "<img src='../app/webroot/img/icon-check.png'>"; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['name']; ?>
+                                                </td>
+                                                <td class="mn_count">
+                                                    <?php echo number_format($row['ProductPrice']['price'], 0, ',', '.'); ?> VND
+                                                </td>
+                                                <td class="mn_count">
+                                                    <?php echo number_format($row['ProductPrice']['bk_price'], 0, ',', '.'); ?> VND
+                                                </td>
+                                                <td>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" class="add-domain-checkbox" id="domain_item_id" name="">
+                                                    <label for="demo" class="demoCheck demoCheckLabel"></label>
+                                                </td>
+                                            </tr>
+                                            <?php else: ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo "<img src='../app/webroot/img/icon-del.png'>"; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['name']; ?>
+                                                </td>
+                                                <td class="mn_count">
+                                                    <?php echo number_format($row['ProductPrice']['price'], 0, ',', '.'); ?> VND
+                                                </td>
+                                                <td class="mn_count">
+                                                    <?php echo number_format($row['ProductPrice']['bk_price'], 0, ',', '.'); ?> VND
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" class="domain_name" name="domain_name"
+                                                           value="<?php echo $row['name']; ?>">
+                                                    <div class='btn btn-danger button1' data-toggle="modal" data-target="#myModal">
+                                                        Whois
+                                                        <img src='../app/webroot/img/icon-whois.png'>
+                                                    </div>
+                                                    <div class="modal fade" id="myModal" role="dialog">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content md-cn" id="demo">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                            <?php endif; ?>
+
+                                            <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="submit" class="btn pull-right" id="go_to_cart"> Chuyển đến giỏ hàng</button>
+                                </div>
+
+
+                                <div class="col-md-8 col-lg-8 explain">
+                                    <p class="p-explain"> Bảng chú thích các kí hiệu</p>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td><img src="../app/webroot/img/icon-del.png"></td>
+                                            <td>Tên miền đã được đăng kí, bạn không thể đăng kí tên miền này</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../app/webroot/img/icon-check.png"></td>
+                                            <td>Tên miền chưa đăng kí, bạn có thể đăng kí tên miền này</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button type="submit" class="btn btn-danger">Whois <img
+                                                        src="../app/webroot/img/icon-whois.png"></button>
+                                            </td>
+                                            <td>Xem thông tin tin miền</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../app/webroot/img/icon-empty.png"></td>
+                                            <td>Tên miền có thể đăng kí, đang ở trạng thái chưa chọn</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../app/webroot/img/icon-tick.png"></td>
+                                            <td>Tên miền có thể đăng kí, đang ở trạng thái đã chọn</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-4 col-lg-4"></div>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $('.nav-tabs').on('click', 'a[role=tab] input[type=radio]', function (event) {
+                event.stopPropagation();
+                $(this).parent().tab('show');
+            });
+            $('.nav-tabs').on('show.bs.tab', 'a[role=tab]', function () {
+                $(this).find('input[type=radio]').prop('checked', true);
+            });
+        });
+        $(document).ready(function () {
+            $('.button1').click(function () {
+                console.log($(this).parent().children(".domain_name").val());
+                $.ajax({
+                    url: "<?php echo $this->Html->url(array('controller' => 'ProductPrices', 'action' => 'whois_domain'))?>",
+                    type: "post",
+                    dataType: "html",
+                    data: {
+                        domain_name: $(this).parent().children(".domain_name").val(),
+                    },
+                    success: function (result) {
+                        $('#demo').html(result);
+                    }
+                });
+            });
+        });
+
+    </script>
+
+        <style type="text/css">
+            #go_to_cart {
+                background-color: #ea7836;
+                border: none;
+                color: white;
+                padding: 6px 12px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                height: 50px;
+                border-radius: 0px;
+                width: 173px;
+            }
+
+            .result a:hover {
+                color: #0060af !important;
+            }
+
+            form ul.nav a {
+                text-decoration: none !important;
+                margin-top: 0px !important;
+                margin-bottom: 0px !important;
+            }
+
+            .mn_count {
+                color: #0060af;
+            }
+
+            /*fixed style tuent*/
+            .result a:hover{
+                color: #0060af !important;
+            }
+            form ul.nav a{
+                text-decoration: none !important;
+                margin-top: 0px !important;
+                margin-bottom:0px !important;
+            }
+            .mn_count{
+                color: #0060af;
+            }
+            .result a[role="button"]{
+                border-radius: 0px;
+            }
+            .search_owner{
+                background-color: #fff !important;
+                color: #b8b8b8;
+            }
+            #select_type{
+                border-bottom: none;
+            }
+            #select_type li a{
+                background-color: unset !important;
+                color: #2d3740 !important;
+                border:0px !important;
+                text-transform: capitalize !important;
+                padding-left: 0px !important;
+            }
+            input[type="radio"],.domain_name input[type=checkbox] {
+                display:none;
+            }
+            input[role=tab-controll] + label > span{
+                margin:-2px 10px 0 0;
+                vertical-align: middle;
+                padding: 0px !important;
+                display:inline-block;
+                width:22px;
+                height:22px;
+                cursor:pointer;
+                background:url(/img/tick_radio.png) left top no-repeat;
+            }
+            input[role=tab-controll]:checked + label span{
+                background:url(/img/tick_radio.png) -28px top no-repeat;
+            }
+            .domain_name input[type=checkbox]  + label > span{
+                margin:-4px 3px 0 0;
+                vertical-align: middle;
+                padding: 0px !important;
+                display:inline-block;
+                width:20px;
+                height:20px;
+                cursor:pointer;
+                background:url(/img/checbox.png) -4px top no-repeat;
+            }
+            .domain_name input[type=checkbox]:checked  + label span{
+                background:url(/img/checbox.png) -30px top no-repeat;
+            }
+
+            /*fixed style tuent*/
+
+            .domain_name li {
+                width: 20%;
+                float: left !important;
+            }
+
+            /**/
+            .md-cn {
+                width: 100%;
+                padding: 0%;
+                height: auto;
+            }
+
+            .modal-lg {
+                padding: unset;
+            }
+
+            .modal-header {
+                padding: 20px;
+                background: #e67237;
+                color: #fff;
+            }
+
+            .whois-body {
+                margin: 10px 50px;
+                text-align: left;
+
+            }
+
+            .whois-section {
+                margin-bottom: 15px;
+
+            }
+
+            .whois-item {
+                background: #005faf;
+                color: #fff;
+                padding: 10px;
+                font-size: 24px;
+            }
+
+            .whois-content {
+                line-height: 30px;
+                padding-top: 10px;
+            }
+
+            .whois-content-1 {
+                line-height: 15px;
+                padding-top: 20px;
+            }
+
+            .dcol {
+                float: left;
+                width: 50%;
+            }
+        </style>
+
+    <style type="text/css">
+        @import "<?= $this->Html->url('/css/style_domain.css') ?>";
+    </style>
+
+    <style type="text/css">
+        .user_pay {
+            background-color: #f3f3f3;
+        }
+        .user_pay .row {
+
+            margin-bottom: 30px;
+            padding-bottom: 60px;
+            background-color: #fff;
+
+            padding-top: 30px;
+        }
+
+        .star {
+            background: url(<?= $this->Html->url('/img/star_img.png')?>) no-repeat top;
+            display: inline-block;
+            width: 27px;
+            height: 27px;
+            margin-bottom: -6px;
+            margin-right: 8px;
+        }
+        .user_pay h4 {
+            margin-top: 30px;
+            color: #f37636;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .user_pay p.title {
+            margin-top: 20px;
+            padding-left: 35px;
+            font-size: 18px;
+            color: #0060af;
+        }
+    </style>
+
+    <style type="text/css">
+
+        /*fix style tuent*/
+        .user_pay .container {
+            margin-top: -4px;
+        }
+        .user_pay ul.container {
+            background-color: #fff;
+
+        }
+
+        /*css domain*/
+        div.search-domain div h3{
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 0px;
+            padding-top: 40px;
+            margin-bottom: 0px;
+            padding-bottom: 30px;
+            background-color: #f1f1f1;
+        }
+        div.search-domain div ul a{
+            color: #000;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        div.search-domain > div{
+            padding: 0px !important;
+        }
+        div.search-domain > div > ul{
+            border: 0px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 1px;
+        }
+        div.search-domain ul li a:hover{
+            color: #fff;
+            background-color: #0d86ed;
+
+        }
+        div.search-domain ul li{
+            display: inline-block;
+            float: none;
+            padding-left: 0px;
+        }
+        div.search-domain ul li.active a{
+            border: none;
+            background-color: #f37636 !important;
+            color: #fff !important;
+        }
+
+        div.search-domain > div > hr{
+            margin:0px;
+        }
+
+        #check{
+            margin-top: 28px;
+            font-size: 15px;
+        }
+
+        #check > div > form > div > p > span,#check > div > div > p > span{
+            background-color:#0060af;
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 7px;
+            color: #fff;
+
+        }
+
+        #check > div > form > div > p,#check > div > div > p{
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        #check textarea {
+            width: 100%;
+            height: 200px;
+            background-color: #f6f6f6;
+            border:none;
+        }
+
+        #check input[type=radio]{
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            /*fix style tuent*/
+
+        }
+
+        #check ul > li span{
+            text-align: center;
+            padding-bottom: 5px;
+            font-weight: 500;
+        }
+        #check form a{
+            text-decoration: underline;
+            font-size: 15px;
+            display: block;
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+        #check form ul.domain_name label {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        #check ul.list-inline{
+            margin-left: 0px !important;
+            margin-top: 30px;
+        }
+        #check form button[type=submit]{
+            height: 44px;
+            width: 160px;
+            color: #fff;
+            padding: 10px 50px;
+            background-color: #f37636;
+            border: 0;
+            border-radius: 2px;
+            font-weight: 500;
+        }
+        #check input[type=checkbox]{
+            margin-right: 5px;
+            /*fix style tuent*/
+
+        }
+        #check ul.domain_name li {
+            width: 80px;
+        }
+        #check hr{
+            height: 1px;
+        }
+        div.domain-result  th,td{
+            text-align: center;
+            vertical-align: middle !important;
+        }
+        div.domain-result .table-bordered>thead:first-child>tr:first-child>th{
+            color: #fff;
+            background-color: #0060af;
+            font-weight: 400;
+        }
+        div.domain-result  td a[role=button]{
+            background-color: #f37636;
+            color: #fff;
+            border-radius: 2px;
+            border: 0;
+            width: 120px;
+        }
+        tr.unable{
+            background-color: #b1b1b1;
+        }
+        tr.unable,tr.unable td:nth-child(5){
+            color: #fff !important;
+        }
+        .table-hover>tbody>tr.unable:hover{
+            background-color: #b1b1b1;
+        }
+        .search-domain .result a.btn{
+            width: 120px;
+            border: none;
+            background-color: #f37636;
+        }
+        .result tr.unable a{
+            background-color: #fff !important;
+            color: #c2c2c2 !important;
+        }
+        #check tr td:nth-child(5){
+            color: #34b139;
+        }
+        #check tr td:first-child{
+            font-weight: 700;
+            text-align: left;
+        }
+        div.result table tr th:first-child,div.result table tr td:first-child{
+            width: 22%;
+        }
+        div.cart div.content{
+            padding-bottom: 40px;
+            background-color: #f1f1f1;
+        }
+        div.cart th,div.cart td{
+            background-color: #fff;
+            color: #2a363f;
+        }
+        .customer-code{
+            font-size: 20px;
+            background-color: #fff;
+            height: auto;
+            margin-bottom: 0px;
+            padding-top: 16px;
+            padding-left: 10px;
+            padding-bottom: 40px;
+        }
+        .customer-code span{
+            color: blue;
+        }
+        .domain-domain {
+            padding: 0px;
+        }
+        .domain-domain >.table > tbody > tr > td,
+        .domain-domain >.table > tbody > tr > th,
+        .domain-domain >.table > tfoot > tr > td,
+        .domain-domain >.table > tfoot > tr > th,
+        .domain-domain >.table > thead > tr > td,
+        .domain-domain >.table > thead > tr > th {
+            border-bottom: 2px dotted #eee;
+        }
+        .domain-cart .thead-cart{
+            font-weight: 500;
+            font-size: 20px;
+        }
+        .domain-cart > thead > tr > th,
+        .domain-cart > tbody > tr > td{
+            text-align: left;
+        }
+        .add-cloud > thead > tr > th,
+        .add-cloud > tbody > tr > td{
+            height: 100px;
+        }
+        .add-cloud > tbody > tr > td > h4, .add-cloud  p {
+            text-align: left;
+            padding-left: 10px;
+        }
+        .add-cloud > tbody > tr > td > h2, p.p1, a.btn-add {
+            text-align: right;
+            padding-right: 10px;
+        }
+        .add-cloud > tbody > tr > td > p.p1 {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        .add-cloud > thead > tr > th > h3{
+            text-align: left;
+            font-weight: 700;
+            color: #f37636;
+            margin-bottom: -6px;
+        }
+        .add-cloud > thead > tr > th > a{
+            text-align: right;
+            text-decoration: underline;
+            margin-bottom: -10px;
+        }
+        .add-cloud > thead > tr{
+            margin-bottom: -30px;
+        }
+        table.total_money th,td{
+            text-align: center;
+        }
+        .domain-cart > tbody > tr > td{
+            text-align: left;
+            font-size: 18px;
+        }
+        .domain-cart > tbody > tr > td > p.vps{
+            opacity: 0.7;
+        }
+        img.trash{
+            padding-left: 75px;
+        }
+        .add-cloud .btn-add{
+            background-color: #0060af;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 40px;
+            border-radius: 0px;
+            width: 150px;
+        }
+        .sale-code, .support{
+            background-color: #fff;
+            padding-bottom: 30px;
+            padding-left: 25px;
+        }
+        .payment{
+            padding:0px;
+            padding-top: 30px;
+        }
+        .domain-domain .form-control{
+            width: 100%;
+            border-radius: 0px;
+            height: 45px;
+            margin-bottom: 20px;
+        }
+        .sale-code .btn-ok{
+            background-color: #f37636;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 45px;
+            border-radius: 0px;
+            width: auto;
+        }
+        .total-money > tbody > tr > td,
+        .total-money > thead > tr > th {
+            height: 80px;
+            font-size: 18px;
+        }
+        .total-money .btn-continue{
+            background-color: #f37636;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 85%;
+        }
+        .total-money .btn-continue a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn-continue:hover{
+            color: #fff;
+        }
+        .total-money .btn-buy, .total-money .btn-buy:hover{
+            background-color: #2a363f;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 85%;
+        }
+        .support{
+            background-color: #fff;
+            margin-bottom : 30px;
+            padding-left: 25px;
+        }
+        .support .btn-nhap{
+            background-color: #0060af;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 0px;
+            height: 45px;
+            width: auto;
+        }
+        .total-money > tbody > tr > td.continue
+        .total-money > tbody > tr > td.buy {
+            border-bottom: none;
+        }
+        .domain-cart th:last-child,.domain-cart td:last-child,.domain-cart td:last-child p,
+        .add-cloud th:last-child, .add-cloud td:last-child{
+            text-align: right;
+        }
+
+    </style>
+

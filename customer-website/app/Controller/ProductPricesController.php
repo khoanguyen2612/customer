@@ -18,6 +18,11 @@ App::import('Vendor', 'CONSTANTS/CONSTANTS');
         //use private varial,
         private $token = '';
 
+        public function beforeFilter() {
+             parent::beforeFilter();
+             $this->layout = 'home';
+        }
+
         //@ThangNT //
         public function result_search()
         {

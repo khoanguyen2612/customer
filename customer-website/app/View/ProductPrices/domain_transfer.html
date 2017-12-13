@@ -1,0 +1,244 @@
+
+    <div class="user_pay">
+        <div class="search-domain">
+            <div class="container">
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style type="text/css">
+        /*@import "<?= $this->Html->url('/css/style_domain.css') ?>";*/
+        .md-cn {
+            width: 100%;
+            padding: 0%;
+            height: auto;
+        }
+        .modal-lg {
+            padding: unset;
+        }
+        .modal-header {
+            padding: 20px;
+            background: #e67237;
+            color: #fff;
+        }
+        .whois-body {
+            margin: 10px 50px;
+            text-align: left;
+
+        }
+        .whois-section {
+            margin-bottom: 15px;
+
+        }
+        .whois-item {
+            background: #005faf;
+            color: #fff;
+            padding: 10px;
+            font-size: 24px;
+        }
+        .whois-content {
+            line-height: 30px;
+            padding-top: 10px;
+        }
+        .whois-content-1 {
+            line-height: 15px;
+            padding-top: 20px;
+        }
+        .dcol {
+            float: left;
+            width: 50%;
+        }
+    </style>
+
+    <style type="text/css">
+        .user_pay {
+            background-color: #f3f3f3;
+        }
+        .user_pay .row {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 60px;
+            background-color: #fff;
+        }
+        .star {
+            background: url(<?= $this->Html->url('/img/star_img.png')?>) no-repeat top;
+            display: inline-block;
+            width: 27px;
+            height: 27px;
+            margin-bottom: -6px;
+            margin-right: 8px;
+        }
+        .user_pay h4 {
+            margin-top: 30px;
+            color: #f37636;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .user_pay p.title {
+            margin-top: 20px;
+            padding-left: 35px;
+            font-size: 18px;
+            color: #0060af;
+        }
+    </style>
+
+    <style type="text/css">
+        /* ---- add-domain--- */
+        .search-add .p-add{
+            font-size: 15px;
+            font-weight: 500;
+            padding-top: 48px;
+            padding-left: 0;
+            padding-bottom: 20px;
+        }
+        .search-add .input-add{
+            padding-left: 0px;
+            height: 50px;
+            margin-top: 5px;
+            /*add style*/
+            border-radius: 0px;
+        }
+        .search-add .btn-add-domain{
+            background-color: #ea7836;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+            margin-top: 5px;
+        }
+        .search-add{
+            padding-left: 0px;
+        }
+        .search-add table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .search-add .btn-primary, .search-add .btn-success{
+            border-radius: 0px;
+            width: 120px;
+        }
+        div.search-domain > div.container > div > form > div > div:nth-child(4) > table > thead > tr > th{
+            height: 65px;
+        }
+        div.search-domain > div.container > div > form > div > div.add-domain-domain > div.table-responsive.add-on > table > thead > tr > th:nth-child(1){
+            width: 6%;
+        }
+        div.search-domain > div.container > div > form > div > div.add-domain-domain > div.table-responsive.add-on > table > tbody > tr{
+            background-color: #eee;
+        }
+        .fa-times{
+            color: red;
+        }
+        .search-add .btn-danger{
+            width: 100px;
+            background-color: #f35136;
+        }
+        .add-domain-domain > .table > tbody{
+            background-color: #eee;
+        }
+        .search-add .p-name, .p-money, .img-fee{
+            text-align: center;
+            font-weight: 500;
+        }
+        .search-add .p-money, .img-fee{
+            color: #0060af;
+        }
+        .search-add .btn-all{
+            background-color: #0060af;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+            margin-bottom: 5px;
+        }
+        .search-add .btn-add-continue{
+            background-color: #ea7836;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+            border-radius: 0px;
+            width: 173px;
+        }
+        .total-money .btn-buy:hover{
+            color: #fff;
+        }
+        .total-money .btn-buy a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .add-continue{
+            padding-right: 0px;
+        }
+        .explain{
+            padding-top: 90px;
+        }
+        .explain .p-explain{
+            font-size: 16px;
+            font-weight: 500;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-8.col-lg-8.explain > table > tbody > tr{
+            height: 68px;
+            background-color: #eee;
+            text-align: center;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-12.col-lg-12.add-domain-domain > div.table-responsive.result > table > tbody > tr{
+            background-color: #eee;
+        }
+        div.search-domain > div.container > div > form > div > div.col-xs-12.col-sm-12.col-md-8.col-lg-8.explain > table > tbody > tr > td > p{
+            text-align: center;
+            font-weight: 300;
+        }
+        button.remove-item{
+            background-image: url(<?= $this->Html->url('/img/icon-trash.png')?>);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            height: 25px;
+            width: 20px;
+            border: none;
+            background-color: #fff;
+        }
+        .modal-dialog {
+            padding-top: 10%;
+            padding-left: 7%;
+        }
+        .modal-content {
+            border-radius: 0;
+            padding-left: 1%;
+            text-align: center;
+            height: 250px;
+            padding-top: 35px;
+            width: 400px;
+        }
+        div.modal-content > div.modal-body > .btn{
+            margin-top: 50px;
+        }
+        .modal-body .btn-danger{
+            border-radius: 0;
+            margin-left: 10%;
+        }
+
+    </style>
+
+
+
+
