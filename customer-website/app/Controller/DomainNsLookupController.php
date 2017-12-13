@@ -56,6 +56,33 @@
 
         }
 
+        private function _filter_inet ($lookup_inet) {
+            switch ($lookup_inet['status']) {
+                case 'SUCCESS' :
+                    $look_info = $lookup_inet['data'];
+                    if (is_string($look_info))
+                        $look_info = explode(' ', $look_info);
+                    if (is_array($look_info) && count($look_info)) {
+                        $_arr = $look_info;
+                        if (is_array( $first_value = reset($_arr))) {
+                            $_arr = array();
+                            foreach ($look_info as $value) {
+                                $_arr = array_merge($_arr, $value);
+                            }
+                            return $_arr;
+                        }
+                    }
+                    break;
+                case 'FAILURE' :
+                    $look_info = $lookup_inet['error'];
+                    break;
+                default:
+                    $look_info = array('Không có phản hồi từ nhà cung cấp.');
+                    break;
+            }
+            return $look_info;
+        }
+
         //init view layout
         function index()
         {
@@ -63,35 +90,38 @@
             $is_lg = $this->is_login();
             $res = $this->request->data;
 
+            $lookup = $ipv4 = $ipv6 = $cname = $mx = $ns = $soa = $srv = $txt = array('status' => (string)'', 'data' => array(), 'error' =>  array(), );
+
             $domain = isset($res['domain']) ? $res['domain'] : 'codelovers.vn';
             //lookup
             $lookup = $this->lookup_inet( array("domain"=> $domain, "type"=>  "lookup"));
-            $lookup = ($lookup['status'] == 'SUCCESS') ? $lookup['data'] : $lookup['error'] ;
+
+            $lookup = $this->_filter_inet($lookup);
+
             //ipv4 infor
             $ipv4 = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ipv4"));
-            $ipv4 = ($ipv4['status'] == 'SUCCESS') ? $ipv4['data'] : $ipv4['error'] ;
+            $ipv4 = $this->_filter_inet($ipv4);
             //ipv6 infor
             $ipv6 = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ipv6"));
-            $ipv6 = ($ipv6['status'] == 'SUCCESS') ? $ipv6['data'] : $ipv6['error'] ;
+            $ipv6 = $this->_filter_inet($ipv6);
             //cname infor
             $cname = $this->lookup_inet( array("domain"=> $domain, "type"=>  "cname"));
-            $cname = ($cname['status'] == 'SUCCESS') ? $cname['data'] : $cname['error'] ;
+            $cname = $this->_filter_inet($cname);
             //mx infor
             $mx = $this->lookup_inet( array("domain"=> $domain, "type"=>  "mx"));
-            $mx = ($mx['status'] == 'SUCCESS') ? $mx['data'] : ($mx['status'] == 'FAILURE')? $mx['error'] : $mx['status'] ;
-
+            $mx = $this->_filter_inet($mx);
             //ns infor
             $ns = $this->lookup_inet( array("domain"=> $domain, "type"=>  "ns"));
-            $ns = ($ns['status'] == 'SUCCESS') ? $ns['data'] : $ns['error'] ;
+            $ns = $this->_filter_inet($ns);
             //soa infor
             $soa = $this->lookup_inet( array("domain"=> $domain, "type"=>  "soa"));
-            $soa = ($soa['status'] == 'SUCCESS') ? $soa['data'] : $soa['error'] ;
+            $soa = $this->_filter_inet($soa);
             //srv infor
             $srv = $this->lookup_inet( array("domain"=> $domain, "type"=>  "srv"));
-            $srv = ($srv['status'] == 'SUCCESS') ? $srv['data'] : $srv['error'] ;
+            $srv = $this->_filter_inet($srv);
             //txt infor
             $txt = $this->lookup_inet( array("domain"=> $domain, "type"=>  "srv"));
-            $txt = ($txt['status'] == 'SUCCESS') ? $txt['data'] : $txt['error'] ;
+            $txt = $this->_filter_inet($txt);
 
             if ($this->request->is('post') || $this->request->is('get')) {
                 $this->set(compact('is_lg'));

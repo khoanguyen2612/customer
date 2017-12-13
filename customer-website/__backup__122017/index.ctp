@@ -47,14 +47,10 @@
                                         <td style="width: 50px;"> STT</td>
                                         <td> Giá Trị</td>
                                         </tr>
-
-                                        <?php foreach ($lookup as $key => $value) { ?>
-                                            <tr>
-                                                <td><?php echo $key + 1; ?></td>
-                                                <td><?php echo $value; ?></td>
-                                            </tr>
-                                        <?php } ?>
-
+                                        <tr>
+                                            <td>1</td>
+                                            <td><?php echo $lookup; ?></td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -115,13 +111,20 @@
                                     <td style="width: 50px;"> Code</td>
                                     <td> Giá Trị</td>
                                     </tr>
-                                    <?php
+                                    <?php if (count($mx) && !isset($mx[0])) {
                                     foreach ($mx as $key => $value) { ?>
                                         <tr>
                                             <td><?php echo $key; ?></td>
                                             <td><?php echo $value; ?></td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php } } else { ?>
+                                    <?php
+                                    foreach ($mx[0] as $key => $value) { ?>
+                                    <tr>
+                                        <td><?php echo $key; ?></td>
+                                        <td><?php echo $value; ?></td>
+                                    </tr>
+                                    <?php } } ?>
                                 </table>
                             </div>
                             <div id="NS" class="tab-pane fade">
