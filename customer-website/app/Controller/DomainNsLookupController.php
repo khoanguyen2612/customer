@@ -64,10 +64,15 @@
                         $look_info = explode(' ', $look_info);
                     if (is_array($look_info) && count($look_info)) {
                         $_arr = $look_info;
-                        if (is_array( $first_value = reset($_arr))) {
-                            $_arr = array();
-                            foreach ($look_info as $value) {
-                                $_arr = array_merge($_arr, $value);
+                        if (is_array( $first_value = array_shift($_arr))) {
+                            $_arr = $_tmp = array();
+                            foreach ($look_info as $key => $value) {
+                                if (is_array($value)) {
+                                    foreach ($value as $_key => $_value) {
+                                        $_tmp[$_key. '_' .$key] = $_value;
+                                    }
+                                }
+                                $_arr = array_merge($_tmp, $_arr);
                             }
                             return $_arr;
                         }
