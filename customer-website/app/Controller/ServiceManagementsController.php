@@ -5,6 +5,13 @@ class ServiceManagementsController extends AppController {
   	public $uses = array('Account','CloudServer','ProductPrice','Plan');
   	public $helpers = array('Paginator','Html','Form','Session');
   	public $name = "ServiceManagements";
+  	public function beforeFilter(){
+		parent::beforeFilter();
+		if(!$this->Auth->loggedIn()){
+			return $this->redirect($this->Auth->loginAction);
+		}
+		$this->layout= "home";
+	}
 	public function index() {
 		$this->set('title_for_layout','Quản lý CloudServer');
 		$account_id = $this->Auth->user('id');

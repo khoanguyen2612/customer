@@ -3,6 +3,13 @@
 	App::uses('CakeEmail', 'Network/Email');
 	class DomainsController extends AppController
 	{	
+		public function beforeFilter(){
+		parent::beforeFilter();
+		if(!$this->Auth->loggedIn()){
+			return $this->redirect($this->Auth->loginAction);
+		}
+		$this->layout= "home";
+	}
   		public $uses =array('ProductPrice');
   		public $name = "Domains";
         public $helpers = array('Html', 'Form', 'Session');

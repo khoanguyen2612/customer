@@ -4,6 +4,7 @@ class DomainsManagerController extends AppController{
 	public $helpers = array('Paginator','Html','Form','Session');
 	
 	public function beforeFilter(){
+		parent::beforeFilter();
 		if(!$this->Auth->loggedIn()){
 			return $this->redirect($this->Auth->loginAction);
 		}
