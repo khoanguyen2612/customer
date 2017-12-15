@@ -1,8 +1,15 @@
 <?php 
+ 	App::uses('AppController', 'Controller');
+    App::uses('CakeTime', 'Utility');
+
+    //load define API Domain
+    App::import('Vendor', 'CONSTANTS/CONSTANTS');
+    App::import('Vendor', 'Api_helper/CallApi');
+    App::import('Vendor', 'Api_helper/Httpd');
 class DomainsManagerController extends AppController{
 	public $uses = array('AccountItem','Domain');
 	public $helpers = array('Paginator','Html','Form','Session');
-	
+	private $token = '';
 	public function beforeFilter(){
 		parent::beforeFilter();
 		if(!$this->Auth->loggedIn()){
@@ -85,24 +92,54 @@ class DomainsManagerController extends AppController{
 	}
 
 	public function whois_domain(){
-        	if($this->RequestHandler->isAjax()){
-        		$this->layout = 'ajax';
-        		// pr($this->request->data);die;
-        		$domain_name=$this->request->data['domain_name'];
-				$whois = array("domainName" => $domain_name);
-				$ch = curl_init("https://dms.inet.vn/api/public/whois/v1/whois/directly");
-
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($ch, CURLOPT_POST, true);
-				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($whois));
-
-				$datadomain = curl_exec($ch);
-				$datadomain = json_decode($datadomain, true);
-				// pr($datadomain);die;
-				$this->set('datadomain',$datadomain);
-				curl_close($ch);
-			}
+        if($this->RequestHandler->isAjax()){
+        	$this->layout = 'ajax';
+        	// pr($this->request->data);die;
+        	$domain_name=$this->request->data['domain_name'];
+			$whois = array("domainName" => $domain_name);
+			$ch = curl_init("https://dms.inet.vn/api/public/whois/v1/whois/directly");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($whois));
+			$datadomain = curl_exec($ch);
+			$datadomain = json_decode($datadomain, true);
+			 pr($datadomain);die;
+			$this->set('datadomain',$datadomain);
+			curl_close($ch);
 		}
-	
-
+	}
+	public function whois_protect(){
+		$domain_name=$this->request->data['domain_name'];
+		$data = $this->Domain->find('first',array('conditions'=> array( 'domain_name' => $domain_name)));
+		$ex_domain_id = $data['Domain']['ex_domain_id'];
+		$Login = array("email" => INET_API_USERNAME, "password" => INET_API_PASSWORD);
+		$ch = curl_init("https://dms.inet.vn/api/sso/v1/user/signin");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($Login));
+			$output = curl_exec($ch);
+			$output = json_decode($output, true);
+			$token =  ($output['session']['token']);
+			curl_close($ch);
+			
+			$data = array("id" => $ex_domain_id,"token"=>$token);
+			$data_json = json_encode($data);
+			//var_dump($data_json);die;
+			$ch = curl_init("https://dms.inet.vn/api/rms/v1/domain/privacyprotection");
+			curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");   
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array
+				(                                                                          
+				'Content-Type:application/json; charset=UTF-8',  
+				'token: '.$token                                                                             
+			    )                                                                       
+			);
+			$output = curl_exec($ch);
+			$output = json_decode($output, true);
+			$this->set('dataWhois',$output);
+			curl_close($ch);		
+	}public function update_ns(){
+		
+	}
 }

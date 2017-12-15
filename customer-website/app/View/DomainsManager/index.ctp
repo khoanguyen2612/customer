@@ -16,8 +16,8 @@
 							</div>
 						</li>
 						<li><a href="">Cài đặt DNS</a></li>
-						<li><a href="">Cập nhật NS</a></li>
-						<li><a href="">Whois Protect</a></li>
+						<button type="button" class="btn btn-info btn-lg update_ns" data-toggle="modal" data-target="#whois_dg">Cập nhật NS</button>
+						<button type="button" class="btn btn-info btn-lg stop_wh" data-toggle="modal" data-target="#whois_dg">Whois Protect</button>
 						<li><a href="">Giới hạn tên miền</a></li>
 						<li><a href="">Thay đổi mật khẩu</a></li>
 						<li><a href="">Domain Lock</a></li>
@@ -288,6 +288,46 @@
 			}else{
 				$.ajax({
 					url: "<?php echo $this->Html->url(array('controller'=>'DomainsManager','action'=>'whois_domain')) ?>",
+					type: 'POST',
+					dataType: 'html',
+					data: {
+						domain_name: $('input[name=sl_domain]:checked').val()
+					},
+				})
+				.done(function(result) {
+					//console.log(result);
+					$('#demo').html(result);
+				});
+			}	
+		});
+		$('button.stop_wh').on('click',function(event){
+			if($('input[name=sl_domain]:checked').val() == undefined){
+				alert('Chọn tên miền bất kì');
+				event.preventDefault();
+				event.stopPropagation();
+			}else{
+				$.ajax({
+					url: "<?php echo $this->Html->url(array('controller'=>'DomainsManager','action'=>'whois_protect')) ?>",
+					type: 'POST',
+					dataType: 'html',
+					data: {
+						domain_name: $('input[name=sl_domain]:checked').val()
+					},
+				})
+				.done(function(result) {
+					//console.log(result);
+					$('#demo').html(result);
+				});
+			}	
+		});
+		$('button.update_ns').on('click',function(event){
+			if($('input[name=sl_domain]:checked').val() == undefined){
+				alert('Chọn tên miền bất kì');
+				event.preventDefault();
+				event.stopPropagation();
+			}else{
+				$.ajax({
+					url: "<?php echo $this->Html->url(array('controller'=>'DomainsManager','action'=>'update_ns')) ?>",
 					type: 'POST',
 					dataType: 'html',
 					data: {
